@@ -7,7 +7,25 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="./style.css">
+    <script>
+    tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#000000',
+                        cardBgDark: '#1c1c1e',
+                        cardBgLight: '#ffffff',
+                        appleGray: '#8e8e93',
+                        techBlue: '#007aff',
+                        innovGreen: '#34c759',
+                    }
+                }
+            }
+        }
+    
+    </script>
+    
     <style>
      
         body {
@@ -909,30 +927,7 @@
         </a>
     </div>
 
-  <script src="./app.js" defer>
-
-tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        darkBg: '#000000',
-                        cardBgDark: '#1c1c1e',
-                        cardBgLight: '#ffffff',
-                        appleGray: '#8e8e93',
-                        techBlue: '#007aff',
-                        innovGreen: '#34c759',
-                    }
-                }
-            }
-        }
-    
-   
-   
-   
-   
-   
-   
+  <script>
      
         // Theme Switcher Engine
         (function initTheme() {
