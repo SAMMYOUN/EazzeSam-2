@@ -1130,8 +1130,8 @@
                     break;
                 }
             }
-
-            await new Promise(resolve => setTimeout(resolve, 600));
+// timing typing
+            await new Promise(resolve => setTimeout(resolve, 1000));
 
             loader.classList.remove('flex');
             loader.classList.add('hidden');
@@ -1181,44 +1181,120 @@
             document.getElementById('dedicatedConsole').innerHTML = `<div class="flex flex-col space-y-1 max-w-[85%]"><div class="bg-gray-200 dark:bg-white/[0.05] text-black dark:text-white p-4 rounded-2xl rounded-tl-none">Memory matrix cleared. Terminal balanced.</div></div>`;
         }
 
+    
+        
+        
+    function handleFormSubmission(event) {
+    // 1. Terminate default browser reload handling
+    event.preventDefault();
 
-        // Contact Web3Forms Pipeline
-        async function handleFormSubmission(e) {
-            e.preventDefault();
-            const errorBox = document.getElementById('formValidationErrorBox');
-            const successOverlay = document.getElementById('formSuccess');
-            const submitBtn = document.getElementById('formSubmitBtn');
-            
-            errorBox.classList.add('hidden');
-            submitBtn.disabled = true;
-            submitBtn.innerText = "Transmitting Packet...";
+    // 2. Initialize endpoints and state tracking elements
+    const whatsappNumber = '233542424592'; 
+    const errorBox = document.getElementById('formValidationErrorBox');
+    const successBox = document.getElementById('formSuccess');
+    const contactForm = document.getElementById('contactForm');
 
-            try {
-                const response = await fetch("https://api.web3forms.com/submit", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json", "Accept": "application/json" },
-                    body: JSON.stringify({
-                        access_key: "9e1e34dd-8c36-47a1-8bb9-704e2fd52c2e",
-                        name: document.getElementById('formName').value.trim(),
-                        phone: document.getElementById('formPhone').value.trim(),
-                        email: document.getElementById('formEmail').value.trim(),
-                        subject: `🔥 Eazzesam Site Submission: ${document.getElementById('formService').value}`,
-                        message: document.getElementById('formMessage').value.trim()
-                    })
-                });
-                const result = await response.json();
-                if (response.status === 200 && result.success) successOverlay.classList.remove('hidden');
-                else throw new Error();
-            } catch (err) {
-                errorBox.innerHTML = `<strong>🛑 Routing Failure:</strong> Please reach our desk via WhatsApp directly at 054 242 4592.`;
-                errorBox.classList.remove('hidden');
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.innerText = "Dispatch Packet";
-            }
+    // Clear any preceding runtime error states
+    if (errorBox) {
+        errorBox.classList.add('hidden');
+        errorBox.innerText = '';
+    }
+
+    try {
+        // 3. Extract inputs from data fields
+        const name = document.getElementById('formName').value.trim();
+        const clientPhone = document.getElementById('formPhone').value.trim();
+        const email = document.getElementById('formEmail').value.trim();
+        const service = document.getElementById('formService').value;
+        const message = document.getElementById('formMessage').value.trim();
+
+        // 4. Validate presence of crucial requirements
+        if (!name || !clientPhone || !email || !message) {
+            throw new Error('Please populate all required parameters before packet dispatch.');
         }
 
-        function resetContactForm() { document.getElementById('contactForm').reset(); document.getElementById('formSuccess').classList.add('hidden'); }
+        // 5. Structure payload using clean markdown for readable WhatsApp telemetry
+        const formattedMessage = `*🌐 Project Request Log Engine* \n\n` +
+                                 `*Client Name:* ${name}\n` +
+                                 `*Communication Line:* ${clientPhone}\n` +
+                                 `*Digital Mail:* ${email}\n\n` +
+                                 `*Requested Modality:* \n_${service}_\n\n` +
+                                 `*Message Specifications:* \n${message}`;
+
+        // 6. Compile safe URI context
+        const encodedMessage = encodeURIComponent(formattedMessage);
+
+        // 7. Activate absolute success interface wrapper 
+        if (successBox) {
+            successBox.classList.remove('hidden');
+        }
+
+        // 8. Execute system handoff to external WhatsApp node pipeline
+        setTimeout(() => {
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank', 'noopener,noreferrer');
+        }, 1000);
+
+    } catch (err) {
+        // Fallback error tracking framework injection 
+        if (errorBox) {
+            errorBox.innerText = err.message;
+            errorBox.classList.remove('hidden');
+        }
+    }
+}
+
+/**
+ * Reinitializes the primary tracking window state 
+ * Triggered by clicking your 'Send another note' reset anchor
+ */
+function resetContactForm() {
+    const contactForm = document.getElementById('contactForm');
+    const successBox = document.getElementById('formSuccess');
+    
+    if (contactForm) {
+        contactForm.reset();
+    }
+    if (successBox) {
+        successBox.classList.add('hidden');
+    }
+}    
+        // // Contact Web3Forms Pipeline
+        // async function handleFormSubmission(e) {
+        //     e.preventDefault();
+        //     const errorBox = document.getElementById('formValidationErrorBox');
+        //     const successOverlay = document.getElementById('formSuccess');
+        //     const submitBtn = document.getElementById('formSubmitBtn');
+            
+        //     errorBox.classList.add('hidden');
+        //     submitBtn.disabled = true;
+        //     submitBtn.innerText = "Transmitting Packet...";
+
+        //     try {
+        //         const response = await fetch("https://api.web3forms.com/submit", {
+        //             method: "POST",
+        //             headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        //             body: JSON.stringify({
+        //                 access_key: "9e1e34dd-8c36-47a1-8bb9-704e2fd52c2e",
+        //                 name: document.getElementById('formName').value.trim(),
+        //                 phone: document.getElementById('formPhone').value.trim(),
+        //                 email: document.getElementById('formEmail').value.trim(),
+        //                 subject: `🔥 Eazzesam Site Submission: ${document.getElementById('formService').value}`,
+        //                 message: document.getElementById('formMessage').value.trim()
+        //             })
+        //         });
+        //         const result = await response.json();
+        //         if (response.status === 200 && result.success) successOverlay.classList.remove('hidden');
+        //         else throw new Error();
+        //     } catch (err) {
+        //         errorBox.innerHTML = `<strong>🛑 Routing Failure:</strong> Please reach our desk via WhatsApp directly at 054 242 4592.`;
+        //         errorBox.classList.remove('hidden');
+        //     } finally {
+        //         submitBtn.disabled = false;
+        //         submitBtn.innerText = "Dispatch Packet";
+        //     }
+        // }
+
+        // function resetContactForm() { document.getElementById('contactForm').reset(); document.getElementById('formSuccess').classList.add('hidden'); }
     </script>
 </body>
 </html>
