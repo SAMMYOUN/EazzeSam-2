@@ -1,588 +1,650 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth overflow-x-hidden max-w-full">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Eazzesam Technologies | Engineering Intelligent Digital Futures</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eazzesam Technologies | Professional Digital Solutions & Tech Training</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+                    },
                     colors: {
-                        darkBg: '#000000',
-                        cardBgDark: '#1c1c1e',
-                        cardBgLight: '#ffffff',
-                        appleGray: '#8e8e93',
-                        techBlue: '#007aff',
-                        innovGreen: '#34c759',
+                        darkBg: '#020617',
+                        cardBg: '#0f172a',
+                        techBlue: '#3b82f6',
+                        innovGreen: '#22c55e',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
                     }
                 }
             }
         }
     </script>
     <style>
-        body {
-            overflow-x: hidden !important;
-            max-w-full !important;
-            position: relative;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            letter-spacing: -0.022em;
+        /* Apple Glassmorphism Utilities */
+        .glass-nav {
+            background: rgba(2, 6, 23, 0.75);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
         
-        .light {
-            background-color: #f5f5f7 !important;
-            color: #000000 !important;
-        }
-        .light p, .light span, .light h1, .light h2, .light h3, .light h4, .light h5, .light h6, .light label, .light li {
-            color: #000000 !important;
-        }
-        .light .text-gray-600, .light .text-[#86868b], .light .text-appleGray, .light .text-gray-500 {
-            color: #1c1c1e !important;
-            font-weight: 500;
-        }
-        
-        .apple-glass {
-            background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(25px) saturate(190%);
-            -webkit-backdrop-filter: blur(25px) saturate(190%);
-            border: 1px solid rgba(255, 255, 255, 0.09);
-        }
-        
-        .light .apple-glass {
-            background: #ffffff !important;
-            backdrop-filter: none;
-            -webkit-backdrop-filter: none;
-            border: 2px solid #000000 !important;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+        .glass-card {
+            background: rgba(15, 23, 42, 0.45);
+            backdrop-filter: blur(16px) saturate(120%);
+            -webkit-backdrop-filter: blur(16px) saturate(120%);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
         }
 
-        .apple-transition {
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        .glass-card-bright {
+            background: rgba(2, 6, 23, 0.5);
+            backdrop-filter: blur(16px) saturate(120%);
+            -webkit-backdrop-filter: blur(16px) saturate(120%);
+            border: 1px solid rgba(255, 255, 255, 0.06);
         }
-        .apple-transition:hover {
-            transform: translateY(-4px);
+
+        .apple-btn {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
-        .nav-link { 
-            color: #6e6e73; 
-            font-weight: 500;
-            transition: color 0.25s cubic-bezier(0.25, 1, 0.5, 1); 
+        .apple-btn:active {
+            transform: scale(0.97);
         }
-        .dark .nav-link:hover { color: #ffffff; }
-        .light .nav-link { color: #1d1d1f !important; }
-        .light .nav-link:hover { color: #007aff !important; }
+
+        .neon-glow-blue { box-shadow: 0 0 35px rgba(59, 130, 246, 0.15); }
+        .neon-glow-green { box-shadow: 0 0 35px rgba(34, 197, 94, 0.15); }
         
-        .dark .nav-active { color: #007aff !important; font-weight: 700 !important; }
-        .light .nav-active { color: #007aff !important; font-weight: 700 !important; }
-        
+        .nav-active { color: #22c55e; position: relative; }
+        .nav-active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #22c55e;
+            border-radius: 99px;
+        }
+
+        .mobile-nav-active { color: #22c55e; background-color: rgba(34, 197, 94, 0.1); }
         .page-section { display: none; }
         .page-section.active-page { display: block; }
         
-        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 99px; }
-        .light .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.3); }
-
-        .material-symbols-outlined {
-            vertical-align: middle;
-            font-size: 20px;
-            display: inline-block;
-        }
-
-        .faq-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.35s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-        .faq-item.active .faq-content {
-            max-height: 300px;
-        }
-
-        .typing-dot {
-            animation: applePulse 1.2s infinite ease-in-out;
-        }
-        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
-        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
-
-        @keyframes applePulse {
-            0%, 100% { transform: scale(0.6); opacity: 0.4; }
-            50% { transform: scale(1.1); opacity: 1; }
-        }
+        .custom-scrollbar::-webkit-scrollbar { width: 5px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #020617; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 99px; }
     </style>
 </head>
-<body class="bg-[#f5f5f7] text-[#1d1d1f] dark:bg-darkBg dark:text-[#f5f5f7] antialiased selection:bg-techBlue/30 max-w-full overflow-x-hidden transition-colors duration-300">
+<body class="bg-darkBg text-gray-100 font-sans antialiased selection:bg-innovGreen selection:text-black tracking-tight">
 
-    <header class="w-full border-b border-gray-200 dark:border-white/5 bg-[#f5f5f7]/90 dark:bg-darkBg/80 backdrop-blur-xl sticky top-0 z-40 max-w-full">
-        <div class="max-w-7xl mx-auto px-6 py-3.5 flex items-center justify-between">
-            
-            <a href="#" onclick="navigateTo('home')" class="flex items-center space-x-2.5 group">
-                <div class="text-xl font-bold tracking-tight flex items-center bg-gray-200/50 dark:bg-white/[0.05] px-3 py-1 rounded-full border border-gray-300 dark:border-white/10 transition duration-300">
+    <!-- Floating Quick Access Call to Action Dock -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col sm:flex-row items-center gap-2.5 bg-slate-900/80 backdrop-blur-xl border border-white/10 p-2 rounded-full shadow-2xl">
+        <a href="https://wa.me/233542424592" target="_blank" class="w-12 h-12 rounded-full bg-innovGreen flex items-center justify-center text-slate-950 text-xl font-bold shadow-lg hover:opacity-90 active:scale-95 transition apple-btn" title="Chat on WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="tel:0542424592" class="w-12 h-12 rounded-full bg-techBlue flex items-center justify-center text-white text-lg font-bold shadow-lg hover:opacity-90 active:scale-95 transition apple-btn" title="Call Us Directly">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+    </div>
+
+    <header class="w-full glass-nav sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
+            <a href="#" onclick="navigateTo('home')" class="flex items-center space-x-2 group">
+                <div class="text-2xl sm:text-3xl font-black tracking-tighter flex items-center bg-white/5 px-2.5 py-1 rounded-2xl border border-white/5 transition duration-300 group-hover:border-innovGreen">
                     <span class="text-techBlue">E</span>
-                    <span class="text-innovGreen ml-0.5">S</span>
+                    <span class="text-innovGreen">S</span>
                 </div>
-                <div class="leading-tight">
-                    <span class="text-xs tracking-wide font-bold dark:text-white block">Eazzesam</span>
-                    <span class="text-[9px] tracking-wider text-appleGray dark:text-appleGray font-semibold block">Technologies</span>
+                <div class="leading-none">
+                    <span class="text-[11px] sm:text-xs tracking-widest font-bold text-gray-200 block">EAZZESAM</span>
+                    <span class="text-[8px] sm:text-[9px] tracking-wider text-gray-500 font-medium block">TECHNOLOGIES</span>
                 </div>
             </a>
 
-            <nav class="hidden xl:flex items-center space-x-6 text-[13px]">
-                <a href="#" id="nav-home" onclick="navigateTo('home')" class="nav-link nav-active">Home</a>
-                <a href="#" id="nav-about" onclick="navigateTo('about')" class="nav-link">About</a>
-                <a href="#" id="nav-services" onclick="navigateTo('services')" class="nav-link">Services</a>
-                <a href="#" id="nav-portfolio" onclick="navigateTo('portfolio')" class="nav-link">Projects</a>
-                <a href="#" id="nav-academy" onclick="navigateTo('academy')" class="nav-link">Academy Hub</a>
-                <a href="#" id="nav-pricing" onclick="navigateTo('pricing')" class="nav-link">Plans</a>
-                <a href="#" id="nav-team" onclick="navigateTo('team')" class="nav-link">Team</a>
-                <a href="#" id="nav-blog" onclick="navigateTo('blog')" class="nav-link">Blog Node</a>
-                <a href="#" id="nav-chatbot" onclick="navigateTo('chatbot')" class="nav-link flex items-center gap-1"><span class="material-symbols-outlined text-sm text-techBlue">smart_toy</span> AI Chat</a>
-                <a href="#" id="nav-contact" onclick="navigateTo('contact')" class="nav-link">Contact</a>
+            <nav class="hidden xl:flex items-center space-x-5 text-xs font-bold tracking-wider uppercase text-gray-400">
+                <a href="#" id="nav-home" onclick="navigateTo('home')" class="nav-active pb-1 transition hover:text-white">Home</a>
+                <a href="#" id="nav-about" onclick="navigateTo('about')" class="pb-1 transition hover:text-white">About</a>
+                <a href="#" id="nav-services" onclick="navigateTo('services')" class="pb-1 transition hover:text-white">Services</a>
+                <a href="#" id="nav-portfolio" onclick="navigateTo('portfolio')" class="pb-1 transition hover:text-white">Projects</a>
+                <a href="#" id="nav-academy" onclick="navigateTo('academy')" class="pb-1 text-innovGreen border-dashed border-b border-innovGreen/30 transition hover:text-white">IT Academy</a>
+                <a href="#" id="nav-pricing" onclick="navigateTo('pricing')" class="pb-1 transition hover:text-white">Plans</a>
+                <a href="#" id="nav-team" onclick="navigateTo('team')" class="pb-1 transition hover:text-white">Team</a>
+                <a href="#" id="nav-blog" onclick="navigateTo('blog')" class="pb-1 transition hover:text-white">Blog</a>
+                <a href="#" id="nav-chatbot" onclick="navigateTo('chatbot')" class="pb-1 transition hover:text-white normal-case flex items-center gap-1"><i class="fa-solid fa-robot text-innovGreen"></i>EazzSam AI Agent</a>
+                <a href="#" id="nav-contact" onclick="navigateTo('contact')" class="nav-contact-link pb-1 transition hover:text-white">Contact</a>
             </nav>
 
-            <div class="flex items-center space-x-4">
-                <button onclick="toggleThemeMode()" class="dark:text-[#f5f5f7] opacity-90 hover:opacity-100 transition flex items-center justify-center" title="Toggle Theme">
-                    <span id="themeToggleIcon" class="material-symbols-outlined font-light text-[22px]">dark_mode</span>
+            <div class="flex items-center space-x-3">
+                <a href="https://wa.me/233542424592" target="_blank" class="hidden lg:inline-block text-xs font-bold border border-white/5 glass-card text-innovGreen px-4 py-2.5 rounded-full hover:bg-innovGreen/10 transition shadow-sm apple-btn">
+                    <i class="fa-brands fa-whatsapp mr-1.5"></i> 054 242 4592
+                </a>
+                <button onclick="navigateTo('academy')" class="bg-gradient-to-r from-techBlue to-innovGreen text-slate-950 font-bold text-xs px-5 py-2.5 rounded-full hover:opacity-90 transition shadow-lg shadow-techBlue/20 apple-btn">
+                    Join IT Training
                 </button>
-                
-                <button onclick="navigateTo('academy')" class="bg-techBlue text-white font-medium text-xs px-4 py-2 rounded-full hover:bg-blue-600 transition shadow-sm">
-                    Enroll Online
-                </button>
-
-                <button onclick="toggleMobileMenu()" id="mobileMenuBtn" class="xl:hidden text-[#6e6e73] hover:text-black dark:hover:text-white flex items-center">
-                    <span class="material-symbols-outlined">menu</span>
+                <button onclick="toggleMobileMenu()" id="mobileMenuBtn" class="xl:hidden text-gray-400 hover:text-white text-xl p-1 focus:outline-none">
+                    <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
         </div>
 
-        <div id="mobileMenu" class="hidden xl:hidden border-t border-gray-200 dark:border-white/5 bg-[#f5f5f7] dark:bg-darkBg px-6 py-4 space-y-1 animate__animated animate__fadeIn">
-            <a href="#" id="mob-nav-home" onclick="navigateTo('home'); toggleMobileMenu();" class="block py-2 text-sm font-medium">Home</a>
-            <a href="#" id="mob-nav-about" onclick="navigateTo('about'); toggleMobileMenu();" class="block py-2 text-sm">About Us</a>
-            <a href="#" id="mob-nav-services" onclick="navigateTo('services'); toggleMobileMenu();" class="block py-2 text-sm">Services</a>
-            <a href="#" id="mob-nav-portfolio" onclick="navigateTo('portfolio'); toggleMobileMenu();" class="block py-2 text-sm">Completed Projects</a>
-            <a href="#" id="mob-nav-academy" onclick="navigateTo('academy'); toggleMobileMenu();" class="block py-2 text-sm">Academy & Registration</a>
-            <a href="#" id="mob-nav-pricing" onclick="navigateTo('pricing'); toggleMobileMenu();" class="block py-2 text-sm">Pricing Plans</a>
-            <a href="#" id="mob-nav-team" onclick="navigateTo('team'); toggleMobileMenu();" class="block py-2 text-sm">Our Team</a>
-            <a href="#" id="mob-nav-blog" onclick="navigateTo('blog'); toggleMobileMenu();" class="block py-2 text-sm">Articles & Blog</a>
-            <a href="#" id="mob-nav-chatbot" onclick="navigateTo('chatbot'); toggleMobileMenu();" class="block py-2 text-sm"><span class="material-symbols-outlined text-sm text-techBlue mr-1">smart_toy</span>Full-Screen AI Chat</a>
-            <a href="#" id="mob-nav-contact" onclick="navigateTo('contact'); toggleMobileMenu();" class="block py-2 text-sm">Contact Information</a>
+        <div id="mobileMenu" class="hidden xl:hidden border-t border-white/5 glass-nav px-4 py-4 space-y-1 animate__animated animate__fadeIn">
+            <a href="#" id="mob-nav-home" onclick="navigateTo('home'); toggleMobileMenu();" class="mobile-nav-active block px-4 py-2 rounded-xl text-sm font-semibold text-gray-300">Home</a>
+            <a href="#" id="mob-nav-about" onclick="navigateTo('about'); toggleMobileMenu();" class="block px-4 py-2 rounded-xl text-sm font-semibold text-gray-300">About</a>
+            <a href="#" id="mob-nav-services" onclick="navigateTo('services'); toggleMobileMenu();" class="block px-4 py-2 rounded-xl text-sm font-semibold text-gray-300">Services</a>
+            <a href="#" id="mob-nav-portfolio" onclick="navigateTo('portfolio'); toggleMobileMenu();" class="block px-4 py-2 rounded-xl text-sm font-semibold text-gray-300">Our Portfolio Projects</a>
+            <a href="#" id="mob-nav-academy" onclick="navigateTo('academy'); toggleMobileMenu();" class="block px-4 py-2 rounded-xl text-sm font-bold text-innovGreen bg-innovGreen/5">🎓 IT Training & Certifications</a>
+            <a href="#" id="mob-nav-pricing" onclick="navigateTo('pricing'); toggleMobileMenu();" class="block px-4 py-2 rounded-xl text-sm font-semibold text-gray-300">Pricing Packages</a>
+            <a href="#" id="mob-nav-team" onclick="navigateTo('team'); toggleMobileMenu();" class="block px-4 py-2 rounded-xl text-sm font-semibold text-gray-300">Our Experts Team</a>
+            <a href="#" id="mob-nav-blog" onclick="navigateTo('blog'); toggleMobileMenu();" class="block px-4 py-2 rounded-xl text-sm font-semibold text-gray-300">Blog Hub</a>
+            <a href="#" id="mob-nav-chatbot" onclick="navigateTo('chatbot'); toggleMobileMenu();" class="block px-4 py-2 rounded-xl text-sm font-semibold text-gray-300"><i class="fa-solid fa-robot text-xs text-innovGreen mr-1.5"></i>Ask Helpful AI</a>
+            <a href="#" id="mob-nav-contact" onclick="navigateTo('contact'); toggleMobileMenu();" class="block px-4 py-2 rounded-xl text-sm font-semibold text-gray-300">Contact Us</a>
         </div>
     </header>
 
-    <main class="w-full max-w-full overflow-hidden">
-        
-        <div id="page-home" class="page-section active-page animate__animated animate__fadeIn max-w-full overflow-hidden">
-            <section class="max-w-7xl mx-auto px-6 pt-16 pb-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative">
-                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                    <div class="inline-flex items-center space-x-2 bg-gray-200 dark:bg-white/[0.05] border border-gray-300 dark:border-white/10 px-4 py-1.5 rounded-full text-xs text-techBlue font-bold">
-                        <span>Engineering Intelligent Digital Futures Globally</span>
-                    </div>
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-none dark:text-white">
-                        Innovative Tech.<br>
-                        <span class="text-gray-500 dark:text-[#a1a1a6]">Engineered for Global Impact.</span>
-                    </h1>
-                    <p class="text-gray-600 dark:text-[#86868b] text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
-                        Eazzesam Technologies transforms businesses through custom web engineering, advanced conversational AI nodes, structural multi-channel CCTV surveillance arrays, and certified high-yield technical skill development training.
-                    </p>
-                    <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-2">
-                        <button onclick="navigateTo('services')" class="w-full sm:w-auto bg-techBlue text-white font-semibold px-6 py-3 rounded-full hover:bg-blue-600 transition text-sm">
-                            Our Service Models
-                        </button>
-                        <button onclick="navigateTo('chatbot')" class="w-full sm:w-auto bg-gray-200 dark:bg-white/[0.06] hover:bg-gray-300 dark:hover:bg-white/[0.1] text-black dark:text-white font-semibold px-6 py-3 rounded-full flex items-center justify-center space-x-2 transition text-sm">
-                            <span>Open Reading AI Chatbot</span>
-                            <span class="material-symbols-outlined text-sm text-techBlue">smart_toy</span>
-                        </button>
-                    </div>
+    <div id="page-home" class="page-section active-page animate__animated animate__fadeIn">
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 pt-10 sm:pt-16 pb-16 sm:pb-20 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center relative">
+            <div class="lg:col-span-7 space-y-4 sm:space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center space-x-2 glass-card border border-white/5 px-3.5 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs text-innovGreen font-semibold animate__animated animate__slideInDown">
+                    <i class="fa-solid fa-circle-check text-innovGreen"></i>
+                    <span>Growing Businesses & Mentoring Talents With Smart Technology</span>
+                </div>
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-white animate__animated animate__fadeInLeft">
+                    Modern Websites, AI & Security.<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-techBlue to-innovGreen">Plus Practical IT Training.</span>
+                </h1>
+                <p class="text-gray-400 text-sm sm:text-base lg:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed animate__animated animate__fadeInLeft animate__delay-1s">
+                    We build high-quality websites, launch custom smartphone apps, set up secure smart home systems, and install remote-view security cameras. Tell us your goals, and we will handle the technical work.
+                </p>
+                <div class="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 pt-2 animate__animated animate__fadeInUp animate__delay-1s">
+                    <button onclick="navigateTo('services')" class="w-full sm:w-auto justify-center bg-gradient-to-r from-techBlue to-innovGreen text-slate-950 font-extrabold px-6 py-3.5 rounded-full flex items-center space-x-2 hover:opacity-90 transition text-sm apple-btn">
+                        <span>See Our Services</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <button onclick="navigateTo('academy')" class="w-full sm:w-auto justify-center glass-card border border-white/5 text-white font-medium px-6 py-3.5 rounded-full flex items-center space-x-2 hover:bg-white/5 transition text-sm apple-btn">
+                        <span>Learn IT Skills (With Certifications)</span>
+                        <i class="fa-solid fa-graduation-cap text-innovGreen"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 flex justify-center items-center relative mt-6 lg:mt-0 animate__animated animate__zoomIn">
+                <div class="w-full max-w-md h-[300px] sm:h-[380px] rounded-[2.5rem] overflow-hidden relative border border-white/5 neon-glow-blue glass-card">
+                    <img src="./logo.png" alt="Advanced Tech Framework" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-darkBg to-transparent"></div>
+                </div>
+                <div class="absolute top-4 left-4 glass-card-bright border border-white/5 p-3 rounded-2xl flex items-center space-x-2.5 text-xs shadow-xl animate-float">
+                    <i class="fa-solid fa-laptop-code text-innovGreen"></i>
+                    <span class="font-bold text-gray-200">Fast Websites</span>
+                </div>
+                <div class="absolute bottom-6 right-4 glass-card-bright border border-white/5 p-3 rounded-2xl flex items-center space-x-2.5 text-xs shadow-xl animate-float" style="animation-delay: 2s;">
+                    <i class="fa-solid fa-shield text-techBlue"></i>
+                    <span class="font-bold text-gray-200">CCTV Safety</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="border-t border-white/5 bg-white/[0.01] py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                <div class="text-center max-w-2xl mx-auto mb-12 space-y-2">
+                    <span class="text-xs font-bold tracking-widest text-innovGreen uppercase block">// HOW WE HELP YOU</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-white">We Handle Everything From Start To Finish</h2>
+                    <p class="text-gray-400 text-sm">You do not need to understand complex code or networks. Here is how we make your digital upgrade simple and stress-free:</p>
                 </div>
 
-                <div class="lg:col-span-5 flex justify-center items-center relative mt-6 lg:mt-0">
-                    <div class="w-full max-w-sm h-[320px] sm:h-[380px] rounded-3xl overflow-hidden relative shadow-2xl border border-gray-300 dark:border-white/10">
-                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" alt="Advanced Security Matrix" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#f5f5f7] dark:from-darkBg via-transparent to-transparent"></div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="glass-card border border-white/5 p-6 rounded-[2rem] relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 p-4 font-mono text-5xl font-black text-slate-800/20 select-none group-hover:text-techBlue/10 transition">01</div>
+                        <div class="text-techBlue text-lg glass-card-bright w-10 h-10 flex items-center justify-center rounded-xl mb-4 border border-white/5"><i class="fa-solid fa-comments"></i></div>
+                        <h3 class="text-base font-bold text-white mb-2">1. Plain-English Consulting</h3>
+                        <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">We sit down with you or jump on a quick call to talk about your goals. No confusing technical words—just clear plans about what your business needs to grow.</p>
+                    </div>
+                    <div class="glass-card border border-white/5 p-6 rounded-[2rem] relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 p-4 font-mono text-5xl font-black text-slate-800/20 select-none group-hover:text-innovGreen/10 transition">02</div>
+                        <div class="text-innovGreen text-lg glass-card-bright w-10 h-10 flex items-center justify-center rounded-xl mb-4 border border-white/5"><i class="fa-solid fa-hammer"></i></div>
+                        <h3 class="text-base font-bold text-white mb-2">2. Design & Build Phase</h3>
+                        <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">Our experienced development team designs your website layout, sets up the security camera layout, or programs the app features. We show you progress updates along the way.</p>
+                    </div>
+                    <div class="glass-card border border-white/5 p-6 rounded-[2rem] relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 p-4 font-mono text-5xl font-black text-slate-800/20 select-none group-hover:text-purple-500/10 transition">03</div>
+                        <div class="text-purple-400 text-lg glass-card-bright w-10 h-10 flex items-center justify-center rounded-xl mb-4 border border-white/5"><i class="fa-solid fa-rocket"></i></div>
+                        <h3 class="text-base font-bold text-white mb-2">3. Full Launch & Support</h3>
+                        <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">We launch your site securely live on the internet, turn on your smart security equipment, and hand you simple keys. Plus, we stay close by to provide reliable support whenever you need help.</p>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
+    </div>
 
-            <section class="border-t border-gray-200 dark:border-white/5 bg-gray-100/50 dark:bg-black/20 py-20 max-w-full">
-                <div class="max-w-6xl mx-auto px-6">
-                    <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
-                        <span class="text-xs font-bold tracking-wide text-techBlue uppercase block">Execution Workflow</span>
-                        <h2 class="text-3xl font-bold tracking-tight dark:text-white">Our Methodical Process</h2>
-                        <p class="text-sm text-gray-600 dark:text-[#86868b]">How we safely translate project blueprints into dynamic high-performance realities.</p>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
-                        <div class="apple-glass p-6 rounded-3xl space-y-4 border border-gray-200 dark:border-white/5 relative">
-                            <div class="w-10 h-10 rounded-full bg-techBlue/10 text-techBlue flex items-center justify-center font-bold text-sm">01</div>
-                            <h3 class="text-base font-bold dark:text-white">Audit & Scoping</h3>
-                            <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">We map your operational constraints, system objectives, and infrastructure specifications into a precise technical brief.</p>
-                        </div>
-                        <div class="apple-glass p-6 rounded-3xl space-y-4 border border-gray-200 dark:border-white/5 relative">
-                            <div class="w-10 h-10 rounded-full bg-innovGreen/10 text-innovGreen flex items-center justify-center font-bold text-sm">02</div>
-                            <h3 class="text-base font-bold dark:text-white">Prototyping</h3>
-                            <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Our designers deliver functional asset models, wiring layouts, or visual UI schemas for agile confirmation loops.</p>
-                        </div>
-                        <div class="apple-glass p-6 rounded-3xl space-y-4 border border-gray-200 dark:border-white/5 relative">
-                            <div class="w-10 h-10 rounded-full bg-purple-500/10 text-purple-500 flex items-center justify-center font-bold text-sm">03</div>
-                            <h3 class="text-base font-bold dark:text-white">Active Deployment</h3>
-                            <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Engineers compile standard code files, route camera hardware channels, or initiate technical lab classes.</p>
-                        </div>
-                        <div class="apple-glass p-6 rounded-3xl space-y-4 border border-gray-200 dark:border-white/5 relative">
-                            <div class="w-10 h-10 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold text-sm">04</div>
-                            <h3 class="text-base font-bold dark:text-white">Quality Pass</h3>
-                            <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Before project closing, setups go through explicit testing protocols to ensure high speed performance and stability.</p>
-                        </div>
-                    </div>
+    <div id="page-about" class="page-section max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 animate__animated animate__fadeIn">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            <div class="lg:col-span-6 space-y-4 sm:space-y-6">
+                <span class="text-xs font-bold tracking-widest text-innovGreen uppercase block">// GET TO KNOW US</span>
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-white">Your Reliable Local Tech Partner</h2>
+                <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                    EAZZESAM TECHNOLOGIES is a friendly, experienced technology company dedicated to creating professional, high-performing digital setups for local businesses, schools, churches, and homeowners. We believe that technology should make your life easier and your business more profitable—not harder to understand.
+                </p>
+                <div class="p-4 sm:p-5 border-l-4 border-techBlue glass-card rounded-r-2xl">
+                    <h4 class="text-xs sm:text-sm font-bold text-white uppercase tracking-wider mb-1">Our Simple Goal</h4>
+                    <p class="text-gray-400 text-xs leading-relaxed">To bring reliable, secure, and modern digital tools right to your doorstep at prices that make complete financial sense.</p>
                 </div>
-            </section>
-
-            <section class="border-t border-gray-200 dark:border-white/5 bg-gray-50 dark:bg-white/[0.01] py-20 max-w-full">
-                <div class="max-w-5xl mx-auto px-6">
-                    <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
-                        <span class="text-xs font-bold tracking-wide text-techBlue uppercase block">Corporate Evolution & Legacy</span>
-                        <h2 class="text-3xl font-bold tracking-tight dark:text-white">Our Journey Through Innovation</h2>
-                    </div>
-
-                    <div class="space-y-12 relative before:absolute before:inset-0 before:left-4 sm:before:left-1/2 before:w-0.5 before:bg-gray-300 dark:before:bg-white/10">
-                        <div class="relative flex flex-col sm:flex-row items-start sm:justify-between group">
-                            <div class="absolute left-4 sm:left-1/2 w-4 h-4 bg-techBlue rounded-full -translate-x-1.5 border-4 border-white dark:border-darkBg z-10 transition group-hover:scale-125"></div>
-                            <div class="w-full sm:w-[45%] pl-10 sm:pl-0 sm:text-right space-y-2">
-                                <span class="text-lg font-black text-techBlue">2021 — Origin Node</span>
-                                <h4 class="text-base font-bold dark:text-white">Inception & System Support</h4>
-                                <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Eazzesam Technologies launched as a centralized network layout diagnostics desk, deploying remote surveillance layouts globally.</p>
-                            </div>
-                            <div class="hidden sm:block w-[45%]"></div>
-                        </div>
-
-                        <div class="relative flex flex-col sm:flex-row items-start sm:justify-between group">
-                            <div class="absolute left-4 sm:left-1/2 w-4 h-4 bg-innovGreen rounded-full -translate-x-1.5 border-4 border-white dark:border-darkBg z-10 transition group-hover:scale-125"></div>
-                            <div class="hidden sm:block w-[45%]"></div>
-                            <div class="w-full sm:w-[45%] pl-10 space-y-2">
-                                <span class="text-lg font-black text-innovGreen">2023 — Paradigm Shift</span>
-                                <h4 class="text-base font-bold dark:text-white">Software Expansion</h4>
-                                <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Our core team integrated software engineering lanes, constructing structural web architectures, custom applications, and integrated relational databases.</p>
-                            </div>
-                        </div>
-
-                        <div class="relative flex flex-col sm:flex-row items-start sm:justify-between group">
-                            <div class="absolute left-4 sm:left-1/2 w-4 h-4 bg-purple-500 rounded-full -translate-x-1.5 border-4 border-white dark:border-darkBg z-10 transition group-hover:scale-125"></div>
-                            <div class="w-full sm:w-[45%] pl-10 sm:pl-0 sm:text-right space-y-2">
-                                <span class="text-lg font-black text-purple-500">2025 — Automated Intelligence</span>
-                                <h4 class="text-base font-bold dark:text-white">AI Assistants & Academy Expansion</h4>
-                                <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Formalized the Eazzesam Academy campus and engineered localized automated conversational logic pipelines for business operations.</p>
-                            </div>
-                            <div class="hidden sm:block w-[45%]"></div>
-                        </div>
-                    </div>
+            </div>
+            <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="h-44 rounded-2xl overflow-hidden border border-white/5">
+                    <img src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=400&q=80" alt="Modern Workspace Setup" class="w-full h-full object-cover">
                 </div>
-            </section>
-
-            <section class="border-t border-gray-200 dark:border-white/5 bg-gray-100/30 dark:bg-black/10 py-20 max-w-full">
-                <div class="max-w-4xl mx-auto px-6">
-                    <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
-                        <span class="text-xs font-bold tracking-wide text-techBlue uppercase block">Information Matrix</span>
-                        <h2 class="text-3xl font-bold tracking-tight dark:text-white">7 Frequently Asked Questions</h2>
-                    </div>
-
-                    <div class="space-y-4">
-                        <div class="faq-item border border-gray-200 dark:border-white/10 bg-white dark:bg-cardBgDark rounded-2xl p-5 cursor-pointer select-none" onclick="toggleFaqElement(this)">
-                            <div class="flex items-center justify-between">
-                                <h3 class="text-sm font-bold dark:text-white">1. Where is Eazzesam Technologies physically situated?</h3>
-                                <span class="material-symbols-outlined text-techBlue transition-transform duration-300 transform">expand_more</span>
-                            </div>
-                            <div class="faq-content mt-3">
-                                <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Our main technical operations workspace is positioned in Accra, Greater Accra Region, Ghana, supporting both localized field hardware setups and worldwide remote code contracts.</p>
-                            </div>
-                        </div>
-                        <div class="faq-item border border-gray-200 dark:border-white/10 bg-white dark:bg-cardBgDark rounded-2xl p-5 cursor-pointer select-none" onclick="toggleFaqElement(this)">
-                            <div class="flex items-center justify-between">
-                                <h3 class="text-sm font-bold dark:text-white">2. Are your IT Academy training sessions entirely practical?</h3>
-                                <span class="material-symbols-outlined text-techBlue transition-transform duration-300 transform">expand_more</span>
-                            </div>
-                            <div class="faq-content mt-3">
-                                <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Yes. We minimize abstract theoretical manuals. Every candidate writes raw code, provisions real network hardware subnets, or manages live database query loops directly on dedicated systems.</p>
-                            </div>
-                        </div>
-                        <div class="faq-item border border-gray-200 dark:border-white/10 bg-white dark:bg-cardBgDark rounded-2xl p-5 cursor-pointer select-none" onclick="toggleFaqElement(this)">
-                            <div class="flex items-center justify-between">
-                                <h3 class="text-sm font-bold dark:text-white">3. Can the integrated AI chat systems map custom business profiles?</h3>
-                                <span class="material-symbols-outlined text-techBlue transition-transform duration-300 transform">expand_more</span>
-                            </div>
-                            <div class="faq-content mt-3">
-                                <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Absolutely. We build customized context pipelines linking directly to state engines like OpenAI or Gemini, configuring intent filters focused specifically on automated enterprise data metrics.</p>
-                            </div>
-                        </div>
-                        <div class="faq-item border border-gray-200 dark:border-white/10 bg-white dark:bg-cardBgDark rounded-2xl p-5 cursor-pointer select-none" onclick="toggleFaqElement(this)">
-                            <div class="flex items-center justify-between">
-                                <h3 class="text-sm font-bold dark:text-white">4. What is the common turnaround pipeline for application engineering?</h3>
-                                <span class="material-symbols-outlined text-techBlue transition-transform duration-300 transform">expand_more</span>
-                            </div>
-                            <div class="faq-content mt-3">
-                                <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Standard enterprise layout portals complete deployment within a 3 to 6-week timeframe, maintaining explicit milestone reviews throughout the progression loops.</p>
-                            </div>
-                        </div>
-                        <div class="faq-item border border-gray-200 dark:border-white/10 bg-white dark:bg-cardBgDark rounded-2xl p-5 cursor-pointer select-none" onclick="toggleFaqElement(this)">
-                            <div class="flex items-center justify-between">
-                                <h3 class="text-sm font-bold dark:text-white">5. Do students receive globally recognized certifications upon completion?</h3>
-                                <span class="material-symbols-outlined text-techBlue transition-transform duration-300 transform">expand_more</span>
-                            </div>
-                            <div class="faq-content mt-3">
-                                <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Yes. Upon passing practical lab exams and delivering the final capstone project application, students receive an official Certificate of Competency verified by Eazzesam Technologies leadership.</p>
-                            </div>
-                        </div>
-                        <div class="faq-item border border-gray-200 dark:border-white/10 bg-white dark:bg-cardBgDark rounded-2xl p-5 cursor-pointer select-none" onclick="toggleFaqElement(this)">
-                            <div class="flex items-center justify-between">
-                                <h3 class="text-sm font-bold dark:text-white">6. What hardware components are utilized in your CCTV installations?</h3>
-                                <span class="material-symbols-outlined text-techBlue transition-transform duration-300 transform">expand_more</span>
-                            </div>
-                            <div class="faq-content mt-3">
-                                <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">We use premium high-definition Sony-sensor lens configurations, enterprise PoE network switches, weatherized IP67 dome housing enclosures, and high-reliability surveillance storage hard drives.</p>
-                            </div>
-                        </div>
-                        <div class="faq-item border border-gray-200 dark:border-white/10 bg-white dark:bg-cardBgDark rounded-2xl p-5 cursor-pointer select-none" onclick="toggleFaqElement(this)">
-                            <div class="flex items-center justify-between">
-                                <h3 class="text-sm font-bold dark:text-white">7. How do I request an onsite infrastructure network audit?</h3>
-                                <span class="material-symbols-outlined text-techBlue transition-transform duration-300 transform">expand_more</span>
-                            </div>
-                            <div class="faq-content mt-3">
-                                <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">You can log an official query directly using the contact payload terminal below, or flag our engineers immediately through our active floating WhatsApp button channels.</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="h-44 rounded-2xl overflow-hidden border border-white/5">
+                    <img src="https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=400&q=80" alt="Secure Tech Network" class="w-full h-full object-cover">
                 </div>
-            </section>
-        </div>
-
-        <div id="page-about" class="page-section max-w-6xl mx-auto px-6 py-16 animate__animated animate__fadeIn">
-            <div class="space-y-12">
-                <div class="text-center max-w-2xl mx-auto space-y-3">
-                    <span class="text-xs font-bold tracking-wide text-techBlue uppercase block">About Eazzesam</span>
-                    <h2 class="text-4xl font-extrabold tracking-tight dark:text-white">Architecting Excellence</h2>
-                    <p class="text-gray-600 dark:text-[#86868b] text-sm">We close the loop between legacy architectures and tomorrow's engineering demands.</p>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div class="space-y-4 text-xs sm:text-sm text-gray-600 dark:text-[#86868b] leading-relaxed">
-                        <p>Eazzesam Technologies stands at the forefront of technical integration inside Sub-Saharan Africa and across remote digital ecosystems. We don't just write scripts or assemble off-the-shelf camera parts; we customize deep enterprise systems designed to scale with your transaction loops.</p>
-                        <p>Our operation is dual-faceted: a high-tier client services division handling advanced modern web deployment matrices, and our premier hands-on IT Academy dedicated to grooming field-ready technical professionals who build the future.</p>
-                    </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div class="apple-glass p-6 rounded-3xl space-y-2">
-                            <span class="material-symbols-outlined text-techBlue text-2xl">workspace_premium</span>
-                            <h4 class="font-bold text-sm dark:text-white">Our Mission</h4>
-                            <p class="text-xs text-gray-600 dark:text-[#86868b]">To democratize access to elite technical mastery and install unbreachable corporate digital foundations.</p>
-                        </div>
-                        <div class="apple-glass p-6 rounded-3xl space-y-2">
-                            <span class="material-symbols-outlined text-innovGreen text-2xl">visibility</span>
-                            <h4 class="font-bold text-sm dark:text-white">Our Vision</h4>
-                            <p class="text-xs text-gray-600 dark:text-[#86868b]">To be recognized as the premier semantic framework architecture hub and skill accelerator node by 2030.</p>
-                        </div>
-                    </div>
+                <div class="glass-card border border-white/5 p-5 sm:p-6 rounded-[2rem] sm:col-span-2 text-left">
+                    <h4 class="text-white text-xs font-bold uppercase tracking-wider mb-3 text-innovGreen">What Makes Us Different</h4>
+                    <ul class="text-xs text-gray-400 space-y-2.5 grid grid-cols-1 sm:grid-cols-2">
+                        <li><i class="fa-solid fa-check text-innovGreen mr-2"></i>Clear, No-Jargon Chatting</li>
+                        <li><i class="fa-solid fa-check text-innovGreen mr-2"></i>Affordable, Honest Pricing</li>
+                        <li><i class="fa-solid fa-check text-innovGreen mr-2"></i>Local Accra Support Experts</li>
+                        <li><i class="fa-solid fa-check text-innovGreen mr-2"></i>High-Quality Premium Work</li>
+                    </ul>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div id="page-services" class="page-section max-w-6xl mx-auto px-6 py-16 animate__animated animate__fadeIn">
-            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
-                <span class="text-xs font-bold tracking-wide text-techBlue uppercase block">Capability Portfolio</span>
-                <h2 class="text-4xl font-extrabold tracking-tight dark:text-white">Full-Stack Core Competencies</h2>
+    <div id="page-services" class="page-section max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 animate__animated animate__fadeIn">
+        <div class="text-center max-w-xl mx-auto mb-10 sm:mb-16 space-y-2">
+            <span class="text-xs font-bold tracking-widest text-techBlue uppercase block">// WHAT WE OFFER</span>
+            <h2 class="text-2xl sm:text-3xl font-black text-white">Bespoke Services Made Simple</h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            <div class="glass-card border border-white/5 p-5 sm:p-6 rounded-[2rem] hover:border-techBlue/60 transition duration-300">
+                <div class="text-techBlue text-xl glass-card-bright w-10 h-10 flex items-center justify-center rounded-xl mb-4 border border-white/5"><i class="fa-solid fa-globe"></i></div>
+                <h3 class="text-sm sm:text-base font-bold text-white mb-2">Web Design & Development</h3>
+                <ul class="text-xs text-gray-400 space-y-1.5">
+                    <li>• Websites for Businesses & Shops</li>
+                    <li>• Smooth Online Shopping Stores</li>
+                    <li>• School Management Platforms</li>
+                    <li>• Personal Portfolios & Blogs</li>
+                </ul>
             </div>
+            <div class="glass-card border border-white/5 p-5 sm:p-6 rounded-[2rem] hover:border-innovGreen/60 transition duration-300">
+                <div class="text-innovGreen text-xl glass-card-bright w-10 h-10 flex items-center justify-center rounded-xl mb-4 border border-white/5"><i class="fa-solid fa-robot"></i></div>
+                <h3 class="text-sm sm:text-base font-bold text-white mb-2">Smart AI Automation</h3>
+                <ul class="text-xs text-gray-400 space-y-1.5">
+                    <li>• Smart Chatbots for Websites</li>
+                    <li>• Automated Client Reply Systems</li>
+                    <li>• Smart Data Organizers</li>
+                    <li>• Work Saving Software Tools</li>
+                </ul>
+            </div>
+            <div class="glass-card border border-white/5 p-5 sm:p-6 rounded-[2rem] hover:border-purple-500/60 transition duration-300">
+                <div class="text-purple-400 text-xl glass-card-bright w-10 h-10 flex items-center justify-center rounded-xl mb-4 border border-white/5"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                <h3 class="text-sm sm:text-base font-bold text-white mb-2">Mobile App Development</h3>
+                <ul class="text-xs text-gray-400 space-y-1.5">
+                    <li>• Custom Android Apps</li>
+                    <li>• Sleek Apple iOS Apps</li>
+                    <li>• Apps for Delivery & Shops</li>
+                    <li>• Internal Management Tools</li>
+                </ul>
+            </div>
+            <div class="glass-card border border-white/5 p-5 sm:p-6 rounded-[2rem] hover:border-amber-500/60 transition duration-300">
+                <div class="text-amber-500 text-xl glass-card-bright w-10 h-10 flex items-center justify-center rounded-xl mb-4 border border-white/5"><i class="fa-solid fa-video"></i></div>
+                <h3 class="text-sm sm:text-base font-bold text-white mb-2">CCTV Camera Installation</h3>
+                <ul class="text-xs text-gray-400 space-y-1.5">
+                    <li>• Secure Cameras for Homes</li>
+                    <li>• Big Office Surveillance Networks</li>
+                    <li>• Phone-Connected Live Views</li>
+                    <li>• Secure Recording Safes</li>
+                </ul>
+            </div>
+            <div class="glass-card border border-white/5 p-5 sm:p-6 rounded-[2rem] hover:border-cyan-400/60 transition duration-300">
+                <div class="text-cyan-400 text-xl glass-card-bright w-10 h-10 flex items-center justify-center rounded-xl mb-4 border border-white/5"><i class="fa-solid fa-house-laptop"></i></div>
+                <h3 class="text-sm sm:text-base font-bold text-white mb-2">Smart Home Setup</h3>
+                <ul class="text-xs text-gray-400 space-y-1.5">
+                    <li>• App-Controlled Lighting</li>
+                    <li>• Fingerprint & Smart Door Locks</li>
+                    <li>• Voice-Controlled Rooms</li>
+                    <li>• Full Connected Convenience</li>
+                </ul>
+            </div>
+            <div class="glass-card border border-white/5 p-5 sm:p-6 rounded-[2rem] hover:border-rose-500/60 transition duration-300">
+                <div class="text-rose-500 text-xl glass-card-bright w-10 h-10 flex items-center justify-center rounded-xl mb-4 border border-white/5"><i class="fa-solid fa-palette"></i></div>
+                <h3 class="text-sm sm:text-base font-bold text-white mb-2">Graphics & Business Branding</h3>
+                <ul class="text-xs text-gray-400 space-y-1.5">
+                    <li>• Professional Business Logos</li>
+                    <li>• High-Quality Flyers & Graphics</li>
+                    <li>• Modern Layout Presentations</li>
+                    <li>• Promotional Commercial Videos</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="apple-glass p-6 rounded-3xl apple-transition flex flex-col justify-between min-h-[250px]">
-                    <div>
-                        <div class="text-techBlue mb-4"><span class="material-symbols-outlined text-3xl">terminal</span></div>
-                        <h3 class="text-base font-bold dark:text-white mb-2">Web Application Engineering</h3>
-                        <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">High-yield corporate databases, automated client management systems, and e-commerce architectures built via custom frameworks.</p>
-                    </div>
+    <div id="page-portfolio" class="page-section max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 animate__animated animate__fadeIn">
+        <div class="text-center max-w-xl mx-auto mb-10 sm:mb-14 space-y-2">
+            <span class="text-xs font-bold tracking-widest text-innovGreen uppercase block">// CLIENT CASE STUDIES</span>
+            <h2 class="text-2xl sm:text-3xl font-black text-white">Our Real Work Projects</h2>
+            <p class="text-gray-400 text-xs sm:text-sm">Take a look at systems we have successfully built and deployed for happy clients across regions.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="glass-card border border-white/5 rounded-[2rem] overflow-hidden group hover:border-techBlue/50 transition duration-300">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1508873535684-277a3cbcc4e8?auto=format&fit=crop&w=500&q=80" alt="School Management Project" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-cardBg to-transparent"></div>
                 </div>
-                <div class="apple-glass p-6 rounded-3xl apple-transition flex flex-col justify-between min-h-[250px]">
-                    <div>
-                        <div class="text-innovGreen mb-4"><span class="material-symbols-outlined text-3xl">smart_toy</span></div>
-                        <h3 class="text-base font-bold dark:text-white mb-2">Conversational AI Nodes</h3>
-                        <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Contextual language mapping integrated directly into business pipelines for autonomous lead sorting and resolution loops.</p>
-                    </div>
+                <div class="p-5 space-y-2">
+                    <span class="text-[10px] uppercase font-bold text-techBlue tracking-wider">Web Portal</span>
+                    <h3 class="text-base font-bold text-white">Apex Academy Portal</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">A complete school management application helping teachers manage online report cards, track student attendance, and receive clear electronic tuition payments easily.</p>
                 </div>
-                <div class="apple-glass p-6 rounded-3xl apple-transition flex flex-col justify-between min-h-[250px]">
-                    <div>
-                        <div class="text-purple-500 mb-4"><span class="material-symbols-outlined text-3xl">videocam</span></div>
-                        <h3 class="text-base font-bold dark:text-white mb-2">CCTV Network Topology</h3>
-                        <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Structural multi-channel deployment schemes utilizing NVR pipelines, clean PoE mapping, and real-time remote client streams.</p>
-                    </div>
+            </div>
+            <div class="glass-card border border-white/5 rounded-[2rem] overflow-hidden group hover:border-innovGreen/50 transition duration-300">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=500&q=80" alt="Ecommerce Project" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-cardBg to-transparent"></div>
                 </div>
-                <div class="apple-glass p-6 rounded-3xl apple-transition flex flex-col justify-between min-h-[250px]">
-                    <div>
-                        <div class="text-amber-500 mb-4"><span class="material-symbols-outlined text-3xl">school</span></div>
-                        <h3 class="text-base font-bold dark:text-white mb-2">IT Academy Acceleration</h3>
-                        <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Direct engineering track instruction matching industrial needs with rigorous labs, practical exams, and real project builds.</p>
+                <div class="p-5 space-y-2">
+                    <span class="text-[10px] uppercase font-bold text-innovGreen tracking-wider">E-Commerce Shop</span>
+                    <h3 class="text-base font-bold text-white">Star Groceries Online Store</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">A simple, modern online store built with automated inventory alerts, cart systems, and direct WhatsApp payment integration for checkout loops.</p>
+                </div>
+            </div>
+            <div class="glass-card border border-white/5 rounded-[2rem] overflow-hidden group hover:border-amber-500/50 transition duration-300">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=500&q=80" alt="CCTV Project" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-cardBg to-transparent"></div>
+                </div>
+                <div class="p-5 space-y-2">
+                    <span class="text-[10px] uppercase font-bold text-amber-500 tracking-wider">Security Loop</span>
+                    <h3 class="text-base font-bold text-white">Elite Residential Estates</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Fitted a multi-camera cryptographic network covering internal streets with live phone video support feeds and automated secure solar backups.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced IT Academy Section featuring 10 Specialized Courses & Dynamic Speed Typing Game -->
+    <div id="page-academy" class="page-section max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 animate__animated animate__fadeIn">
+        <div class="glass-card border border-white/5 rounded-[2.5rem] p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-16">
+            <div class="lg:col-span-7 space-y-4 sm:space-y-6">
+                <div class="inline-flex items-center space-x-2 bg-innovGreen/10 border border-innovGreen/30 px-3 py-1 rounded-full text-xs text-innovGreen font-bold uppercase">
+                    <i class="fa-solid fa-graduation-cap animate-bounce"></i> Glassmorphic IT Hub
+                </div>
+                <h2 class="text-2xl sm:text-4xl font-black text-white leading-tight">Practical IT Academy & Certification Modules</h2>
+                <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                    Unlock elite high-demand digital paths. We offer interactive, 100% practical tech courses perfect for beginner students, business builders, and professionals. Expand your capabilities with personalized coaching and claim your **Course Completion Certificate** upon project delivery.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-gray-300">
+                    <div><i class="fa-solid fa-circle-check text-innovGreen mr-2"></i>Patient Step-by-Step Guidance</div>
+                    <div><i class="fa-solid fa-circle-check text-innovGreen mr-2"></i>Real Practical Projects Built Live</div>
+                    <div><i class="fa-solid fa-circle-check text-innovGreen mr-2"></i>Affordable Installment Plan Access</div>
+                    <div><i class="fa-solid fa-circle-check text-innovGreen mr-2"></i>Verified Certificate of Graduation</div>
+                </div>
+            </div>
+            <div class="lg:col-span-5 rounded-[2rem] overflow-hidden h-64 border border-white/5 shadow-xl">
+                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=500&q=80" alt="IT Training Class" class="w-full h-full object-cover">
+            </div>
+        </div>
+
+        <!-- 10 Full IT Courses Grid -->
+        <div class="space-y-6 mb-16">
+            <div class="text-center max-w-xl mx-auto mb-10 space-y-1">
+                <span class="text-xs font-bold tracking-widest text-techBlue uppercase block">// EXPANSIVE IT PATHS</span>
+                <h3 class="text-xl sm:text-2xl font-black text-white">Select Your Desired Technical Track</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Course 1 -->
+                <div class="glass-card border border-white/5 p-6 rounded-[2rem] space-y-4 flex flex-col justify-between hover:border-techBlue/50 transition">
+                    <div class="space-y-2">
+                        <div class="w-10 h-10 glass-card-bright text-techBlue rounded-xl flex items-center justify-center text-lg font-bold border border-white/5"><i class="fa-solid fa-code"></i></div>
+                        <h4 class="text-sm sm:text-base font-bold text-white">1. Front-End Web Layout Architecture</h4>
+                        <p class="text-gray-400 text-xs leading-relaxed">Master structure grids and interactive interfaces using clean modern standard variables. Code responsive structures perfectly optimized for phone displays.</p>
                     </div>
+                    <span class="text-xs text-innovGreen font-bold bg-innovGreen/5 px-2.5 py-1 rounded-md border border-innovGreen/20 self-start">Duration: 8 Weeks</span>
+                </div>
+                <!-- Course 2 -->
+                <div class="glass-card border border-white/5 p-6 rounded-[2rem] space-y-4 flex flex-col justify-between hover:border-purple-400 transition">
+                    <div class="space-y-2">
+                        <div class="w-10 h-10 glass-card-bright text-purple-400 rounded-xl flex items-center justify-center text-lg font-bold border border-white/5"><i class="fa-solid fa-shield-halved"></i></div>
+                        <h4 class="text-sm sm:text-base font-bold text-white">2. CCTV Hardware & Surveillance Security</h4>
+                        <p class="text-gray-400 text-xs leading-relaxed">Learn structure installation, remote setup parameters for digital IP network feeds, backup drives, and video cloud routing configurations.</p>
+                    </div>
+                    <span class="text-xs text-innovGreen font-bold bg-innovGreen/5 px-2.5 py-1 rounded-md border border-innovGreen/20 self-start">Duration: 6 Weeks</span>
+                </div>
+                <!-- Course 3 -->
+                <div class="glass-card border border-white/5 p-6 rounded-[2rem] space-y-4 flex flex-col justify-between hover:border-amber-500 transition">
+                    <div class="space-y-2">
+                        <div class="w-10 h-10 glass-card-bright text-amber-500 rounded-xl flex items-center justify-center text-lg font-bold border border-white/5"><i class="fa-solid fa-desktop"></i></div>
+                        <h4 class="text-sm sm:text-base font-bold text-white">3. Professional Office Productivity Suites</h4>
+                        <p class="text-gray-400 text-xs leading-relaxed">Master high-speed spreadsheet data calculation, complex summary logic, visual charting setups, and document report formatting matrices.</p>
+                    </div>
+                    <span class="text-xs text-innovGreen font-bold bg-innovGreen/5 px-2.5 py-1 rounded-md border border-innovGreen/20 self-start">Duration: 4 Weeks</span>
+                </div>
+                <!-- Course 4 -->
+                <div class="glass-card border border-white/5 p-6 rounded-[2rem] space-y-4 flex flex-col justify-between hover:border-innovGreen transition">
+                    <div class="space-y-2">
+                        <div class="w-10 h-10 glass-card-bright text-innovGreen rounded-xl flex items-center justify-center text-lg font-bold border border-white/5"><i class="fa-solid fa-robot"></i></div>
+                        <h4 class="text-sm sm:text-base font-bold text-white">4. No-Code Conversational AI Chatbots</h4>
+                        <p class="text-gray-400 text-xs leading-relaxed">Build custom automation assistants capable of processing logic trees, replying to client leads, and linking instantly into WhatsApp webhooks.</p>
+                    </div>
+                    <span class="text-xs text-innovGreen font-bold bg-innovGreen/5 px-2.5 py-1 rounded-md border border-innovGreen/20 self-start">Duration: 5 Weeks</span>
+                </div>
+                <!-- Course 5 -->
+                <div class="glass-card border border-white/5 p-6 rounded-[2rem] space-y-4 flex flex-col justify-between hover:border-cyan-400 transition">
+                    <div class="space-y-2">
+                        <div class="w-10 h-10 glass-card-bright text-cyan-400 rounded-xl flex items-center justify-center text-lg font-bold border border-white/5"><i class="fa-solid fa-server"></i></div>
+                        <h4 class="text-sm sm:text-base font-bold text-white">5. Full-Stack Data Logic Pipelines</h4>
+                        <p class="text-gray-400 text-xs leading-relaxed">Configure secure structural databases, access rules, storage schemas, and relational parameters handling backend app requests efficiently.</p>
+                    </div>
+                    <span class="text-xs text-innovGreen font-bold bg-innovGreen/5 px-2.5 py-1 rounded-md border border-innovGreen/20 self-start">Duration: 10 Weeks</span>
+                </div>
+                <!-- Course 6 -->
+                <div class="glass-card border border-white/5 p-6 rounded-[2rem] space-y-4 flex flex-col justify-between hover:border-rose-500 transition">
+                    <div class="space-y-2">
+                        <div class="w-10 h-10 glass-card-bright text-rose-500 rounded-xl flex items-center justify-center text-lg font-bold border border-white/5"><i class="fa-solid fa-network-wired"></i></div>
+                        <h4 class="text-sm sm:text-base font-bold text-white">6. Network Engineering & Router Topologies</h4>
+                        <p class="text-gray-400 text-xs leading-relaxed">Configure local LAN architectures, assign IP subnets, structure access control tables, and protect structural network points against entry risks.</p>
+                    </div>
+                    <span class="text-xs text-innovGreen font-bold bg-innovGreen/5 px-2.5 py-1 rounded-md border border-innovGreen/20 self-start">Duration: 8 Weeks</span>
+                </div>
+                <!-- Course 7 -->
+                <div class="glass-card border border-white/5 p-6 rounded-[2rem] space-y-4 flex flex-col justify-between hover:border-orange-400 transition">
+                    <div class="space-y-2">
+                        <div class="w-10 h-10 glass-card-bright text-orange-400 rounded-xl flex items-center justify-center text-lg font-bold border border-white/5"><i class="fa-solid fa-house-signal"></i></div>
+                        <h4 class="text-sm sm:text-base font-bold text-white">7. Smart Automation Security Systems</h4>
+                        <p class="text-gray-400 text-xs leading-relaxed">Wire dynamic fingerprint sensors, automated biometric locks, proximity readers, and mobile execution control links safely into test boards.</p>
+                    </div>
+                    <span class="text-xs text-innovGreen font-bold bg-innovGreen/5 px-2.5 py-1 rounded-md border border-innovGreen/20 self-start">Duration: 6 Weeks</span>
+                </div>
+                <!-- Course 8 -->
+                <div class="glass-card border border-white/5 p-6 rounded-[2rem] space-y-4 flex flex-col justify-between hover:border-pink-400 transition">
+                    <div class="space-y-2">
+                        <div class="w-10 h-10 glass-card-bright text-pink-400 rounded-xl flex items-center justify-center text-lg font-bold border border-white/5"><i class="fa-solid fa-chart-line"></i></div>
+                        <h4 class="text-sm sm:text-base font-bold text-white">8. Digital Product Marketing Systems</h4>
+                        <p class="text-gray-400 text-xs leading-relaxed">Discover organic keyword search tracking engine principles, tracking pixel optimization models, and custom target audience profiling logic loops.</p>
+                    </div>
+                    <span class="text-xs text-innovGreen font-bold bg-innovGreen/5 px-2.5 py-1 rounded-md border border-innovGreen/20 self-start">Duration: 4 Weeks</span>
+                </div>
+                <!-- Course 9 -->
+                <div class="glass-card border border-white/5 p-6 rounded-[2rem] space-y-4 flex flex-col justify-between hover:border-emerald-400 transition">
+                    <div class="space-y-2">
+                        <div class="w-10 h-10 glass-card-bright text-emerald-400 rounded-xl flex items-center justify-center text-lg font-bold border border-white/5"><i class="fa-solid fa-mobile-button"></i></div>
+                        <h4 class="text-sm sm:text-base font-bold text-white">9. Hybrid Mobile App Framework Implementation</h4>
+                        <p class="text-gray-400 text-xs leading-relaxed">Write multi-platform codebase packages deploying native application layouts directly to Android handsets and Apple iOS targets seamlessly.</p>
+                    </div>
+                    <span class="text-xs text-innovGreen font-bold bg-innovGreen/5 px-2.5 py-1 rounded-md border border-innovGreen/20 self-start">Duration: 12 Weeks</span>
+                </div>
+                <!-- Course 10 -->
+                <div class="glass-card border border-white/5 p-6 rounded-[2rem] space-y-4 flex flex-col justify-between hover:border-indigo-400 transition">
+                    <div class="space-y-2">
+                        <div class="w-10 h-10 glass-card-bright text-indigo-400 rounded-xl flex items-center justify-center text-lg font-bold border border-white/5"><i class="fa-solid fa-bezier-curve"></i></div>
+                        <h4 class="text-sm sm:text-base font-bold text-white">10. Vector Graphic Layout & Brand Styling</h4>
+                        <p class="text-gray-400 text-xs leading-relaxed">Formulate industry corporate branding systems, high-fidelity promotional asset layers, geometric layouts, and visual hierarchy balances.</p>
+                    </div>
+                    <span class="text-xs text-innovGreen font-bold bg-innovGreen/5 px-2.5 py-1 rounded-md border border-innovGreen/20 self-start">Duration: 4 Weeks</span>
                 </div>
             </div>
         </div>
 
-        <div id="page-portfolio" class="page-section max-w-6xl mx-auto px-6 py-16 animate__animated animate__fadeIn">
-            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
-                <span class="text-xs font-bold tracking-wide text-techBlue uppercase block">Proven Infrastructure</span>
-                <h2 class="text-4xl font-extrabold tracking-tight dark:text-white">Case Study Track Record</h2>
+        <!-- Integrated Interactive Speed Typing Arena Container -->
+        <div class="max-w-3xl mx-auto glass-card border border-white/10 p-6 sm:p-8 rounded-[2.5rem] space-y-6 relative overflow-hidden shadow-2xl">
+            <div class="flex items-center justify-between border-b border-white/5 pb-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-2.5 h-2.5 bg-innovGreen rounded-full animate-pulse"></div>
+                    <h3 class="text-base font-black tracking-wide text-white uppercase"><i class="fa-solid fa-keyboard text-innovGreen mr-1.5"></i> IT Academy Typing Arena</h3>
+                </div>
+                <button onclick="resetTypingGame()" class="text-xs text-gray-400 hover:text-white transition bg-white/5 px-3 py-1.5 rounded-xl border border-white/5 apple-btn"><i class="fa-solid fa-rotate-right mr-1"></i> Restart Game</button>
+            </div>
+            
+            <p class="text-gray-400 text-xs leading-relaxed">
+                High-speed text entry is an essential structural skill for software developers, system admins, and cloud builders. Test your performance flow indexing below! **Start entering characters into the input slot to trigger the tracker mechanics:**
+            </p>
+
+            <div class="glass-card-bright p-4 sm:p-5 rounded-2xl border border-white/5 text-sm sm:text-base text-gray-300 font-mono select-none tracking-wide leading-relaxed relative">
+                <span id="targetPhrase" class="relative">Building high quality web systems requires responsive layouts and solid data logic pipes.</span>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="apple-glass rounded-3xl overflow-hidden border border-gray-200 dark:border-white/5">
-                    <div class="h-44 bg-gray-300 dark:bg-white/[0.03] flex items-center justify-center">
-                        <span class="material-symbols-outlined text-5xl text-techBlue opacity-40">school</span>
+            <div class="space-y-3">
+                <input id="typingInput" type="text" autocomplete="off" oninput="checkTypingProgress()" class="w-full glass-card border border-white/5 rounded-xl px-4 py-3.5 text-xs sm:text-sm text-white font-mono focus:outline-none focus:border-techBlue transition" placeholder="Position your cursor here and begin typing the sentence above exactly...">
+                
+                <div class="grid grid-cols-3 gap-4 text-center pt-2">
+                    <div class="glass-card bg-white/[0.01] p-3 rounded-xl border border-white/5">
+                        <span class="text-[10px] block font-bold text-gray-500 uppercase">Elapsed Time</span>
+                        <span id="timerLabel" class="text-sm sm:text-base font-mono font-bold text-white">0s</span>
                     </div>
-                    <div class="p-6 space-y-3">
-                        <span class="text-[10px] uppercase font-bold text-techBlue">Web Systems Deployment</span>
-                        <h3 class="text-lg font-bold dark:text-white">Apex Academic Hub</h3>
-                        <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">A custom multi-tenant portal serving student enrollment trackers, automatic invoice generation, and class status monitoring dashboards.</p>
+                    <div class="glass-card bg-white/[0.01] p-3 rounded-xl border border-white/5">
+                        <span class="text-[10px] block font-bold text-gray-500 uppercase">Precision Rate</span>
+                        <span id="accuracyLabel" class="text-sm sm:text-base font-mono font-bold text-innovGreen">100%</span>
                     </div>
-                </div>
-                <div class="apple-glass rounded-3xl overflow-hidden border border-gray-200 dark:border-white/5">
-                    <div class="h-44 bg-gray-300 dark:bg-white/[0.03] flex items-center justify-center">
-                        <span class="material-symbols-outlined text-5xl text-innovGreen opacity-40">shield_lock</span>
-                    </div>
-                    <div class="p-6 space-y-3">
-                        <span class="text-[10px] uppercase font-bold text-innovGreen">Surveillance Infrastructure</span>
-                        <h3 class="text-lg font-bold dark:text-white">Logistics Warehouse Matrix</h3>
-                        <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Implemented a 32-channel 4K security topology spanning across perimeter boundary nodes, featuring remote backup redundancy links.</p>
-                    </div>
-                </div>
-                <div class="apple-glass rounded-3xl overflow-hidden border border-gray-200 dark:border-white/5">
-                    <div class="h-44 bg-gray-300 dark:bg-white/[0.03] flex items-center justify-center">
-                        <span class="material-symbols-outlined text-5xl text-purple-500 opacity-40">forum</span>
-                    </div>
-                    <div class="p-6 space-y-3">
-                        <span class="text-[10px] uppercase font-bold text-purple-500">Automated Automations</span>
-                        <h3 class="text-lg font-bold dark:text-white">E-Commerce Dialog Router</h3>
-                        <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">An intelligent chat agent linked to dynamic relational databases, sorting intent vectors and answering client queries 24/7.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="page-academy" class="page-section max-w-6xl mx-auto px-6 py-16 animate__animated animate__fadeIn">
-            <div class="bg-gray-200/50 dark:bg-white/[0.02] border border-gray-300 dark:border-white/10 rounded-3xl p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-12">
-                <div class="lg:col-span-7 space-y-4">
-                    <span class="text-xs font-bold text-techBlue bg-techBlue/10 px-3 py-1 rounded-full uppercase">Practical IT Competency Tracks</span>
-                    <h2 class="text-3xl font-extrabold tracking-tight dark:text-white">Stop Memorizing. Start Compiling.</h2>
-                    <p class="text-xs sm:text-sm text-gray-600 dark:text-[#86868b] leading-relaxed">Our syllabus bypasses outdated standard text evaluations. You will be provisioned a local development server and guided through genuine code engineering challenges, structural database normalization, and live penetration audits.</p>
-                </div>
-                <div class="lg:col-span-5 grid grid-cols-2 gap-4 text-center">
-                    <div class="bg-white dark:bg-black/40 p-4 rounded-2xl border border-gray-200 dark:border-white/5">
-                        <h5 class="text-xl font-bold text-techBlue">100%</h5>
-                        <p class="text-[10px] text-gray-500 dark:text-appleGray uppercase font-bold">Practical Labs</p>
-                    </div>
-                    <div class="bg-white dark:bg-black/40 p-4 rounded-2xl border border-gray-200 dark:border-white/5">
-                        <h5 class="text-xl font-bold text-innovGreen">Verified</h5>
-                        <p class="text-[10px] text-gray-500 dark:text-appleGray uppercase font-bold">Competency Certs</p>
+                    <div class="glass-card bg-white/[0.01] p-3 rounded-xl border border-white/5">
+                        <span class="text-[10px] block font-bold text-gray-500 uppercase">Velocity Track</span>
+                        <span id="wpmLabel" class="text-sm sm:text-base font-mono font-bold text-techBlue">0 WPM</span>
                     </div>
                 </div>
             </div>
             
-            <div class="w-full rounded-2xl overflow-hidden bg-white shadow-xl border border-gray-300">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdy_YwNup32P9_HhJbK6X_Vv66R9C5SveWp_XwG_u6uB2hB-w/viewform?embedded=true" width="100%" height="700" frameborder="0" class="w-full block bg-white">Loading registration form pipeline...</iframe>
+            <div id="typingFeedbackPanel" class="hidden text-center text-xs font-bold bg-innovGreen/10 border border-innovGreen/20 text-innovGreen p-3 rounded-xl animate__animated animate__fadeIn">
+                🎯 Core Cycle Completed Successfully! Fantastic typing velocity. Keep pushing parameters!
             </div>
         </div>
 
-        <div id="page-pricing" class="page-section max-w-6xl mx-auto px-6 py-16 animate__animated animate__fadeIn">
-            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
-                <span class="text-xs font-bold tracking-wide text-techBlue uppercase block">Predictable Costing</span>
-                <h2 class="text-4xl font-extrabold tracking-tight dark:text-white">Structured Investment Tiers</h2>
+        <div class="text-center pt-12">
+            <button onclick="navigateTo('contact')" class="bg-gradient-to-r from-techBlue to-innovGreen text-slate-950 text-xs font-black uppercase tracking-wider px-8 py-4 rounded-full shadow-lg hover:opacity-90 transition apple-btn">
+                Book an Academy Admission Slot <i class="fa-solid fa-arrow-right ml-1"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="page-pricing" class="page-section max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 animate__animated animate__fadeIn">
+        <div class="text-center max-w-xl mx-auto mb-10 sm:mb-14 space-y-2">
+            <span class="text-xs font-bold tracking-widest text-techBlue uppercase block">// TRANSPARENT ESTIMATES</span>
+            <h2 class="text-2xl sm:text-3xl font-black text-white">Affordable Packages with Zero Hidden Fees</h2>
+            <p class="text-gray-400 text-xs sm:text-sm">Pick a clear, budget-friendly plan configured to suit your immediate expansion milestones perfectly.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+            <div class="glass-card border border-white/5 p-6 rounded-[2rem] flex flex-col justify-between space-y-6">
+                <div class="space-y-2">
+                    <h3 class="text-sm uppercase tracking-widest font-bold text-gray-400">Starter Core</h3>
+                    <div class="text-xl font-mono font-bold text-white">Affordable Local Pricing</div>
+                    <p class="text-xs text-gray-400">Great for individuals or small start-ups needing a modern, clear digital landing footprint.</p>
+                    <ul class="text-xs text-gray-400 pt-4 space-y-2.5 border-t border-white/5">
+                        <li><i class="fa-solid fa-circle-check text-techBlue mr-2"></i>1 Clean Landing Page</li>
+                        <li><i class="fa-solid fa-circle-check text-techBlue mr-2"></i>Fully Responsive Mobile Layout</li>
+                        <li><i class="fa-solid fa-circle-check text-techBlue mr-2"></i>Direct WhatsApp Tap Support Link</li>
+                        <li><i class="fa-solid fa-circle-check text-techBlue mr-2"></i>1 Month Free Support Checkups</li>
+                    </ul>
+                </div>
+                <button onclick="navigateTo('contact')" class="w-full glass-card-bright hover:bg-white/5 border border-white/5 text-xs font-bold text-white py-3 rounded-full transition apple-btn">Select Starter Package</button>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-                <div class="apple-glass p-8 rounded-3xl flex flex-col justify-between space-y-6 relative border border-gray-200 dark:border-white/5">
-                    <div class="space-y-4">
-                        <h3 class="text-lg font-bold dark:text-white">Baseline Deployment</h3>
-                        <p class="text-xs text-gray-600 dark:text-[#86868b]">Ideal for growing enterprises establishing their primary functional domain footprint.</p>
-                        <div class="h-px bg-gray-200 dark:bg-white/10 my-2"></div>
-                        <ul class="text-xs text-gray-600 dark:text-[#86868b] space-y-2">
-                            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-techBlue text-sm">check_circle</span> Responsive Landing Shell</li>
-                            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-techBlue text-sm">check_circle</span> Core Contact Lead Capture Form</li>
-                            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-techBlue text-sm">check_circle</span> 1 Year Deployment Support</li>
-                        </ul>
-                    </div>
-                    <button onclick="navigateTo('contact')" class="w-full bg-gray-200 dark:bg-white/[0.05] hover:bg-techBlue hover:text-white text-xs font-bold py-3 rounded-full text-black dark:text-white transition duration-300">Choose Starter Setup</button>
+            <div class="glass-card border-2 border-innovGreen p-6 rounded-[2rem] flex flex-col justify-between space-y-6 relative">
+                <div class="absolute -top-3.5 right-6 bg-innovGreen text-slate-950 font-black tracking-widest text-[9px] uppercase px-3 py-1 rounded-full">Most Popular Package</div>
+                <div class="space-y-2">
+                    <h3 class="text-sm uppercase tracking-widest font-bold text-innovGreen">Corporate Growth</h3>
+                    <div class="text-xl font-mono font-bold text-white">Flexible Installment Rates</div>
+                    <p class="text-xs text-gray-400">Configured perfectly for growing stores, hotels, networks, or school institutions.</p>
+                    <ul class="text-xs text-gray-300 pt-4 space-y-2.5 border-t border-white/5">
+                        <li><i class="fa-solid fa-circle-check text-innovGreen mr-2"></i>Up to 5 Multi-Page Sections</li>
+                        <li><i class="fa-solid fa-circle-check text-innovGreen mr-2"></i>Full Catalog / E-Commerce Operations</li>
+                        <li><i class="fa-solid fa-circle-check text-innovGreen mr-2"></i>Smart AI Chatbot Setup Added</li>
+                        <li><i class="fa-solid fa-circle-check text-innovGreen mr-2"></i>Premium Graphics Branding Assets</li>
+                    </ul>
                 </div>
-
-                <div class="apple-glass p-8 rounded-3xl flex flex-col justify-between space-y-6 relative border-2 border-techBlue scale-105 bg-gray-100/40 dark:bg-white/[0.02]">
-                    <span class="absolute top-0 right-6 transform -translate-y-1/2 bg-techBlue text-white font-black tracking-widest text-[9px] uppercase px-3 py-1 rounded-full shadow-sm">Highly Requested</span>
-                    <div class="space-y-4">
-                        <h3 class="text-lg font-bold dark:text-white">Custom Business Framework</h3>
-                        <p class="text-xs text-gray-600 dark:text-[#86868b]">Perfect for organizations processing structural transactions, queries, or user login states.</p>
-                        <div class="h-px bg-gray-200 dark:bg-white/10 my-2"></div>
-                        <ul class="text-xs text-gray-600 dark:text-[#86868b] space-y-2">
-                            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-techBlue text-sm">check_circle</span> Complete Multi-page Database Portal</li>
-                            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-techBlue text-sm">check_circle</span> Contextual AI Chatbot Interface</li>
-                            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-techBlue text-sm">check_circle</span> Analytical Admin Statistics Panel</li>
-                        </ul>
-                    </div>
-                    <button onclick="navigateTo('contact')" class="w-full bg-techBlue text-white text-xs font-bold py-3 rounded-full shadow-md hover:bg-blue-600 transition duration-300">Provision Framework</button>
+                <button onclick="navigateTo('contact')" class="w-full bg-gradient-to-r from-techBlue to-innovGreen text-slate-950 font-bold text-xs py-3 rounded-full hover:opacity-90 transition apple-btn">Choose Corporate Growth</button>
+            </div>
+            <div class="glass-card border border-white/5 p-6 rounded-[2rem] flex flex-col justify-between space-y-6">
+                <div class="space-y-2">
+                    <h3 class="text-sm uppercase tracking-widest font-bold text-gray-400">Custom Infrastructure</h3>
+                    <div class="text-xl font-mono font-bold text-white">Customized Estimates</div>
+                    <p class="text-xs text-gray-400">For complex distributed physical loop setups or custom mobile application tracking programs.</p>
+                    <ul class="text-xs text-gray-400 pt-4 space-y-2.5 border-t border-white/5">
+                        <li><i class="fa-solid fa-circle-check text-techBlue mr-2"></i>Custom App & Database Designs</li>
+                        <li><i class="fa-solid fa-circle-check text-techBlue mr-2"></i>Full Advanced CCTV Multi-Feeds</li>
+                        <li><i class="fa-solid fa-circle-check text-techBlue mr-2"></i>Smart Home Hardware Synchronizations</li>
+                        <li><i class="fa-solid fa-circle-check text-techBlue mr-2"></i>24/7 Dedicated Support Contract</li>
+                    </ul>
                 </div>
+                <button onclick="navigateTo('contact')" class="w-full glass-card-bright hover:bg-white/5 border border-white/5 text-xs font-bold text-white py-3 rounded-full transition apple-btn">Request Custom Quote</button>
+            </div>
+        </div>
+    </div>
 
-                <div class="apple-glass p-8 rounded-3xl flex flex-col justify-between space-y-6 relative border border-gray-200 dark:border-white/5">
-                    <div class="space-y-4">
-                        <h3 class="text-lg font-bold dark:text-white">Academy Track Ticket</h3>
-                        <p class="text-xs text-gray-600 dark:text-[#86868b]">Tuition allocation for standard high-intensity practical software and systems courses.</p>
-                        <div class="h-px bg-gray-200 dark:bg-white/10 my-2"></div>
-                        <ul class="text-xs text-gray-600 dark:text-[#86868b] space-y-2">
-                            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-innovGreen text-sm">school</span> Workstation Terminal Provision</li>
-                            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-innovGreen text-sm">school</span> Full Access to Lab Infrastructure</li>
-                            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-innovGreen text-sm">school</span> Final Competency Project Verification</li>
-                        </ul>
-                    </div>
-                    <button onclick="navigateTo('academy')" class="w-full bg-gray-200 dark:bg-white/[0.05] hover:bg-innovGreen hover:text-white text-xs font-bold py-3 rounded-full text-black dark:text-white transition duration-300">Secure Academy Bench</button>
+    <div id="page-team" class="page-section max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 animate__animated animate__fadeIn">
+        <div class="text-center max-w-xl mx-auto mb-10 sm:mb-14 space-y-2">
+            <span class="text-xs font-bold tracking-widest text-innovGreen uppercase block">// MEET THE REASON</span>
+            <h2 class="text-2xl sm:text-3xl font-black text-white">Our Friendly Technology Experts</h2>
+            <p class="text-gray-400 text-xs sm:text-sm">Meet the professional technicians and engineers who make sure your systems work perfectly.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="glass-card border border-white/5 p-5 rounded-[2rem] flex items-center space-x-4">
+                <div class="w-16 h-16 rounded-full overflow-hidden border border-white/10 glass-card-bright flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80" alt="Sam" class="w-full h-full object-cover object-top">
+                </div>
+                <div class="min-w-0">
+                    <h3 class="text-sm font-bold text-white truncate">Samuel Youn</h3>
+                    <p class="text-xs text-innovGreen font-semibold">Lead Solutions Architect</p>
+                    <p class="text-[10px] text-gray-500 pt-0.5 truncate">Web Pipelines & Hardware Ops</p>
+                </div>
+            </div>
+            <div class="glass-card border border-white/5 p-5 rounded-[2rem] flex items-center space-x-4">
+                <div class="w-16 h-16 rounded-full overflow-hidden border border-white/10 glass-card-bright flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" alt="Team Member" class="w-full h-full object-cover">
+                </div>
+                <div class="min-w-0">
+                    <h3 class="text-sm font-bold text-white truncate">Blessing Mensah</h3>
+                    <p class="text-xs text-techBlue font-semibold">Lead IT Training Director</p>
+                    <p class="text-[10px] text-gray-500 pt-0.5 truncate">Practical Academy Mentor</p>
+                </div>
+            </div>
+            <div class="glass-card border border-white/5 p-5 rounded-[2rem] flex items-center space-x-4">
+                <div class="w-16 h-16 rounded-full overflow-hidden border border-white/10 glass-card-bright flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80" alt="Team Member" class="w-full h-full object-cover object-top">
+                </div>
+                <div class="min-w-0">
+                    <h3 class="text-sm font-bold text-white truncate">Emmanuel Tetteh</h3>
+                    <p class="text-xs text-amber-500 font-semibold">Senior Security Technician</p>
+                    <p class="text-[10px] text-gray-500 pt-0.5 truncate">CCTV & Network Deployment</p>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div id="page-team" class="page-section max-w-6xl mx-auto px-6 py-16 animate__animated animate__fadeIn">
-            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
-                <span class="text-xs font-bold tracking-wide text-techBlue uppercase block">Our Professionals</span>
-                <h2 class="text-4xl font-extrabold tracking-tight dark:text-white">The Engineering Mindset</h2>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="apple-glass p-6 rounded-3xl text-center space-y-4 border border-gray-200 dark:border-white/5">
-                    <div class="w-24 h-24 bg-gray-300 dark:bg-white/5 rounded-full mx-auto flex items-center justify-center">
-                        <span class="material-symbols-outlined text-4xl text-techBlue">engineering</span>
-                    </div>
-                    <div>
-                        <h3 class="text-base font-bold dark:text-white">Mr. Samuel Kojo Appiah</h3>
-                        <p class="text-xs text-techBlue font-bold uppercase tracking-wider mt-0.5">Founder & Chief Systems Architect</p>
-                    </div>
-                    <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Directs core technology stack selection, structural multi-channel network provisioning blueprints, and corporate development goals.</p>
-                </div>
-
-                <div class="apple-glass p-6 rounded-3xl text-center space-y-4 border border-gray-200 dark:border-white/5">
-                    <div class="w-24 h-24 bg-gray-300 dark:bg-white/5 rounded-full mx-auto flex items-center justify-center">
-                        <span class="material-symbols-outlined text-4xl text-innovGreen">code</span>
-                    </div>
-                    <div>
-                        <h3 class="text-base font-bold dark:text-white">Senior Software Associate</h3>
-                        <p class="text-xs text-innovGreen font-bold uppercase tracking-wider mt-0.5">Full Stack Engineering Lead</p>
-                    </div>
-                    <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Manages structural logic layers, frontend layout styling engines, database synchronization workflows, and API matrix operations.</p>
-                </div>
-
-                <div class="apple-glass p-6 rounded-3xl text-center space-y-4 border border-gray-200 dark:border-white/5">
-                    <div class="w-24 h-24 bg-gray-300 dark:bg-white/5 rounded-full mx-auto flex items-center justify-center">
-                        <span class="material-symbols-outlined text-4xl text-purple-500">model_training</span>
-                    </div>
-                    <div>
-                        <h3 class="text-base font-bold dark:text-white">Academy Mentor Group</h3>
-                        <p class="text-xs text-purple-500 font-bold uppercase tracking-wider mt-0.5">Practical Instruction Guides</p>
-                    </div>
-                    <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Supervises live runtime execution labs, monitors networking subnets, corrects script faults, and grades student capstones.</p>
-                </div>
-            </div>
-        </div>
-
-        <div id="page-chatbot" class="page-section w-full max-w-7xl mx-auto px-4 py-6 animate__animated animate__fadeIn">
-            <div id="sizableChatContainer" class="flex flex-col bg-white dark:bg-cardBgDark border border-gray-300 dark:border-white/10 rounded-3xl overflow-hidden min-h-[50vh] max-h-[90vh] h-[75vh] shadow-2xl transition-all duration-300">
+    <div id="page-chatbot" class="page-section max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 animate__animated animate__zoomIn">
+        <div id="sizableChatContainer" class="flex flex-col bg-white dark:bg-cardBgDark border border-gray-300 dark:border-white/10 rounded-3xl overflow-hidden min-h-[50vh] max-h-[90vh] h-[75vh] shadow-2xl transition-all duration-300">
                 
                 <div class="bg-gray-100 dark:bg-black/40 px-6 py-4 flex flex-wrap items-center justify-between border-b border-gray-200 dark:border-white/5 gap-3">
                     <div class="flex items-center space-x-3">
@@ -636,155 +698,249 @@
                     </button>
                 </form>
             </div>
+    </div>
+
+    <div id="page-blog" class="page-section max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 animate__animated animate__fadeIn">
+        <div class="mb-10 space-y-2 text-center md:text-left">
+            <span class="text-xs font-bold tracking-widest text-innovGreen uppercase block">// SIMPLIFIED TECH INSIGHTS</span>
+            <h2 class="text-2xl sm:text-3xl font-black text-white">Technology Made Easy Articles</h2>
+            <p class="text-gray-400 text-xs sm:text-sm">We break down complex modern systems into clear stories so you can learn how to protect your home and increase business revenue.</p>
         </div>
 
-        <div id="page-blog" class="page-section max-w-6xl mx-auto px-6 py-16 animate__animated animate__fadeIn">
-            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
-                <span class="text-xs font-bold tracking-wide text-techBlue uppercase block">Engineering Library</span>
-                <h2 class="text-4xl font-extrabold tracking-tight dark:text-white">Knowledge Node Insights</h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <article class="apple-glass rounded-3xl overflow-hidden flex flex-col justify-between p-6 space-y-4 border border-gray-200 dark:border-white/5">
-                    <div class="space-y-2">
-                        <span class="text-[10px] uppercase font-bold text-techBlue">Digital Strategy</span>
-                        <h3 class="text-base font-bold dark:text-white leading-snug">Why Your Enterprise Needs an Elite Custom Website</h3>
-                        <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Relying entirely on rented social media profiles leaves your business highly vulnerable to sudden algorithmic shadowbans and layout monetization visibility resets.</p>
-                    </div>
-                    <span class="text-[10px] text-appleGray font-semibold">June 2026 • 4 Min Read</span>
-                </article>
-
-                <article class="apple-glass rounded-3xl overflow-hidden flex flex-col justify-between p-6 space-y-4 border border-gray-200 dark:border-white/5">
-                    <div class="space-y-2">
-                        <span class="text-[10px] uppercase font-bold text-innovGreen">Data Logic</span>
-                        <h3 class="text-base font-bold dark:text-white leading-snug">Demystifying Relational Database Normalization</h3>
-                        <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Redundant record storage slows execution pools down. Learn how structural column splitting ensures zero duplication and maximizes complex query loops.</p>
-                    </div>
-                    <span class="text-[10px] text-appleGray font-semibold">May 2026 • 6 Min Read</span>
-                </article>
-
-                <article class="apple-glass rounded-3xl overflow-hidden flex flex-col justify-between p-6 space-y-4 border border-gray-200 dark:border-white/5">
-                    <div class="space-y-2">
-                        <span class="text-[10px] uppercase font-bold text-purple-500">Security Architecture</span>
-                        <h3 class="text-base font-bold dark:text-white leading-snug">Hardening Local Surveillance Subnet Paths</h3>
-                        <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Exposing network recorders directly to open WAN gateways is a major operational risk. We review the deployment rules for hardware firewalls and secure VPN loops.</p>
-                    </div>
-                    <span class="text-[10px] text-appleGray font-semibold">April 2026 • 5 Min Read</span>
-                </article>
-            </div>
-        </div>
-
-        <div id="page-contact" class="page-section max-w-6xl mx-auto px-6 py-16 animate__animated animate__fadeIn">
-            <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
-                <span class="text-xs font-bold tracking-wide text-techBlue uppercase block">Get In Touch</span>
-                <h2 class="text-4xl font-extrabold tracking-tight dark:text-white">Initiate Technical Scoping</h2>
-            </div>
-
-            <form id="contactForm" onsubmit="handleFormSubmission(event)" class="space-y-4 max-w-xl mx-auto apple-glass p-8 rounded-3xl border border-gray-200 dark:border-white/5">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <article class="glass-card border border-white/5 rounded-[2rem] overflow-hidden shadow-xl flex flex-col justify-between transform hover:scale-[1.02] duration-300">
                 <div>
-                    <label class="block text-[11px] font-bold uppercase tracking-wider mb-2 dark:text-white">Full Identity Name</label>
-                    <input id="formName" name="Name" type="text" required class="w-full bg-white dark:bg-black border border-gray-300 dark:border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-techBlue text-black dark:text-white" placeholder="e.g. Kwame Mensah">
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-[11px] font-bold uppercase tracking-wider mb-2 dark:text-white">Active Phone Line</label>
-                        <input id="formPhone" name="Phone" type="tel" required class="w-full bg-white dark:bg-black border border-gray-300 dark:border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-techBlue text-black dark:text-white" placeholder="+233 ...">
+                    <div class="h-48 relative">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80" alt="Website Analytics Growth" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-cardBg via-transparent to-transparent"></div>
+                        <span class="absolute top-4 left-4 bg-techBlue/90 text-white text-[10px] font-bold px-2 py-1 rounded-md uppercase">For Business Owners</span>
                     </div>
-                    <div>
-                        <label class="block text-[11px] font-bold uppercase tracking-wider mb-2 dark:text-white">Email Destination</label>
-                        <input id="formEmail" name="Email" type="email" required class="w-full bg-white dark:bg-black border border-gray-300 dark:border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-techBlue text-black dark:text-white" placeholder="name@domain.com">
+                    <div class="p-5 space-y-2">
+                        <h3 class="text-sm sm:text-base font-bold text-white hover:text-techBlue transition cursor-pointer">Why Your Local Business Needs a Clean Website</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed">Having a Facebook page isn't enough anymore. Learn how a real, fast Google-friendly website builds absolute trust and brings customer calls directly to your store without expensive ads.</p>
                     </div>
                 </div>
-                <div>
-                    <label class="block text-[11px] font-bold uppercase tracking-wider mb-2 dark:text-white">Select Targeted Infrastructure Model</label>
-                    <select id="formService" name="Service" class="w-full bg-white dark:bg-black border border-gray-300 dark:border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-techBlue text-black dark:text-white">
-                        <option>Certified IT Academy Track Registration</option>
-                        <option>Custom Web Architecture Engineering</option>
-                        <option>Conversational Business AI Integrations</option>
-                        <option>Structural CCTV Network Array Layout</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-[11px] font-bold uppercase tracking-wider mb-2 dark:text-white">Project Brief Specifics</label>
-                    <textarea id="formMessage" name="Message" rows="4" required class="w-full bg-white dark:bg-black border border-gray-300 dark:border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-techBlue text-black dark:text-white" placeholder="Outline your technical goals, parameters, or timeline requirements..."></textarea>
-                </div>
-                <button type="submit" class="w-full bg-techBlue hover:bg-blue-600 text-white font-bold text-sm py-3.5 rounded-full shadow-md transition duration-300 mt-2">Dispatch Packet Request</button>
-            </form>
-        </div>
-    </main>
+                <div class="px-5 pb-5 text-[10px] text-gray-500 font-medium">June 10, 2026 • 4 Min Read</div>
+            </article>
 
-    <footer class="w-full border-t border-gray-200 dark:border-white/5 bg-gray-100 dark:bg-black/40 py-12 text-center text-appleGray text-xs max-w-full overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-left mb-8">
-            <div class="space-y-2">
-                <h4 class="font-bold dark:text-white text-sm">Eazzesam Technologies</h4>
-                <p class="text-xs text-gray-500 dark:text-appleGray">Engineering intelligent digital framework systems. Innovate. Automate. Elevate.</p>
-            </div>
-            <div class="space-y-2">
-                <h4 class="font-bold dark:text-white text-sm">Quick Links</h4>
-                <div class="grid grid-cols-2 gap-1 text-xs">
-                    <a href="#" onclick="navigateTo('home')" class="hover:text-techBlue">Home</a>
-                    <a href="#" onclick="navigateTo('about')" class="hover:text-techBlue">About</a>
-                    <a href="#" onclick="navigateTo('services')" class="hover:text-techBlue">Services</a>
-                    <a href="#" onclick="navigateTo('academy')" class="hover:text-techBlue">Academy</a>
+            <article class="glass-card border border-white/5 rounded-[2rem] overflow-hidden shadow-xl flex flex-col justify-between transform hover:scale-[1.02] duration-300">
+                <div>
+                    <div class="h-48 relative">
+                        <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=400&q=80" alt="Smart Security Setup" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-cardBg via-transparent to-transparent"></div>
+                        <span class="absolute top-4 left-4 bg-amber-500/90 text-slate-950 text-[10px] font-bold px-2 py-1 rounded-md uppercase">Home Security</span>
+                    </div>
+                    <div class="p-5 space-y-2">
+                        <h3 class="text-sm sm:text-base font-bold text-white hover:text-innovGreen transition cursor-pointer">Security Cameras: Keeping an Eye on Home from Anywhere</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed">Ever wondered how people view their homes while traveling? We break down how modern phone-connected CCTV security loops give you total comfort while you are far away at work.</p>
+                    </div>
+                </div>
+                <div class="px-5 pb-5 text-[10px] text-gray-500 font-medium">May 28, 2026 • 6 Min Read</div>
+            </article>
+
+            <article class="glass-card border border-white/5 rounded-[2rem] overflow-hidden shadow-xl flex flex-col justify-between transform hover:scale-[1.02] duration-300">
+                <div>
+                    <div class="h-48 relative">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=400&q=80" alt="Creative Clean Graphics" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-cardBg via-transparent to-transparent"></div>
+                        <span class="absolute top-4 left-4 bg-rose-500/90 text-white text-[10px] font-bold px-2 py-1 rounded-md uppercase">Branding Tips</span>
+                    </div>
+                    <div class="p-5 space-y-2">
+                        <h3 class="text-sm sm:text-base font-bold text-white hover:text-purple-400 transition cursor-pointer">The Secret of Good Branding: More Than Just a Logo</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed">Why do customers pay more to famous brands? Find out how choosing clean business colors, crisp text flyers, and professional cinematic videos instantly sets you apart from amateur setups.</p>
+                    </div>
+                </div>
+                <div class="px-5 pb-5 text-[10px] text-gray-500 font-medium">May 14, 2026 • 5 Min Read</div>
+            </article>
+        </div>
+    </div>
+
+    <div id="page-contact" class="page-section max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 animate__animated animate__fadeIn">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
+            <div class="lg:col-span-5 space-y-6">
+                <div>
+                    <span class="text-xs font-bold tracking-widest text-innovGreen uppercase block">// TALK TO US</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-white mt-1">Let's Discuss Your Project</h2>
+                </div>
+                <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                    Ready to build your system, ask for custom prices, or register for our practical IT training modules? Send us a message below.
+                </p>
+
+                <div class="space-y-3.5 pt-2">
+                    <div class="flex items-center space-x-4 glass-card p-4 rounded-[1.5rem] border border-white/5 transform hover:translate-x-2 duration-200">
+                        <div class="w-10 h-10 glass-card-bright text-techBlue rounded-lg flex items-center justify-center flex-shrink-0 border border-white/5"><i class="fa-solid fa-phone"></i></div>
+                        <div class="min-w-0">
+                            <span class="text-[10px] uppercase tracking-wider text-gray-500 block">Phone call / WhatsApp</span>
+                            <a href="tel:0542424592" class="text-xs sm:text-sm font-bold text-white hover:underline block truncate">054 242 4592</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-4 glass-card p-4 rounded-[1.5rem] border border-white/5 transform hover:translate-x-2 duration-200">
+                        <div class="w-10 h-10 glass-card-bright text-innovGreen rounded-lg flex items-center justify-center flex-shrink-0 border border-white/5"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="min-w-0">
+                            <span class="text-[10px] uppercase tracking-wider text-gray-500 block">Direct Email Address</span>
+                            <a href="mailto:sammyoun24@gmail.com" class="text-xs sm:text-sm font-bold text-white hover:underline block truncate">sammyoun24@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-4 glass-card p-4 rounded-[1.5rem] border border-white/5 transform hover:translate-x-2 duration-200">
+                        <div class="w-10 h-10 glass-card-bright text-purple-400 rounded-lg flex items-center justify-center flex-shrink-0 border border-white/5"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="min-w-0">
+                            <span class="text-[10px] uppercase tracking-wider text-gray-500 block">Our Location Node</span>
+                            <span class="text-xs sm:text-sm font-bold text-white block truncate">Accra, Ghana</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="space-y-2">
-                <h4 class="font-bold dark:text-white text-sm">Contact Hub</h4>
-                <p class="text-xs text-gray-500 dark:text-appleGray">Accra, Ghana<br>Phone: +233 54 242 4592<br>Email: info@eazzesam.com</p>
+
+            <div class="lg:col-span-7 glass-card border border-white/5 p-5 sm:p-8 rounded-[2rem] relative shadow-xl">
+                <form id="contactForm" onsubmit="handleFormSubmission(event)" class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="space-y-1.5">
+                            <label class="text-[10px] sm:text-[11px] font-bold text-gray-400 uppercase tracking-wide">Your Name / Business Name</label>
+                            <input type="text" required class="w-full glass-card border border-white/5 rounded-xl px-4 py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-techBlue transition" placeholder="e.g. Ama Serwaa">
+                        </div>
+                        <div class="space-y-1.5">
+                            <label class="text-[10px] sm:text-[11px] font-bold text-gray-400 uppercase tracking-wide">Phone Number</label>
+                            <input type="tel" required class="w-full glass-card border border-white/5 rounded-xl px-4 py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-techBlue transition" placeholder="e.g. 0542424592">
+                        </div>
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] sm:text-[11px] font-bold text-gray-400 uppercase tracking-wide">Your Email</label>
+                        <input type="email" required class="w-full glass-card border border-white/5 rounded-xl px-4 py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-techBlue transition" placeholder="yourname@gmail.com">
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] sm:text-[11px] font-bold text-gray-400 uppercase tracking-wide">What help do you need?</label>
+                        <select class="w-full glass-card border border-white/5 rounded-xl px-4 py-3 text-xs sm:text-sm text-gray-400 focus:outline-none focus:border-techBlue transition">
+                            <option>I want to register for Certified IT Training Sessions</option>
+                            <option>I need a professional business website</option>
+                            <option>I want security cameras installed</option>
+                            <option>I need smart home / automatic locks setup</option>
+                        </select>
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] sm:text-[11px] font-bold text-gray-400 uppercase tracking-wide">Tell us about your plans</label>
+                        <textarea rows="4" required class="w-full glass-card border border-white/5 rounded-xl px-4 py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-techBlue transition" placeholder="Type what you want us to do for you here..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-gradient-to-r from-techBlue to-innovGreen text-slate-950 font-bold text-xs py-3.5 rounded-full hover:opacity-95 transition tracking-widest uppercase apple-btn">
+                        Send Message <i class="fa-solid fa-paper-plane ml-1"></i>
+                    </button>
+                </form>
+                <div id="formSuccess" class="hidden absolute inset-0 glass-card rounded-[2rem] flex flex-col items-center justify-center text-center p-4 sm:p-6 space-y-3 animate__animated animate__fadeIn">
+                    <div class="w-14 h-14 bg-innovGreen/10 text-innovGreen text-2xl rounded-full flex items-center justify-center neon-glow-green"><i class="fa-solid fa-circle-check"></i></div>
+                    <h3 class="text-base sm:text-lg font-bold text-white">Message Sent Successfully!</h3>
+                    <p class="text-xs text-gray-400 max-w-sm">Thank you. Eazzesam Technologies analytics desk has received your request and will call you right back.</p>
+                    <button onclick="resetContactForm()" class="text-xs text-techBlue underline hover:text-white pt-2">Send another note</button>
+                </div>
             </div>
         </div>
-        <div class="max-w-5xl mx-auto px-6 border-t border-gray-200 dark:border-white/5 pt-6">
-            <div class="text-[10px] text-gray-400 dark:text-appleGray/60">&copy; 2026 EAZZESAM TECHNOLOGIES. All Rights Reserved.</div>
+    </div>
+
+    <footer class="w-full border-t border-white/5 bg-white/[0.01] py-10 text-center text-gray-500 text-[11px] sm:text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-3">
+            <div class="text-white font-bold text-xs sm:text-sm tracking-wider">EAZZESAM_TECHNOLOGIES</div>
+            <p class="text-gray-400 italic">“Your Vision, Our Technology.”</p>
+            <div class="text-[9px] sm:text-[10px] tracking-widest text-gray-600">&copy; 2026 EAZZESAM TECHNOLOGIES. All Rights Reserved.</div>
         </div>
     </footer>
 
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col space-y-3">
-        <a href="https://wa.me/233542424592" target="_blank" class="bg-[#25D366] text-white w-11 h-11 rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition duration-300">
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.004 2C6.48 2 2 6.48 2 12.004c0 1.764.457 3.42 1.257 4.872L2 22l5.244-1.377a9.932 9.932 0 004.76 1.21c5.524 0 10.004-4.477 10.004-10.004C22.008 6.48 17.528 2 12.004 2z" fill="#FFFFFF"/></svg>
-        </a>
-    </div>
-
     <script>
-        (function initTheme() {
-            const savedTheme = localStorage.getItem('eazzesam_theme') || 'dark';
-            if (savedTheme === 'dark') {
-                document.documentElement.classList.add('dark');
-                document.getElementById('themeToggleIcon').innerText = 'light_mode';
-            } else {
-                document.documentElement.classList.add('light');
-                document.documentElement.classList.remove('dark');
-                document.getElementById('themeToggleIcon').innerText = 'dark_mode';
-            }
-        })();
+        // Structural Typing Assessment Engine Variables
+        let startTime = null;
+        let timerInterval = null;
+        const targetString = "Building high quality web systems requires responsive layouts and solid data logic pipes.";
 
-        function toggleThemeMode() {
-            const isDark = document.documentElement.classList.contains('dark');
-            if (isDark) {
-                document.documentElement.classList.remove('dark');
-                document.documentElement.classList.add('light');
-                localStorage.setItem('eazzesam_theme', 'light');
-                document.getElementById('themeToggleIcon').innerText = 'dark_mode';
-            } else {
-                document.documentElement.classList.remove('light');
-                document.documentElement.classList.add('dark');
-                localStorage.setItem('eazzesam_theme', 'dark');
-                document.getElementById('themeToggleIcon').innerText = 'light_mode';
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btnIcon = document.getElementById('mobileMenuBtn').querySelector('i');
+            menu.classList.toggle('hidden');
+            btnIcon.className = menu.classList.contains('hidden') ? "fa-solid fa-bars" : "fa-solid fa-xmark";
+        }
+
+        function navigateTo(pageId) {
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(sec => sec.classList.remove('active-page'));
+
+            const navLinks = document.querySelectorAll('header nav a');
+            navLinks.forEach(link => link.classList.remove('nav-active'));
+
+            const mobLinks = document.querySelectorAll('#mobileMenu a');
+            mobLinks.forEach(link => link.classList.remove('mobile-nav-active'));
+
+            const targetSection = document.getElementById(`page-${pageId}`);
+            if(targetSection) {
+                targetSection.classList.add('active-page');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            const activeNav = document.getElementById(`nav-${pageId}`);
+            if(activeNav) activeNav.classList.add('nav-active');
+
+            const activeMobNav = document.getElementById(`mob-nav-${pageId}`);
+            if(activeMobNav) activeMobNav.classList.add('mobile-nav-active');
+        }
+
+        // Typing Loop Verification Logic
+        function checkTypingProgress() {
+            const inputField = document.getElementById('typingInput');
+            const userString = inputField.value;
+            
+            if (!startTime && userString.length > 0) {
+                startTime = new Date();
+                timerInterval = setInterval(updateTypingTimer, 500);
+            }
+
+            // Calculation accuracy parameters
+            let mistakes = 0;
+            const minLength = Math.min(userString.length, targetString.length);
+            for (let i = 0; i < minLength; i++) {
+                if (userString[i] !== targetString[i]) mistakes++;
+            }
+            
+            const dynamicAccuracy = userString.length > 0 
+                ? Math.max(0, Math.round(((userString.length - mistakes) / userString.length) * 100)) 
+                : 100;
+            
+            document.getElementById('accuracyLabel').innerText = `${dynamicAccuracy}%`;
+            document.getElementById('accuracyLabel').className = dynamicAccuracy < 85 ? "text-rose-400 font-bold" : "text-innovGreen font-bold";
+
+            // Metric tracking outputs
+            if (userString.length > 0 && startTime) {
+                const currentTime = new Date();
+                const minutesElapsed = (currentTime - startTime) / 60000;
+                const wordsTyped = userString.length / 5;
+                const dynamicWPM = Math.round(wordsTyped / (minutesElapsed || 0.01));
+                document.getElementById('wpmLabel').innerText = `${dynamicWPM} WPM`;
+            }
+
+            // Victory logic criteria
+            if (userString === targetString) {
+                clearInterval(timerInterval);
+                inputField.disabled = true;
+                document.getElementById('typingFeedbackPanel').classList.remove('hidden');
             }
         }
 
-        function toggleFaqElement(element) {
-            const isActive = element.classList.contains('active');
-            document.querySelectorAll('.faq-item').forEach(item => {
-                item.classList.remove('active');
-                item.querySelector('span').style.transform = 'rotate(0deg)';
-            });
-            if (!isActive) {
-                element.classList.add('active');
-                element.querySelector('span').style.transform = 'rotate(180deg)';
-            }
+        function updateTypingTimer() {
+            if (!startTime) return;
+            const runtimeSeconds = Math.floor((new Date() - startTime) / 1000);
+            document.getElementById('timerLabel').innerText = `${runtimeSeconds}s`;
         }
 
-        function resizeTerminalCanvas(size) {
+        function resetTypingGame() {
+            clearInterval(timerInterval);
+            startTime = null;
+            timerInterval = null;
+            document.getElementById('typingInput').value = '';
+            document.getElementById('typingInput').disabled = false;
+            document.getElementById('timerLabel').innerText = '0s';
+            document.getElementById('accuracyLabel').innerText = '100%';
+            document.getElementById('accuracyLabel').className = 'text-innovGreen font-bold';
+            document.getElementById('wpmLabel').innerText = '0 WPM';
+            document.getElementById('typingFeedbackPanel').classList.add('hidden');
+        }
+
+function resizeTerminalCanvas(size) {
             const container = document.getElementById('sizableChatContainer');
             const consoleBox = document.getElementById('dedicatedConsole');
             
@@ -982,10 +1138,34 @@
             document.getElementById('dedicatedConsole').innerHTML = `<div class="flex flex-col space-y-1 max-w-[85%]"><div class="bg-gray-200 dark:bg-white/[0.05] text-black dark:text-white p-4 rounded-2xl rounded-tl-none">Memory matrix cleared. Terminal balanced.</div></div>`;
         }
 
-        async function handleFormSubmission(e) {
-            e.preventDefault();
-            alert("Form payload dispatched! For real-time scheduling confirmation, connect directly via our floating WhatsApp utility node.");
-        }
+        function handleFormSubmission(e) { e.preventDefault(); document.getElementById('formSuccess').classList.remove('hidden'); }
+        function resetContactForm() { document.getElementById('contactForm').reset(); document.getElementById('formSuccess').classList.add('hidden'); }
     </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
