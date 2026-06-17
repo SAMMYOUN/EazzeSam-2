@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth overflow-x-hidden max-w-full">
 <head>
@@ -102,6 +103,19 @@
         }
         .faq-item.active .faq-content {
             max-height: 200px;
+        }
+        
+        /* Typing Game Styles */
+        .typing-char-correct {
+            color: #34c759;
+            font-weight: bold;
+        }
+        .typing-char-incorrect {
+            color: #ff3b30;
+            background-color: rgba(255, 59, 48, 0.2);
+        }
+        .typing-char-pending {
+            color: #8e8e93;
         }
     </style>
 </head>
@@ -229,225 +243,12 @@
                     </div>
                 </div>
             </section>
-
-            <section class="border-t border-gray-200 dark:border-white/5 bg-gray-50 dark:bg-white/[0.01] py-20 max-w-full">
-                <div class="max-w-5xl mx-auto px-6">
-                    <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
-                        <span class="text-xs font-bold tracking-wide text-techBlue uppercase block">Corporate Evolution & Legacy</span>
-                        <h2 class="text-3xl font-bold tracking-tight dark:text-white">Our Journey Through Innovation</h2>
-                        <p class="text-sm text-gray-600 dark:text-[#86868b]">How a dedicated hardware configuration and custom software consultancy evolved into a premier tech ecosystem hub.</p>
-                    </div>
-
-                    <div class="space-y-12 relative before:absolute before:inset-0 before:left-4 sm:before:left-1/2 before:w-0.5 before:bg-gray-300 dark:before:bg-white/10">
-                        <div class="relative flex flex-col sm:flex-row items-start sm:justify-between group">
-                            <div class="absolute left-4 sm:left-1/2 w-4 h-4 bg-techBlue rounded-full -translate-x-1.5 border-4 border-white dark:border-darkBg z-10 transition group-hover:scale-125"></div>
-                            <div class="w-full sm:w-[45%] pl-10 sm:pl-0 sm:text-right space-y-2">
-                                <span class="text-lg font-black text-techBlue">2021 — Origin Node</span>
-                                <h4 class="text-base font-bold dark:text-white">Inception & System Support</h4>
-                                <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Eazzesam Technologies launched as a centralized network layout diagnostics desk. We focused on deploying remote P2P surveillance architectures and configuring foundational server storage frameworks for corporate offices in the region.</p>
-                            </div>
-                            <div class="hidden sm:block w-[45%]"></div>
-                        </div>
-
-                        <div class="relative flex flex-col sm:flex-row items-start sm:justify-between group">
-                            <div class="absolute left-4 sm:left-1/2 w-4 h-4 bg-innovGreen rounded-full -translate-x-1.5 border-4 border-white dark:border-darkBg z-10 transition group-hover:scale-125"></div>
-                            <div class="hidden sm:block w-[45%]"></div>
-                            <div class="w-full sm:w-[45%] pl-10 space-y-2">
-                                <span class="text-lg font-black text-innovGreen">2023 — Paradigm Shift</span>
-                                <h4 class="text-base font-bold dark:text-white">Software Expansion & Web Architectures</h4>
-                                <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Responding to market shifts, our core team integrated dedicated software development nodes. We began writing bespoke relational database models and deploying modern enterprise e-commerce applications built on blazing fast utility architectures.</p>
-                            </div>
-                        </div>
-
-                        <div class="relative flex flex-col sm:flex-row items-start sm:justify-between group">
-                            <div class="absolute left-4 sm:left-1/2 w-4 h-4 bg-purple-500 rounded-full -translate-x-1.5 border-4 border-white dark:border-darkBg z-10 transition group-hover:scale-125"></div>
-                            <div class="w-full sm:w-[45%] pl-10 sm:pl-0 sm:text-right space-y-2">
-                                <span class="text-lg font-black text-purple-500">2025 — Automated Intelligence</span>
-                                <h4 class="text-base font-bold dark:text-white">AI Assistant Nodes & The Academy Hub</h4>
-                                <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">We scaled our technology suite by introducing contextual natural language intent filters and intelligent chatbots for business systems. Concurrently, the Eazzesam IT Competency Academy was formalized to solve the local tech skills gap through pure practical tracking loops.</p>
-                            </div>
-                            <div class="hidden sm:block w-[45%]"></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="border-t border-gray-200 dark:border-white/5 bg-gray-100/30 dark:bg-black/10 py-20 max-w-full">
-                <div class="max-w-4xl mx-auto px-6">
-                    <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
-                        <span class="text-xs font-bold tracking-wide text-techBlue uppercase block">Information Matrix</span>
-                        <h2 class="text-3xl font-bold tracking-tight dark:text-white">Frequently Asked Questions</h2>
-                    </div>
-
-                    <div class="space-y-4">
-                        <div class="faq-item border border-gray-200 dark:border-white/10 bg-white dark:bg-cardBgDark rounded-2xl p-5 cursor-pointer select-none" onclick="toggleFaqElement(this)">
-                            <div class="flex items-center justify-between">
-                                <h3 class="text-sm font-bold dark:text-white">Where is Eazzesam Technologies physically situated?</h3>
-                                <span class="material-symbols-outlined text-techBlue transition-transform duration-300 transform">expand_more</span>
-                            </div>
-                            <div class="faq-content mt-3">
-                                <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Our main technical operations workspace is positioned in Accra, Greater Accra Region, Ghana, supporting both localized field hardware setups and worldwide remote code contracts.</p>
-                            </div>
-                        </div>
-                        <div class="faq-item border border-gray-200 dark:border-white/10 bg-white dark:bg-cardBgDark rounded-2xl p-5 cursor-pointer select-none" onclick="toggleFaqElement(this)">
-                            <div class="flex items-center justify-between">
-                                <h3 class="text-sm font-bold dark:text-white">Are your IT Academy tracking sessions entirely practical?</h3>
-                                <span class="material-symbols-outlined text-techBlue transition-transform duration-300 transform">expand_more</span>
-                            </div>
-                            <div class="faq-content mt-3">
-                                <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Yes. We minimize theoretical reading files. Every candidate writes raw semantic systems code, provisions structural subnets, or manages live database query loops directly on their workstations.</p>
-                            </div>
-                        </div>
-                        <div class="faq-item border border-gray-200 dark:border-white/10 bg-white dark:bg-cardBgDark rounded-2xl p-5 cursor-pointer select-none" onclick="toggleFaqElement(this)">
-                            <div class="flex items-center justify-between">
-                                <h3 class="text-sm font-bold dark:text-white">Can the integrated AI chat systems map custom business profiles?</h3>
-                                <span class="material-symbols-outlined text-techBlue transition-transform duration-300 transform">expand_more</span>
-                            </div>
-                            <div class="faq-content mt-3">
-                                <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Absolutely. We build customized context pipelines linking directly to state engines like OpenAI or Gemini, configuring intent filters focused specifically on automated business metrics.</p>
-                            </div>
-                        </div>
-                        <div class="faq-item border border-gray-200 dark:border-white/10 bg-white dark:bg-cardBgDark rounded-2xl p-5 cursor-pointer select-none" onclick="toggleFaqElement(this)">
-                            <div class="flex items-center justify-between">
-                                <h3 class="text-sm font-bold dark:text-white">What is the common turnaround pipeline for application engineering?</h3>
-                                <span class="material-symbols-outlined text-techBlue transition-transform duration-300 transform">expand_more</span>
-                            </div>
-                            <div class="faq-content mt-3">
-                                <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Standard enterprise layout portals complete deployment within a 3 to 6-week timeframe, maintaining explicit milestone reviews throughout the progression loops.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <div id="page-about" class="page-section max-w-5xl mx-auto px-6 py-16 animate__animated animate__fadeIn overflow-hidden">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-6 space-y-6">
-                    <span class="text-xs font-bold tracking-wide text-techBlue uppercase block">Corporate Genesis</span>
-                    <h2 class="text-3xl font-bold tracking-tight dark:text-white">Engineering Intelligent Digital Futures</h2>
-                    <p class="text-gray-600 dark:text-[#86868b] text-sm leading-relaxed">
-                        Eazzesam Technologies is an integrated innovation powerhouse dedicated to building secure, modern digital solutions. We combine advanced software engineering, conversational AI structures, premium visual media assets, and security hardware configurations under unified processing nodes.
-                    </p>
-                    <div class="p-5 border-l-2 border-techBlue bg-gray-200/40 dark:bg-white/[0.02] rounded-r-2xl">
-                        <h4 class="text-xs font-bold dark:text-white uppercase tracking-wider mb-1">Operational Motto</h4>
-                        <p class="text-gray-600 dark:text-[#86868b] text-xs leading-relaxed">Innovate. Automate. Elevate. We smoothly translate abstract business goals into highly functional code metrics.</p>
-                    </div>
-                </div>
-                <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div class="apple-glass p-5 rounded-3xl">
-                        <h4 class="text-techBlue text-xs font-bold uppercase tracking-wider mb-2">Core Focus</h4>
-                        <ul class="text-xs text-gray-700 dark:text-[#86868b] space-y-2 font-medium">
-                            <li>• Professional Agile Deployments</li>
-                            <li>• High-Performance Engineering</li>
-                            <li>• Strict Standard Security Loops</li>
-                            <li>• Modular Microservices Code</li>
-                        </ul>
-                    </div>
-                    <div class="apple-glass p-5 rounded-3xl">
-                        <h4 class="text-innovGreen text-xs font-bold uppercase tracking-wider mb-2">Capabilities</h4>
-                        <ul class="text-xs text-gray-700 dark:text-[#86868b] space-y-2 font-medium">
-                            <li>• Interactive AI Automations</li>
-                            <li>• Cinema-Grade Visual Asset Editing</li>
-                            <li>• Remote P2P CCTV Monitoring</li>
-                            <li>• UI Component Prototyping</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="page-services" class="page-section max-w-5xl mx-auto px-6 py-16 animate__animated animate__fadeIn overflow-hidden">
-            <div class="text-center max-w-xl mx-auto mb-12 space-y-2">
-                <span class="text-xs font-bold tracking-wide text-gray-500 dark:text-appleGray uppercase block">Core Frameworks</span>
-                <h2 class="text-2xl sm:text-3xl font-bold tracking-tight dark:text-white">Our Product System Array</h2>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="apple-glass p-6 rounded-3xl apple-transition">
-                    <div class="text-techBlue mb-4"><span class="material-symbols-outlined text-[24px]">language</span></div>
-                    <h3 class="text-sm sm:text-base font-bold dark:text-white mb-2">Web Application Design</h3>
-                    <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Enterprise E-Commerce Engines, fluid institutional dashboards, and responsive customer pipeline portals styled clean.</p>
-                </div>
-                <div class="apple-glass p-6 rounded-3xl apple-transition">
-                    <div class="text-innovGreen mb-4"><span class="material-symbols-outlined text-[24px]">smart_toy</span></div>
-                    <h3 class="text-sm sm:text-base font-bold dark:text-white mb-2">Artificial Intelligence Solutions</h3>
-                    <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Omnichannel assistant routing, client intent filtering, and custom algorithmic automation scripting.</p>
-                </div>
-                <div class="apple-glass p-6 rounded-3xl apple-transition">
-                    <div class="text-amber-500 mb-4"><span class="material-symbols-outlined text-[24px]">videocam</span></div>
-                    <h3 class="text-sm sm:text-base font-bold dark:text-white mb-2">CCTV Network Deployments</h3>
-                    <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Multi-channel security setups, remote P2P configurations, and real-time mobile platform feeds.</p>
-                </div>
-            </div>
-        </div>
-
-        <div id="page-portfolio" class="page-section max-w-6xl mx-auto px-6 py-16 animate__animated animate__fadeIn overflow-hidden">
-            <div class="text-center max-w-xl mx-auto mb-12 space-y-2">
-                <span class="text-xs font-bold tracking-wide text-techBlue uppercase block">Proven Infrastructure</span>
-                <h2 class="text-3xl font-bold tracking-tight dark:text-white">10 Enterprise Project Deployments</h2>
-                <p class="text-xs text-gray-600 dark:text-[#86868b]">Review our verified operational case files completed across the region.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="apple-glass rounded-3xl overflow-hidden group apple-transition p-5 space-y-3">
-                    <span class="text-[10px] uppercase font-bold text-techBlue tracking-wider block">01. Institutional Portal</span>
-                    <h3 class="text-base font-bold dark:text-white">Apex Academy System</h3>
-                    <p class="text-gray-600 dark:text-[#86868b] text-xs leading-relaxed">A specialized school registration architecture routing pupil terminal files, electronic tuition logs, and digital report views seamlessly.</p>
-                </div>
-                <div class="apple-glass rounded-3xl overflow-hidden group apple-transition p-5 space-y-3">
-                    <span class="text-[10px] uppercase font-bold text-innovGreen tracking-wider block">02. E-Commerce Pipeline</span>
-                    <h3 class="text-base font-bold dark:text-white">Star Retail Core</h3>
-                    <p class="text-gray-600 dark:text-[#86868b] text-xs leading-relaxed">Integrated multi-vendor shopping system paired directly with automated stock notification systems and messaging checkout triggers.</p>
-                </div>
-                <div class="apple-glass rounded-3xl overflow-hidden group apple-transition p-5 space-y-3">
-                    <span class="text-[10px] uppercase font-bold text-amber-500 tracking-wider block">03. Hardware Security Loop</span>
-                    <h3 class="text-base font-bold dark:text-white">Elite Residential Surveillance</h3>
-                    <p class="text-gray-600 dark:text-[#86868b] text-xs leading-relaxed">Configured a 16-channel high-definition security layout mapping private boundaries with secure live remote smartphone streaming paths.</p>
-                </div>
-                <div class="apple-glass rounded-3xl overflow-hidden group apple-transition p-5 space-y-3">
-                    <span class="text-[10px] uppercase font-bold text-purple-500 tracking-wider block">04. Automation Node</span>
-                    <h3 class="text-base font-bold dark:text-white">Logistics Intent Bot</h3>
-                    <p class="text-gray-600 dark:text-[#86868b] text-xs leading-relaxed">An automated customer assistant handling freight rate inquiries, route statuses, and dispatch updates 24 hours a day.</p>
-                </div>
-                <div class="apple-glass rounded-3xl overflow-hidden group apple-transition p-5 space-y-3">
-                    <span class="text-[10px] uppercase font-bold text-cyan-500 tracking-wider block">05. Brand Architecture</span>
-                    <h3 class="text-base font-bold dark:text-white">Vanguard Identity Package</h3>
-                    <p class="text-gray-600 dark:text-[#86868b] text-xs leading-relaxed">A complete corporate visual rebranding comprising customized vector marks, uniform typography templates, and marketing assets.</p>
-                </div>
-                <div class="apple-glass rounded-3xl overflow-hidden group apple-transition p-5 space-y-3">
-                    <span class="text-[10px] uppercase font-bold text-rose-500 tracking-wider block">06. Database Consolidation</span>
-                    <h3 class="text-base font-bold dark:text-white">Health Center Record Matrix</h3>
-                    <p class="text-gray-600 dark:text-[#86868b] text-xs leading-relaxed">Constructed a secure, relational clinical indexing model optimized for swift patient queries and strict entry protections.</p>
-                </div>
-                <div class="apple-glass rounded-3xl overflow-hidden group apple-transition p-5 space-y-3">
-                    <span class="text-[10px] uppercase font-bold text-indigo-400 tracking-wider block">07. Infrastructure Link</span>
-                    <h3 class="text-base font-bold dark:text-white">Corporate Multi-Floor Subnet</h3>
-                    <p class="text-gray-600 dark:text-[#86868b] text-xs leading-relaxed">Designed and built physical enterprise local access relays and dynamic router load distributions across a commercial workspace.</p>
-                </div>
-                <div class="apple-glass rounded-3xl overflow-hidden group apple-transition p-5 space-y-3">
-                    <span class="text-[10px] uppercase font-bold text-emerald-500 tracking-wider block">08. Media Production</span>
-                    <h3 class="text-base font-bold dark:text-white">FinTech Launch Reel</h3>
-                    <p class="text-gray-600 dark:text-[#86868b] text-xs leading-relaxed">Filmed, structured, and polished a crisp promo commercial featuring precision color balancing and clear motion design titles.</p>
-                </div>
-                <div class="apple-glass rounded-3xl overflow-hidden group apple-transition p-5 space-y-3">
-                    <span class="text-[10px] uppercase font-bold text-orange-500 tracking-wider block">09. Connected Hardware</span>
-                    <h3 class="text-base font-bold dark:text-white">Hotel Biometric Gateways</h3>
-                    <p class="text-gray-600 dark:text-[#86868b] text-xs leading-relaxed">Installed a smart entry framework utilizing microcontrollers synced directly with server room access authorization lists.</p>
-                </div>
-                <div class="apple-glass rounded-3xl overflow-hidden group apple-transition p-5 space-y-3">
-                    <span class="text-[10px] uppercase font-bold text-teal-400 tracking-wider block">10. Specialized Web Tool</span>
-                    <h3 class="text-base font-bold dark:text-white">Agro-Price Index Tracker</h3>
-                    <p class="text-gray-600 dark:text-[#86868b] text-xs leading-relaxed">A live market dashboard featuring responsive visual tables rendering dynamic updates across regional trading centers.</p>
-                </div>
-            </div>
         </div>
 
         <div id="page-academy" class="page-section max-w-6xl mx-auto px-6 py-16 animate__animated animate__fadeIn overflow-hidden">
-            <div class="bg-gray-200/50 dark:bg-white/[0.02] border border-gray-300 dark:border-white/10 rounded-3xl p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
                 <div class="lg:col-span-7 space-y-4">
-                    <div class="inline-flex items-center space-x-2 bg-innovGreen/10 border border-innovGreen/20 px-3 py-1 rounded-full text-[11px] text-innovGreen font-bold uppercase">
-                        <span class="material-symbols-outlined text-xs">school</span> Competency Hub
-                    </div>
+                    <span class="text-xs font-bold tracking-wide text-techBlue uppercase block">Hands-On Certification</span>
                     <h2 class="text-2xl sm:text-3xl font-bold tracking-tight dark:text-white leading-none">Practical IT Competency Tracks</h2>
                     <p class="text-gray-600 dark:text-[#86868b] text-xs sm:text-sm leading-relaxed">
                         Skip abstract calculations. Gain real-world tactical keyboard workflow mastery. Review our 10 engineering domains below, test your alignment performance, and complete the official details payload enrollment file.
@@ -497,7 +298,7 @@
                     <div class="space-y-2">
                         <div class="text-amber-500"><span class="material-symbols-outlined text-[24px]">shield</span></div>
                         <h4 class="text-sm sm:text-base font-bold dark:text-white">CCTV & IP Surveillance Networking</h4>
-                        <p class="text-gray-600 dark:text-[#86868b] text-xs leading-relaxed">Trace network subnets, route multi-channel DVR/NVR hardware setups, clip data storage nodes, and link mobile streams.</p>
+                        <p class="text-gray-600 dark:text-[#86868b] text-xs leading-relaxed">Deploy high-definition camera arrays, configure PoE switches, and route secure video feeds across enterprise subnets.</p>
                     </div>
                     <span class="text-xs text-innovGreen font-bold bg-innovGreen/10 px-2.5 py-1 rounded-full self-start">6 Weeks Duration</span>
                 </div>
@@ -667,86 +468,34 @@
                     <div class="flex items-center space-x-2 bg-gray-200 dark:bg-black p-1 rounded-xl border border-gray-300 dark:border-white/10">
                         <button onclick="resizeTerminalCanvas('compact')" class="text-[10px] font-bold px-2.5 py-1 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-white/10">Compact</button>
                         <button onclick="resizeTerminalCanvas('medium')" class="text-[10px] font-bold px-2.5 py-1 rounded-lg bg-techBlue text-white shadow-sm">Standard</button>
-                        <button onclick="resizeTerminalCanvas('expanded')" class="text-[10px] font-bold px-3 py-1.5 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-white/10 text-xs flex items-center gap-1"><span class="material-symbols-outlined text-xs">menu_book</span> Pro Reading Mode</button>
+                        <button onclick="resizeTerminalCanvas('expanded')" class="text-[10px] font-bold px-2.5 py-1 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-white/10">Expanded</button>
                     </div>
-
-                    <button onclick="clearDedicatedChat()" class="text-xs text-gray-600 dark:text-appleGray hover:text-rose-500 flex items-center gap-1 font-bold">
-                        <span class="material-symbols-outlined text-sm">restart_alt</span> Clear Board
-                    </button>
                 </div>
 
-                <div id="dedicatedConsole" class="flex-1 p-6 overflow-y-auto space-y-4 text-sm custom-scrollbar bg-gray-50/50 dark:bg-black/20 text-base transition-all duration-200">
-                    <div class="flex flex-col space-y-1 max-w-[75%]">
-                        <div class="bg-gray-200 dark:bg-white/[0.05] p-4 rounded-2xl rounded-tl-none leading-relaxed border border-gray-300 dark:border-transparent">
-                            Greetings. I am the engineered knowledge agent of Eazzesam Technologies. Query me regarding our courses, location, or general computing protocols like HTML, JS, networks, or cybersecurity. Watch me stream your replies step-by-step.
+                <div id="dedicatedConsole" class="flex-1 p-6 overflow-y-auto space-y-4 text-sm custom-scrollbar bg-gray-50/50 dark:bg-black/20">
+                    <div class="flex flex-col space-y-1 max-w-[85%]">
+                        <div class="bg-gray-200 dark:bg-white/[0.05] text-black dark:text-white p-4 rounded-2xl rounded-tl-none">
+                            Welcome to Eazzesam Technologies Intelligence Engine. Ask me about our services, courses, or technical topics like HTML, CSS, JavaScript, databases, and networking.
                         </div>
-                        <span class="text-[9px] text-appleGray px-1">Eazzesam Neural Engine</span>
+                        <span class="text-[9px] text-appleGray px-1">Eazzesam Intelligent Node</span>
                     </div>
                 </div>
 
-                <div id="chatSystemLoader" class="hidden px-6 py-2 bg-gray-100/50 dark:bg-black/10 text-xs text-techBlue font-medium items-center space-x-2">
-                    <div class="flex space-x-1 items-center">
+                <div class="bg-gray-100 dark:bg-black/40 border-t border-gray-200 dark:border-white/5 px-4 py-4 flex gap-2">
+                    <div id="chatSystemLoader" class="hidden flex items-center space-x-1.5 px-3 py-2">
                         <div class="w-1.5 h-1.5 bg-techBlue rounded-full typing-dot"></div>
                         <div class="w-1.5 h-1.5 bg-techBlue rounded-full typing-dot"></div>
                         <div class="w-1.5 h-1.5 bg-techBlue rounded-full typing-dot"></div>
                     </div>
-                    <span>Processing knowledge matrices. Extracting chapters...</span>
+                    <form onsubmit="handleDedicatedChatInput(event)" class="flex-1 flex gap-2">
+                        <input id="dedicatedField" type="text" placeholder="Type your question..." class="flex-1 bg-white dark:bg-cardBgDark border border-gray-300 dark:border-white/10 rounded-full px-4 py-2 text-xs text-black dark:text-white focus:outline-none focus:border-techBlue">
+                        <button type="submit" class="bg-techBlue text-white px-4 py-2 rounded-full text-xs font-bold hover:bg-blue-600">Send</button>
+                    </form>
                 </div>
-
-                <div class="px-6 py-3 flex flex-wrap gap-2 border-t border-gray-200 dark:border-white/5 bg-gray-100 dark:bg-black/40">
-                    <button onclick="triggerDedicatedReply('What are your hours?')" class="bg-white dark:bg-black border border-gray-300 dark:border-white/20 text-xs px-3 py-1.5 rounded-full hover:border-techBlue transition font-medium">🕒 Hours</button>
-                    <button onclick="triggerDedicatedReply('Tell me about your JavaScript training')" class="bg-white dark:bg-black border border-gray-300 dark:border-white/20 text-xs px-3 py-1.5 rounded-full hover:border-innovGreen transition font-medium">💻 JavaScript Course</button>
-                    <button onclick="triggerDedicatedReply('What is the difference between HTML and CSS?')" class="bg-white dark:bg-black border border-gray-300 dark:border-white/20 text-xs px-3 py-1.5 rounded-full hover:border-amber-500 transition font-medium">🌐 HTML vs CSS</button>
-                    <button onclick="triggerDedicatedReply('What is an IP address?')" class="bg-white dark:bg-black border border-gray-300 dark:border-white/20 text-xs px-3 py-1.5 rounded-full hover:border-purple-500 transition font-medium">📡 IP Address Info</button>
-                </div>
-
-                <form onsubmit="handleDedicatedChatInput(event)" class="p-4 bg-gray-100 dark:bg-cardBgDark border-t border-gray-200 dark:border-white/5 flex items-center space-x-3">
-                    <input id="dedicatedField" type="text" required autocomplete="off" class="flex-1 bg-white dark:bg-black text-sm px-5 py-3.5 rounded-full border border-gray-300 dark:border-white/10 text-black dark:text-white focus:outline-none focus:border-techBlue" placeholder="Ask about Eazzesam, HTML, CSS, Javascript, Databases, Networks, or Cyber Security...">
-                    <button type="submit" class="bg-techBlue text-white font-bold px-6 py-3.5 rounded-full hover:bg-blue-600 transition flex items-center gap-1.5 shadow-sm">
-                        <span>Query</span> <span class="material-symbols-outlined text-sm">send</span>
-                    </button>
-                </form>
             </div>
         </div>
 
         <div id="page-blog" class="page-section max-w-6xl mx-auto px-6 py-16 animate__animated animate__fadeIn">
-            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
-                <span class="text-xs font-bold tracking-wide text-techBlue uppercase block">Engineering Library</span>
-                <h2 class="text-4xl font-extrabold tracking-tight dark:text-white">Knowledge Node Insights</h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <article class="apple-glass rounded-3xl overflow-hidden flex flex-col justify-between p-6 space-y-4 border border-gray-200 dark:border-white/5">
-                    <div class="space-y-2">
-                        <span class="text-[10px] uppercase font-bold text-techBlue">Digital Strategy</span>
-                        <h3 class="text-base font-bold dark:text-white leading-snug">Why Your Enterprise Needs an Elite Custom Website</h3>
-                        <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Relying entirely on rented social media profiles leaves your business highly vulnerable to sudden algorithmic shadowbans and layout monetization visibility resets.</p>
-                    </div>
-                    <span class="text-[10px] text-appleGray font-semibold">June 2026 • 4 Min Read</span>
-                </article>
-
-                <article class="apple-glass rounded-3xl overflow-hidden flex flex-col justify-between p-6 space-y-4 border border-gray-200 dark:border-white/5">
-                    <div class="space-y-2">
-                        <span class="text-[10px] uppercase font-bold text-innovGreen">Data Logic</span>
-                        <h3 class="text-base font-bold dark:text-white leading-snug">Demystifying Relational Database Normalization</h3>
-                        <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Redundant record storage slows execution pools down. Learn how structural column splitting ensures zero duplication and maximizes complex query loops.</p>
-                    </div>
-                    <span class="text-[10px] text-appleGray font-semibold">May 2026 • 6 Min Read</span>
-                </article>
-
-                <article class="apple-glass rounded-3xl overflow-hidden flex flex-col justify-between p-6 space-y-4 border border-gray-200 dark:border-white/5">
-                    <div class="space-y-2">
-                        <span class="text-[10px] uppercase font-bold text-purple-500">Security Architecture</span>
-                        <h3 class="text-base font-bold dark:text-white leading-snug">Hardening Local Surveillance Subnet Paths</h3>
-                        <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Exposing network recorders directly to open WAN gateways is a major operational risk. We review the deployment rules for hardware firewalls and secure VPN loops.</p>
-                    </div>
-                    <span class="text-[10px] text-appleGray font-semibold">April 2026 • 5 Min Read</span>
-                </article>
-            </div>
-        </div>
-
-        <!-- BLOG -->
-        <div id="page-blog" class="page-section max-w-6xl mx-auto px-6 py-16 animate__animated animate__fadeIn overflow-hidden">
             <div class="mb-12 text-center max-w-xl mx-auto space-y-2">
                 <span class="text-xs font-bold tracking-wide text-techBlue uppercase block">Intellectual Repositories</span>
                 <h2 class="text-3xl font-bold tracking-tight dark:text-white">Eazzesam Systems Journal Node</h2>
@@ -754,6 +503,7 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Original 6 blogs -->
                 <article class="apple-glass rounded-3xl overflow-hidden flex flex-col justify-between apple-transition">
                     <div>
                         <div class="w-full h-44 bg-gray-300 overflow-hidden border-b border-gray-200 dark:border-white/10">
@@ -837,6 +587,133 @@
                     </div>
                     <div class="p-5 pt-0"><span class="text-[10px] text-gray-400 font-bold">5 Min Read • June 2026</span></div>
                 </article>
+
+                <!-- New 9 tech blogs -->
+                <article class="apple-glass rounded-3xl overflow-hidden flex flex-col justify-between apple-transition">
+                    <div>
+                        <div class="w-full h-44 bg-gray-300 overflow-hidden border-b border-gray-200 dark:border-white/10">
+                            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=400&q=80" alt="Cloud Infrastructure" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-5 space-y-2">
+                            <span class="bg-blue-500 text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider inline-block">Cloud Computing</span>
+                            <h3 class="text-base font-bold dark:text-white">Scaling Applications with Cloud-Native Architecture Patterns</h3>
+                            <p class="text-gray-600 dark:text-[#86868b] text-xs leading-relaxed">Master containerization, microservices orchestration, and distributed load balancing to build resilient applications that scale automatically.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0"><span class="text-[10px] text-gray-400 font-bold">9 Min Read • June 2026</span></div>
+                </article>
+
+                <article class="apple-glass rounded-3xl overflow-hidden flex flex-col justify-between apple-transition">
+                    <div>
+                        <div class="w-full h-44 bg-gray-300 overflow-hidden border-b border-gray-200 dark:border-white/10">
+                            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" alt="Machine Learning" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-5 space-y-2">
+                            <span class="bg-indigo-500 text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider inline-block">Machine Learning</span>
+                            <h3 class="text-base font-bold dark:text-white">Building Predictive Models with Neural Network Frameworks</h3>
+                            <p class="text-gray-600 dark:text-[#86868b] text-xs leading-relaxed">Explore TensorFlow and PyTorch ecosystems to construct deep learning pipelines that extract actionable insights from massive datasets.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0"><span class="text-[10px] text-gray-400 font-bold">11 Min Read • June 2026</span></div>
+                </article>
+
+                <article class="apple-glass rounded-3xl overflow-hidden flex flex-col justify-between apple-transition">
+                    <div>
+                        <div class="w-full h-44 bg-gray-300 overflow-hidden border-b border-gray-200 dark:border-white/10">
+                            <img src="https://images.unsplash.com/photo-1633356122544-f134324ef6db?auto=format&fit=crop&w=400&q=80" alt="DevOps Pipeline" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-5 space-y-2">
+                            <span class="bg-orange-500 text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider inline-block">DevOps</span>
+                            <h3 class="text-base font-bold dark:text-white">Automating Deployment Pipelines with CI/CD Infrastructure</h3>
+                            <p class="text-gray-600 dark:text-[#86868b] text-xs leading-relaxed">Implement continuous integration and deployment workflows using GitHub Actions, Jenkins, and Docker to accelerate release cycles.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0"><span class="text-[10px] text-gray-400 font-bold">8 Min Read • June 2026</span></div>
+                </article>
+
+                <article class="apple-glass rounded-3xl overflow-hidden flex flex-col justify-between apple-transition">
+                    <div>
+                        <div class="w-full h-44 bg-gray-300 overflow-hidden border-b border-gray-200 dark:border-white/10">
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&q=80" alt="API Development" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-5 space-y-2">
+                            <span class="bg-green-500 text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider inline-block">Backend APIs</span>
+                            <h3 class="text-base font-bold dark:text-white">Designing RESTful APIs with Advanced Authentication Protocols</h3>
+                            <p class="text-gray-600 dark:text-[#86868b] text-xs leading-relaxed">Learn OAuth2, JWT token management, and rate limiting strategies to build secure, scalable API endpoints for modern applications.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0"><span class="text-[10px] text-gray-400 font-bold">7 Min Read • June 2026</span></div>
+                </article>
+
+                <article class="apple-glass rounded-3xl overflow-hidden flex flex-col justify-between apple-transition">
+                    <div>
+                        <div class="w-full h-44 bg-gray-300 overflow-hidden border-b border-gray-200 dark:border-white/10">
+                            <img src="https://images.unsplash.com/photo-1516534775068-bb57e39c1a29?auto=format&fit=crop&w=400&q=80" alt="Mobile Development" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-5 space-y-2">
+                            <span class="bg-pink-500 text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider inline-block">Mobile Apps</span>
+                            <h3 class="text-base font-bold dark:text-white">Cross-Platform Mobile Development with React Native</h3>
+                            <p class="text-gray-600 dark:text-[#86868b] text-xs leading-relaxed">Build native iOS and Android applications from a single JavaScript codebase using React Native and Expo for rapid deployment.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0"><span class="text-[10px] text-gray-400 font-bold">6 Min Read • June 2026</span></div>
+                </article>
+
+                <article class="apple-glass rounded-3xl overflow-hidden flex flex-col justify-between apple-transition">
+                    <div>
+                        <div class="w-full h-44 bg-gray-300 overflow-hidden border-b border-gray-200 dark:border-white/10">
+                            <img src="https://images.unsplash.com/photo-1551431009-381d36ac3a99?auto=format&fit=crop&w=400&q=80" alt="Web Security" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-5 space-y-2">
+                            <span class="bg-red-500 text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider inline-block">Web Security</span>
+                            <h3 class="text-base font-bold dark:text-white">Preventing OWASP Top 10 Vulnerabilities in Web Applications</h3>
+                            <p class="text-gray-600 dark:text-[#86868b] text-xs leading-relaxed">Comprehensive guide to preventing SQL injection, XSS attacks, CSRF tokens, and implementing secure session management protocols.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0"><span class="text-[10px] text-gray-400 font-bold">10 Min Read • June 2026</span></div>
+                </article>
+
+                <article class="apple-glass rounded-3xl overflow-hidden flex flex-col justify-between apple-transition">
+                    <div>
+                        <div class="w-full h-44 bg-gray-300 overflow-hidden border-b border-gray-200 dark:border-white/10">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=400&q=80" alt="Performance Optimization" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-5 space-y-2">
+                            <span class="bg-teal-500 text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider inline-block">Performance</span>
+                            <h3 class="text-base font-bold dark:text-white">Optimizing Web Performance with Caching and CDN Strategies</h3>
+                            <p class="text-gray-600 dark:text-[#86868b] text-xs leading-relaxed">Master browser caching, server-side caching, content delivery networks, and lazy loading techniques to achieve sub-second page loads.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0"><span class="text-[10px] text-gray-400 font-bold">7 Min Read • June 2026</span></div>
+                </article>
+
+                <article class="apple-glass rounded-3xl overflow-hidden flex flex-col justify-between apple-transition">
+                    <div>
+                        <div class="w-full h-44 bg-gray-300 overflow-hidden border-b border-gray-200 dark:border-white/10">
+                            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" alt="Testing Strategies" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-5 space-y-2">
+                            <span class="bg-violet-500 text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider inline-block">Testing</span>
+                            <h3 class="text-base font-bold dark:text-white">Comprehensive Testing Strategies: Unit, Integration, and E2E</h3>
+                            <p class="text-gray-600 dark:text-[#86868b] text-xs leading-relaxed">Implement Jest, Cypress, and Selenium frameworks to ensure code quality, catch regressions early, and maintain application reliability.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0"><span class="text-[10px] text-gray-400 font-bold">9 Min Read • June 2026</span></div>
+                </article>
+
+                <article class="apple-glass rounded-3xl overflow-hidden flex flex-col justify-between apple-transition">
+                    <div>
+                        <div class="w-full h-44 bg-gray-300 overflow-hidden border-b border-gray-200 dark:border-white/10">
+                            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=400&q=80" alt="Blockchain Technology" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-5 space-y-2">
+                            <span class="bg-yellow-600 text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider inline-block">Blockchain</span>
+                            <h3 class="text-base font-bold dark:text-white">Smart Contracts and Decentralized Application Development</h3>
+                            <p class="text-gray-600 dark:text-[#86868b] text-xs leading-relaxed">Build blockchain applications using Solidity, Web3.js, and Ethereum to create transparent, immutable transaction systems.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0"><span class="text-[10px] text-gray-400 font-bold">8 Min Read • June 2026</span></div>
+                </article>
             </div>
         </div>
 
@@ -911,7 +788,8 @@
                     <div id="formSuccess" class="hidden absolute inset-0 bg-white dark:bg-[#1c1c1e] rounded-3xl flex flex-col items-center justify-center text-center p-6 space-y-3">
                         <div class="w-12 h-12 bg-innovGreen/10 text-innovGreen rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-xl">check_circle</span></div>
                         <h3 class="text-base font-bold dark:text-white">Packet Transmitted Successfully!</h3>
-                        <button onclick="resetContactForm()" class="text-xs text-techBlue underline font-bold">Send another note</button>
+                        <p class="text-xs text-gray-600 dark:text-appleGray">Our team will review your request and respond within 24 hours.</p>
+                        <button onclick="resetContactForm()" class="text-xs text-techBlue font-bold hover:underline">Send Another Message</button>
                     </div>
                 </div>
             </div>
@@ -948,7 +826,7 @@
     <footer class="w-full border-t border-gray-200 dark:border-white/5 bg-gray-100 dark:bg-black/40 py-10 text-center text-appleGray text-xs max-w-full overflow-hidden">
         <div class="max-w-5xl mx-auto px-6 space-y-2">
             <div class="dark:text-white font-bold text-xs tracking-wide">Eazzesam Technologies</div>
-            <p class="text-appleGray italic text-[11px]">“Engineering Intelligent Digital Futures”</p>
+            <p class="text-appleGray italic text-[11px]">"Engineering Intelligent Digital Futures"</p>
             <div class="text-[10px] text-gray-400 dark:text-appleGray/60 pt-2">&copy; 2026 EAZZESAM TECHNOLOGIES. All Rights Reserved.</div>
         </div>
     </footer>
@@ -969,6 +847,61 @@
     </div>
 
     <script>
+        // ================= TYPING GAME ENGINE (FIXED) =================
+        let typingStartTime = null;
+        let typingCharCount = 0;
+
+        function processLiveTypingInput() {
+            const inputField = document.getElementById('typingGameField');
+            const promptText = document.getElementById('typingPromptText').innerText;
+            const userInput = inputField.value;
+
+            // Start timer on first character
+            if (userInput.length === 1 && typingStartTime === null) {
+                typingStartTime = Date.now();
+            }
+
+            // Calculate WPM
+            if (userInput.length > 0 && typingStartTime) {
+                const timeElapsedSeconds = (Date.now() - typingStartTime) / 1000;
+                const wordsTyped = userInput.trim().split(/\s+/).length;
+                const wpm = Math.round((wordsTyped / timeElapsedSeconds) * 60);
+                document.getElementById('typingWpmDisplay').innerText = `WPM: ${wpm}`;
+            }
+
+            // Visual feedback for correct/incorrect characters
+            let displayHtml = '';
+            for (let i = 0; i < promptText.length; i++) {
+                if (i < userInput.length) {
+                    if (userInput[i] === promptText[i]) {
+                        displayHtml += `<span class="typing-char-correct">${promptText[i]}</span>`;
+                    } else {
+                        displayHtml += `<span class="typing-char-incorrect">${promptText[i]}</span>`;
+                    }
+                } else {
+                    displayHtml += `<span class="typing-char-pending">${promptText[i]}</span>`;
+                }
+            }
+            document.getElementById('typingPromptText').innerHTML = displayHtml;
+        }
+
+        function resetTypingSpeedEngine() {
+            document.getElementById('typingGameField').value = '';
+            document.getElementById('typingPromptText').innerText = 'Eazzesam frameworks automate digital system parameters.';
+            document.getElementById('typingWpmDisplay').innerText = 'WPM: 0';
+            typingStartTime = null;
+            typingCharCount = 0;
+        }
+
+        function filterAcademyTracks() {
+            const searchTerm = document.getElementById('moduleSearchField').value.toLowerCase();
+            const cards = document.querySelectorAll('.course-card');
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                card.style.display = text.includes(searchTerm) ? 'flex' : 'none';
+            });
+        }
+
         // Theme Switcher Engine
         (function initTheme() {
             const savedTheme = localStorage.getItem('eazzesam_theme') || 'dark';
@@ -1011,7 +944,7 @@
         }
 
         // Terminal Resize Modifier Function
-               function resizeTerminalCanvas(size) {
+        function resizeTerminalCanvas(size) {
             const container = document.getElementById('sizableChatContainer');
             const consoleBox = document.getElementById('dedicatedConsole');
             
@@ -1046,9 +979,11 @@
 
         function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('hidden'); }
 
+        function openTermsModal() { document.getElementById('academyTermsModal').classList.remove('hidden'); }
+        function closeTermsModal() { document.getElementById('academyTermsModal').classList.add('hidden'); }
+
         // ================= 50 QUESTION KNOWLEDGE ROUTING DICTIONARY =================
         const CHAT_K_BASE = {
-            // Eazzesam Corporate Information (1-15)
             "hours": "Eazzesam Technologies runs technical operations from Monday through Friday, 8:00 AM to 5:00 PM GMT.",
             "location": "Our physical corporate office and development hub is located in Accra, Greater Accra Region, Ghana.",
             "phone": "You can reach our active communications desk by calling +233 54 242 4592.",
@@ -1064,51 +999,13 @@
             "motto": "Our foundational blueprint is: Innovate. Automate. Elevate.",
             "history": "Incorporated in 2021 as a structural subnet support desk, we expanded into custom software models and AI configurations by 2025.",
             "certifications": "Yes, every student who clears our rigorous practical field project receives a certified Eazzesam Certificate of Competency.",
-
-            // HTML & Web Architecture (16-22)
             "html": "HTML stands for HyperText Markup Language. It provides the core semantic file elements and layout structures of websites.",
             "css": "CSS means Cascading Style Sheets. It applies visual presentation rules, colors, layouts, and style parameters to semantic HTML files.",
-            "difference between html and css": "HTML establishes the underlying structure of a layout block, while CSS defines the aesthetic appearance and positioning rules.",
-            "tailwind": "Tailwind CSS is a utility-first CSS library designed for fast layout construction directly inside HTML classes.",
-            "responsive design": "Responsive design uses flexible layout parameters and media queries to adapt web assets flawlessly across mobile, tablet, and desktop viewports.",
-            "dom": "The DOM, or Document Object Model, is a structured programmatic view of HTML elements on a webpage, accessible via JavaScript.",
-            "semantic element": "Semantic elements like <header>, <article>, and <footer> clearly communicate their conceptual intent to browsers and search algorithms.",
-
-            // JavaScript Programming Essentials (23-30)
             "javascript": "JavaScript is a powerful client and server-side programming language used to build interactive features, state changes, and live calculations.",
-            "variable": "A variable is a named memory location designed to hold specific data elements like strings, numbers, arrays, or objects.",
-            "difference between let and const": "Variables declared with 'let' can be reassigned over time, whereas 'const' assignments are fixed and immutable.",
-            "array": "An array is an ordered list collection capable of containing multiple values mapped under a single variable reference pointer.",
-            "function": "A function is a reusable block of application code structured to carry out a particular operational calculation when invoked.",
-            "json": "JSON stands for JavaScript Object Notation. It is a lightweight, human-readable text syntax used to transmit structured data packets across subnets.",
-            "api": "An API, or Application Programming Interface, acts as a secure processing bridge allowing distinct software nodes to share data resources.",
-            "event listener": "An event listener is a script trigger configured to monitor browser behaviors, like mouse clicks or keyboard strokes, and execute subsequent code logic.",
-
-            // Database Management Systems (31-37)
             "database": "A database is an organized, secure system collection managed on storage drives for rapid lookup queries and data processing.",
             "sql": "SQL stands for Structured Query Language. It is the standardized command language used to manage data in relational databases.",
-            "relational database": "A relational database arranges data into structured rows and tables linked together through matching primary and foreign key values.",
-            "primary key": "A primary key is a unique identification marker assigned to ensure each data row in a database table is distinctly recognized.",
-            "foreign key": "A foreign key is a database column configuration designed to create a secure structural link between rows across separate tables.",
-            "indexing": "Database indexing creates fast search lookup tables behind the scenes, accelerating deep search queries across records.",
-            "sanitization": "Data sanitization inspects and cleans inbound form inputs to neutralize malicious string values before they interact with database query processors.",
-
-            // Networking & Infrastructure (38-44)
-            "ip address": "An IP address is a distinct numerical label assigned to every hardware appliance communicating across a computer network.",
-            "router": "A router is a network device that directs data packets between different subnets to ensure they reach their proper destination.",
-            "switch": "A switch is a central network hub that receives and routes data packets directly to specific devices inside a single local access network.",
-            "subnet": "A subnet is an isolated, logical subdivision of an IP network structure configured to optimize load management and security boundaries.",
-            "poe": "PoE, or Power over Ethernet, is a network technology that delivers both electricity and high-speed data down a single category network cable.",
-            "dvr": "A DVR, or Digital Video Recorder, is a local processing system that converts analog camera video streams into digital storage formats.",
-            "nvr": "An NVR, or Network Video Recorder, captures and archives processed digital video streams directly from IP network cameras over a subnet link.",
-
-            // Cyber Security & Automations (45-50)
             "cybersecurity": "Cybersecurity comprises tactical engineering defenses designed to shield networks, databases, and application fields from unauthorized access.",
-            "hashing": "Hashing uses algorithms to turn sensitive text strings into permanent, fixed-length characters that cannot be reversed.",
-            "ssl": "SSL, or Secure Sockets Layer, encrypts network data traffic traveling between a user's browser and a host web server.",
-            "firewall": "A firewall is a network security node configured to inspect incoming and outgoing traffic rules, blocking unauthorized connections.",
-            "chatbot": "A chatbot is an automated dialogue interface built to parse user inputs and serve contextual matching text files or API resources.",
-            "ai": "Artificial Intelligence involves configuring software systems to process abstract natural inputs, recognize intents, and calculate answers dynamically."
+            "api": "An API, or Application Programming Interface, acts as a secure processing bridge allowing distinct software nodes to share data resources."
         };
 
         // ================= DYNAMIC WORD STREAM CHAT CONTROLLER =================
@@ -1126,12 +1023,6 @@
             field.value = '';
             
             await triggerSystemWordStream(msg);
-        }
-
-        async function triggerDedicatedReply(promptText) {
-            if(isTypingActive) return;
-            renderUserBubble(promptText);
-            await triggerSystemWordStream(promptText);
         }
 
         function renderUserBubble(text) {
@@ -1203,12 +1094,6 @@
 
             isTypingActive = false;
         }
-
-        function clearDedicatedChat() {
-            if(isTypingActive) return;
-            document.getElementById('dedicatedConsole').innerHTML = `<div class="flex flex-col space-y-1 max-w-[85%]"><div class="bg-gray-200 dark:bg-white/[0.05] text-black dark:text-white p-4 rounded-2xl rounded-tl-none">Memory matrix cleared. Terminal balanced.</div></div>`;
-        }
-
 
         // Contact Web3Forms Pipeline
         async function handleFormSubmission(e) {
