@@ -77,4 +77,42 @@
         .faq-item.active .faq-content {
             max-height: 200px;
         }
+        
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+        }
+        /* Apple-style smooth cubic-bezier transition */
+        .apple-transition {
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .apple-bounce {
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1.2);
+        }
+        .apple-bounce:hover {
+            transform: scale(1.03);
+        }
+        
+        /* Slideshow custom smooth transition */
+        .slide-track {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .slide-item {
+            flex: 0 0 100%;
+            width: 100%;
+        }
+        /* Custom keyframes for text elements rising up beautifully */
+        @keyframes textUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-text-up {
+            animation: textUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        /* Fixed-width monospace utility specifically for fast microsecond counters */
+        .mono-timer {
+            font-family: 'JetBrains Mono', monospace;
+        }
     
