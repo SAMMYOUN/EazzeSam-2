@@ -119,6 +119,40 @@
         .faq-item.active .faq-content {
             max-height: 200px;
         }
+
+        
+          /* Apple-style smooth cubic-bezier transition */
+        .apple-transition {
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .apple-bounce {
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1.2);
+        }
+        .apple-bounce:hover {
+            transform: scale(1.03);
+        }
+        
+        /* Slideshow custom smooth transition */
+        .slide-track {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .slide-item {
+            flex: 0 0 100%;
+            width: 100%;
+        }
+        /* Custom keyframes for text elements rising up beautifully */
+        @keyframes textUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-text-up {
+            animation: textUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        /* Fixed-width monospace utility specifically for fast microsecond counters */
+        .mono-timer {
+            font-family: 'JetBrains Mono', monospace;
+        }
     </style>
 </head>
 <body class="bg-[#f5f5f7] text-[#1d1d1f] dark:bg-darkBg dark:text-[#f5f5f7] antialiased selection:bg-techBlue/30 max-w-full overflow-x-hidden transition-colors duration-300">
@@ -371,6 +405,293 @@
                     </div>
                 </div>
             </div>
+
+            <!-- BRANDING IMAGE SLIDESHOW HERO -->
+    <section class="relative w-full max-w-6xl mx-auto mt-8 px-4 overflow-hidden">
+        <div class="relative h-[450px] md:h-[550px] w-full rounded-3xl bg-neutral-900 border border-neutral-800 overflow-hidden shadow-2xl">
+            
+            <!-- Slides Track Wrapper -->
+            <div id="slideTrack" class="slide-track h-full">
+                
+                <!-- Slide 1 -->
+                <div class="slide-item h-full relative flex items-end p-8 md:p-16 bg-black">
+                    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80');"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+                    
+                    <div class="relative z-10 max-w-2xl text-left">
+                        <span class="text-xs font-semibold uppercase tracking-widest text-indigo-400 bg-indigo-950/60 backdrop-blur-md px-3 py-1 rounded-full border border-indigo-900/40 mb-4 inline-block">Enterprise Innovation</span>
+                        <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight leading-tight mb-3 opacity-0">We Build Digital Experiences That Matter</h2>
+                        <p class="text-gray-300 text-sm md:text-base max-w-lg opacity-0">Engineering robust web architectures and intelligent systems customized for high-growth enterprises.</p>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="slide-item h-full relative flex items-end p-8 md:p-16 bg-black">
+                    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80');"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+                    
+                    <div class="relative z-10 max-w-2xl text-left">
+                        <span class="text-xs font-semibold uppercase tracking-widest text-emerald-400 bg-emerald-950/60 backdrop-blur-md px-3 py-1 rounded-full border border-emerald-900/40 mb-4 inline-block">Automation & AI</span>
+                        <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight leading-tight mb-3 opacity-0">Intelligent Systems Built to Scale</h2>
+                        <p class="text-gray-300 text-sm md:text-base max-w-lg opacity-0">Leverage smart data modeling and automation to streamline your operations seamlessly overnight.</p>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="slide-item h-full relative flex items-end p-8 md:p-16 bg-black">
+                    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80');"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+                    
+                    <div class="relative z-10 max-w-2xl text-left">
+                        <span class="text-xs font-semibold uppercase tracking-widest text-amber-400 bg-amber-950/60 backdrop-blur-md px-3 py-1 rounded-full border border-amber-900/40 mb-4 inline-block">Design Philosophy</span>
+                        <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight leading-tight mb-3 opacity-0">Where Elegant Design Meets Pure Performance</h2>
+                        <p class="text-gray-300 text-sm md:text-base max-w-lg opacity-0">Beautifully crafted, secure, and highly optimized layouts designed for modern user habits.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Arrow Controls -->
+            <button onclick="moveSlide(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-neutral-950/60 backdrop-blur-md border border-neutral-800 text-gray-400 hover:text-white flex items-center justify-center apple-transition z-20">
+                <span class="material-icons">chevron_left</span>
+            </button>
+            <button onclick="moveSlide(1)" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-neutral-950/60 backdrop-blur-md border border-neutral-800 text-gray-400 hover:text-white flex items-center justify-center apple-transition z-20">
+                <span class="material-icons">chevron_right</span>
+            </button>
+
+            <!-- Bottom Progress Tracker -->
+            <div class="absolute bottom-0 left-0 w-full h-1 bg-neutral-950 z-20">
+                <div id="progressBar" class="h-full bg-indigo-500 w-0 transition-all duration-100 ease-linear"></div>
+            </div>
+
+            <!-- Dot Navigation Indicators -->
+            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-2 z-20">
+                <button onclick="setSlide(0)" class="slide-dot w-2 h-2 rounded-full bg-white apple-transition"></button>
+                <button onclick="setSlide(1)" class="slide-dot w-2 h-2 rounded-full bg-white/30 apple-transition"></button>
+                <button onclick="setSlide(2)" class="slide-dot w-2 h-2 rounded-full bg-white/30 apple-transition"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE METRICS & PROMOTIONAL COUNTER SECTION -->
+    <section class="py-12 px-4 max-w-6xl mx-auto w-full text-center">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 bg-neutral-900/30 border border-neutral-800/80 rounded-3xl p-8 backdrop-blur-sm">
+            <div class="text-center p-2">
+                <div class="flex justify-center items-center text-3xl md:text-4xl font-bold tracking-tight text-white mb-1">
+                    <span class="counter" data-target="150">0</span><span>+</span>
+                </div>
+                <p class="text-xs md:text-sm text-gray-400 font-medium uppercase tracking-wider">Projects Delivered</p>
+            </div>
+            <div class="text-center p-2 border-l border-neutral-800/60">
+                <div class="flex justify-center items-center text-3xl md:text-4xl font-bold tracking-tight text-indigo-400 mb-1">
+                    <span class="counter" data-target="42">0</span><span>+</span>
+                </div>
+                <p class="text-xs md:text-sm text-gray-400 font-medium uppercase tracking-wider">Tech Events Hosted</p>
+            </div>
+            <div class="text-center p-2 border-l border-neutral-800/60">
+                <div class="flex justify-center items-center text-3xl md:text-4xl font-bold tracking-tight text-white mb-1">
+                    <span class="counter" data-target="98">0</span><span>%</span>
+                </div>
+                <p class="text-xs md:text-sm text-gray-400 font-medium uppercase tracking-wider">Client Retention</p>
+            </div>
+            <div class="text-center p-2 border-l border-neutral-800/60">
+                <div class="flex justify-center items-center text-3xl md:text-4xl font-bold tracking-tight text-amber-400 mb-1">
+                    <span class="counter" data-target="12">0</span><span>M+</span>
+                </div>
+                <p class="text-xs md:text-sm text-gray-400 font-medium uppercase tracking-wider">API Requests / Day</p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="border-neutral-900/60 max-w-6xl mx-auto w-full">
+
+    <!-- HEADER & PORTFOLIO SECTION -->
+    <header class="py-20 px-4 max-w-6xl mx-auto w-full text-center">
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4 opacity-0" style="animation: fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;">
+            Our Portfolio
+        </h1>
+        <p class="text-gray-400 max-w-md mx-auto mb-10">A showcase of our recent craft and digital solutions.</p>
+
+        <!-- Filter Navigation Tabs -->
+        <div class="flex justify-center space-x-2 bg-neutral-900/60 backdrop-blur-md p-1.5 rounded-full max-w-xs mx-auto border border-neutral-800 mb-16">
+            <button onclick="filterProjects('all')" id="btn-all" class="tab-btn px-5 py-2 text-sm font-medium rounded-full apple-transition bg-white text-black shadow-sm">All</button>
+            <button onclick="filterProjects('websites')" id="btn-websites" class="tab-btn px-5 py-2 text-sm font-medium rounded-full apple-transition text-gray-400 hover:text-white">Websites</button>
+            <button onclick="filterProjects('others')" id="btn-others" class="tab-btn px-5 py-2 text-sm font-medium rounded-full apple-transition text-gray-400 hover:text-white">Others</button>
+        </div>
+
+        <!-- Portfolio Items Grid -->
+        <div id="portfolio-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+            <div class="project-card apple-bounce bg-neutral-900 border border-neutral-800/60 rounded-3xl p-6 flex flex-col justify-between min-h-[240px] shadow-xl" data-category="websites">
+                <div>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-indigo-400 bg-indigo-950/50 px-3 py-1 rounded-full border border-indigo-900/50">Web Development</span>
+                    <h3 class="text-2xl font-bold text-white mt-4">Corporate Website</h3>
+                </div>
+                <div class="flex justify-between items-center mt-8">
+                    <span class="text-gray-400 text-sm">View Case Study</span>
+                    <span class="material-icons text-indigo-400">arrow_right_alt</span>
+                </div>
+            </div>
+
+            <div class="project-card apple-bounce bg-neutral-900 border border-neutral-800/60 rounded-3xl p-6 flex flex-col justify-between min-h-[240px] shadow-xl" data-category="websites">
+                <div>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-indigo-400 bg-indigo-950/50 px-3 py-1 rounded-full border border-indigo-900/50">Web Development</span>
+                    <h3 class="text-2xl font-bold text-white mt-4">Restaurant Website</h3>
+                </div>
+                <div class="flex justify-between items-center mt-8">
+                    <span class="text-gray-400 text-sm">View Case Study</span>
+                    <span class="material-icons text-indigo-400">arrow_right_alt</span>
+                </div>
+            </div>
+
+            <div class="project-card apple-bounce bg-neutral-900 border border-neutral-800/60 rounded-3xl p-6 flex flex-col justify-between min-h-[240px] shadow-xl" data-category="others">
+                <div>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-amber-400 bg-amber-950/50 px-3 py-1 rounded-full border border-amber-900/50">Branding</span>
+                    <h3 class="text-2xl font-bold text-white mt-4">Brand Identity</h3>
+                </div>
+                <div class="flex justify-between items-center mt-8">
+                    <span class="text-gray-400 text-sm">View Case Study</span>
+                    <span class="material-icons text-amber-400">arrow_right_alt</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <hr class="border-neutral-900 my-4">
+
+    <!-- GLASSMORPHISM SERVICE DISCOUNT & COUNTDOWN TIMER -->
+    <section class="py-12 px-4 max-w-6xl mx-auto w-full relative">
+        <!-- Colored light orbs glowing softly behind the translucent card to maximize the glass look -->
+        <div class="absolute top-1/2 left-1/4 -translate-y-1/2 w-72 h-72 bg-indigo-600/20 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="absolute top-1/3 right-1/4 -translate-y-1/2 w-64 h-64 bg-purple-600/15 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <!-- Glassmorphism Banner Card container -->
+        <div class="relative bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] rounded-[32px] p-8 md:p-12 text-center shadow-[0_25px_50px_-12px_rgba(0,0,0,0.7)]">
+            <span class="text-xs font-bold uppercase tracking-widest text-amber-400 bg-amber-400/10 px-4 py-1.5 rounded-full border border-amber-400/20 mb-4 inline-block">Limited Midyear Flash Discount</span>
+            <h3 class="text-3xl md:text-4xl font-extrabold tracking-tight text-white mb-2">Save 25% On All Premium Studio Services</h3>
+            <p class="text-gray-400 text-sm md:text-base max-w-xl mx-auto mb-8">Secure your product's structural upgrade package before this systemic slot configuration safely expires.</p>
+            
+            <!-- Realtime Countdown Timer Dashboard Grid Context -->
+            <div class="grid grid-cols-2 sm:grid-cols-5 gap-4 max-w-3xl mx-auto text-left mono-timer">
+                
+                <!-- Days Frame -->
+                <div class="bg-black/30 border border-white/[0.04] p-4 rounded-2xl flex flex-col justify-center items-center shadow-inner">
+                    <span id="timer-days" class="text-3xl md:text-4xl font-bold text-white">00</span>
+                    <span class="text-[10px] font-semibold text-gray-500 uppercase tracking-widest mt-1">Days</span>
+                </div>
+
+                <!-- Hours Frame -->
+                <div class="bg-black/30 border border-white/[0.04] p-4 rounded-2xl flex flex-col justify-center items-center shadow-inner">
+                    <span id="timer-hours" class="text-3xl md:text-4xl font-bold text-white">00</span>
+                    <span class="text-[10px] font-semibold text-gray-500 uppercase tracking-widest mt-1">Hours</span>
+                </div>
+
+                <!-- Minutes Frame -->
+                <div class="bg-black/30 border border-white/[0.04] p-4 rounded-2xl flex flex-col justify-center items-center shadow-inner">
+                    <span id="timer-minutes" class="text-3xl md:text-4xl font-bold text-white">00</span>
+                    <span class="text-[10px] font-semibold text-gray-500 uppercase tracking-widest mt-1">Minutes</span>
+                </div>
+
+                <!-- Seconds Frame -->
+                <div class="bg-black/30 border border-white/[0.04] p-4 rounded-2xl flex flex-col justify-center items-center shadow-inner">
+                    <span id="timer-seconds" class="text-3xl md:text-4xl font-bold text-white">00</span>
+                    <span class="text-[10px] font-semibold text-gray-500 uppercase tracking-widest mt-1">Seconds</span>
+                </div>
+
+                <!-- Microseconds Frame -->
+                <div class="bg-indigo-950/20 border border-indigo-500/20 p-4 rounded-2xl flex flex-col justify-center items-center col-span-2 sm:col-span-1 shadow-inner">
+                    <span id="timer-micros" class="text-3xl md:text-4xl font-bold text-indigo-400">000000</span>
+                    <span class="text-[10px] font-semibold text-indigo-400/80 uppercase tracking-widest mt-1">Microsec</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES / FEATURES SECTION -->
+    <section class="py-16 px-4 max-w-6xl mx-auto w-full text-center">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-16 max-w-2xl mx-auto">
+            Smart Solutions for a Smarter Business
+        </h2>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-neutral-900/40 border border-neutral-800 rounded-2xl p-8 apple-transition hover:border-neutral-700 hover:bg-neutral-900">
+                <div class="w-12 h-12 rounded-xl bg-indigo-600/10 border border-indigo-500/20 flex items-center justify-center mx-auto mb-6">
+                    <span class="material-icons text-indigo-400 text-2xl">psychology</span>
+                </div>
+                <h3 class="text-lg font-semibold text-white mb-2">AI-Powered Solutions</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Intelligent systems that automate and scale.</p>
+            </div>
+
+            <div class="bg-neutral-900/40 border border-neutral-800 rounded-2xl p-8 apple-transition hover:border-neutral-700 hover:bg-neutral-900">
+                <div class="w-12 h-12 rounded-xl bg-emerald-600/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-6">
+                    <span class="material-icons text-emerald-400 text-2xl">verified_user</span>
+                </div>
+                <h3 class="text-lg font-semibold text-white mb-2">Fast & Secure</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">High-performance, secure and reliable solutions.</p>
+            </div>
+
+            <div class="bg-neutral-900/40 border border-neutral-800 rounded-2xl p-8 apple-transition hover:border-neutral-700 hover:bg-neutral-900">
+                <div class="w-12 h-12 rounded-xl bg-purple-600/10 border border-purple-500/20 flex items-center justify-center mx-auto mb-6">
+                    <span class="material-icons text-purple-400 text-2xl">palette</span>
+                </div>
+                <h3 class="text-lg font-semibold text-white mb-2">Modern Design</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Beautiful, responsive and user-friendly designs.</p>
+            </div>
+
+            <div class="bg-neutral-900/40 border border-neutral-800 rounded-2xl p-8 apple-transition hover:border-neutral-700 hover:bg-neutral-900">
+                <div class="w-12 h-12 rounded-xl bg-amber-600/10 border border-amber-500/20 flex items-center justify-center mx-auto mb-6">
+                    <span class="material-icons text-amber-400 text-2xl">trending_up</span>
+                </div>
+                <h3 class="text-lg font-semibold text-white mb-2">SEO Optimized</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Rank higher with clean and optimized code.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="border-neutral-900 my-4">
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="py-24 px-4 max-w-6xl mx-auto w-full text-center">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-16">
+            What Our Clients Say
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-neutral-900/50 border border-neutral-800/80 rounded-3xl p-8 text-left flex flex-col justify-between">
+                <p class="text-gray-300 italic leading-relaxed">"The modern website they developed completely transformed our digital presence and directly led to a noticeable increase in sales."</p>
+                <div class="mt-8 flex items-center space-x-4">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-500 flex items-center justify-center font-bold text-white text-sm">GM</div>
+                    <div>
+                        <h4 class="font-semibold text-white text-sm">Grace Mensah</h4>
+                        <p class="text-gray-500 text-xs">CEO, Glorify Foods</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-neutral-900/50 border border-neutral-800/80 rounded-3xl p-8 text-left flex flex-col justify-between">
+                <p class="text-gray-300 italic leading-relaxed">"Impressed by the team's professional communication, technical mastery, and unmatched creativity throughout our transition."</p>
+                <div class="mt-8 flex items-center space-x-4">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-emerald-500 to-teal-500 flex items-center justify-center font-bold text-white text-sm">KA</div>
+                    <div>
+                        <h4 class="font-semibold text-white text-sm">Kwame Asare</h4>
+                        <p class="text-gray-500 text-xs">Founder, Asare Group</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-neutral-900/50 border border-neutral-800/80 rounded-3xl p-8 text-left flex flex-col justify-between">
+                <p class="text-gray-300 italic leading-relaxed">"The AI chatbot solution they integrated streamlined our support operations overnight. Highly impactful work."</p>
+                <div class="mt-8 flex items-center space-x-4">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-500 to-orange-500 flex items-center justify-center font-bold text-white text-sm">MO</div>
+                    <div>
+                        <h4 class="font-semibold text-white text-sm">Michael Owusu</h4>
+                        <p class="text-gray-500 text-xs">Manager, TechVision</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
         </div>
 
         <div id="page-services" class="page-section max-w-5xl mx-auto px-6 py-16 animate__animated animate__fadeIn overflow-hidden">
@@ -874,6 +1195,7 @@
         </div>
     </div>
 
+    
     <div class="fixed bottom-6 right-6 z-50 flex flex-col space-y-3">
         <a href="tel:+233542424592" class="bg-techBlue text-white w-11 h-11 rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition duration-300" title="Call Us Directly">
             <span class="material-symbols-outlined font-light text-[21px]">call</span>
@@ -886,7 +1208,225 @@
         </a>
     </div>
 
+     <!-- SOCIAL MEDIA LINKS -->
+            <div class="border-t border-neutral-900 pt-10">
+                <p class="text-xs font-semibold uppercase tracking-widest text-gray-600 mb-6">Find us across the web</p>
+                <div class="flex flex-wrap justify-center gap-y-4 gap-x-6 max-w-2xl mx-auto text-xl text-gray-400">
+                    <a href="#" class="hover:text-white apple-transition"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-white apple-transition"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" class="hover:text-white apple-transition"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="hover:text-white apple-transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-white apple-transition"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" class="hover:text-white apple-transition"><i class="fa-brands fa-pinterest"></i></a>
+                    <a href="#" class="hover:text-white apple-transition"><i class="fa-brands fa-telegram"></i></a>
+                    <a href="#" class="hover:text-white apple-transition"><i class="fa-brands fa-discord"></i></a>
+                    <a href="#" class="hover:text-white apple-transition"><i class="fa-brands fa-reddit"></i></a>
+                    <a href="#" class="hover:text-white apple-transition"><i class="fa-brands fa-medium"></i></a>
+                    <a href="https://wa.me/23342425692" target="_blank" class="hover:text-white apple-transition"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="mailto:sammyoun24@gmail.com" class="hover:text-white apple-transition"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <script>
+
+ // --- BRAND SLIDESHOW LOGIC ---
+        let currentSlide = 0;
+        const totalSlides = document.querySelectorAll('.slide-item').length;
+        const slideTrack = document.getElementById('slideTrack');
+        const dots = document.querySelectorAll('.slide-dot');
+        const progressBar = document.getElementById('progressBar');
+        
+        const slideDuration = 6000; 
+        let progressInterval;
+        let progressElapsed = 0;
+
+        function updateSlidePosition() {
+            slideTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.remove('bg-white/30');
+                    dot.classList.add('bg-white', 'w-4'); 
+                } else {
+                    dot.classList.remove('bg-white', 'w-4');
+                    dot.classList.add('bg-white/30');
+                }
+            });
+
+            const activeSlideContents = document.querySelectorAll('.slide-item')[currentSlide].querySelectorAll('h2, p');
+            document.querySelectorAll('.slide-item h2, .slide-item p').forEach(el => {
+                el.classList.remove('animate-text-up');
+                el.style.opacity = '0';
+            });
+            activeSlideContents.forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.15}s`;
+                el.classList.add('animate-text-up');
+            });
+
+            resetProgressBar();
+        }
+
+        function moveSlide(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            updateSlidePosition();
+            restartAutoplay();
+        }
+
+        function setSlide(index) {
+            currentSlide = index;
+            updateSlidePosition();
+            restartAutoplay();
+        }
+
+        function startProgressBar() {
+            progressElapsed = 0;
+            clearInterval(progressInterval);
+            const intervalStep = 50; 
+            
+            progressInterval = setInterval(() => {
+                progressElapsed += intervalStep;
+                const progressPercentage = (progressElapsed / slideDuration) * 100;
+                progressBar.style.width = `${Math.min(progressPercentage, 100)}%`;
+                
+                if (progressElapsed >= slideDuration) {
+                    moveSlide(1);
+                }
+            }, intervalStep);
+        }
+
+        function resetProgressBar() {
+            progressBar.style.width = '0%';
+            progressElapsed = 0;
+        }
+
+        function restartAutoplay() {
+            startProgressBar();
+        }
+
+
+        // --- REALTIME COUNTDOWN ENGINE (UP TO MICROSECONDS) ---
+        // Setup countdown target timeline exactly 7 days into the future for presentation consistency
+        const targetTimeline = new Date().getTime() + (7 * 24 * 60 * 60 * 1000);
+
+        function updateCountdownClock() {
+            // Using standard high-resolution performance counters context for precision framing
+            const now = performance.timeOrigin + performance.now();
+            const target = targetTimeline;
+            const absoluteDifference = target - now;
+
+            if (absoluteDifference <= 0) {
+                document.getElementById('timer-days').innerText = "00";
+                document.getElementById('timer-hours').innerText = "00";
+                document.getElementById('timer-minutes').innerText = "00";
+                document.getElementById('timer-seconds').innerText = "00";
+                document.getElementById('timer-micros').innerText = "000000";
+                return;
+            }
+
+            // Math segmentation layout
+            const days = Math.floor(absoluteDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((absoluteDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((absoluteDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((absoluteDifference % (1000 * 60)) / 1000);
+            
+            // Extract trailing microsecond segments accurately
+            const millisecondsFraction = absoluteDifference % 1000;
+            const microseconds = Math.floor((millisecondsFraction % 1) * 1000) + Math.floor(millisecondsFraction * 1000);
+
+            // Print visual updates onto display components strings
+            document.getElementById('timer-days').innerText = String(days).padStart(2, '0');
+            document.getElementById('timer-hours').innerText = String(hours).padStart(2, '0');
+            document.getElementById('timer-minutes').innerText = String(minutes).padStart(2, '0');
+            document.getElementById('timer-seconds').innerText = String(seconds).padStart(2, '0');
+            document.getElementById('timer-micros').innerText = String(microseconds).padStart(6, '0');
+
+            // Fire structural animation update recursively using animation frames loop (essential for microsecond syncing)
+            requestAnimationFrame(updateCountdownClock);
+        }
+
+
+        // --- SCROLL ACTION COUNTER ENGINE ---
+        function initCounters() {
+            const counters = document.querySelectorAll('.counter');
+            const speed = 140; 
+
+            counters.forEach(counter => {
+                const animate = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const data = +counter.innerText;
+                    const time = target / speed;
+
+                    if (data < target) {
+                        counter.innerText = Math.ceil(data + time);
+                        setTimeout(animate, 15);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                
+                const observer = new IntersectionObserver((entries) => {
+                    if(entries[0].isIntersecting) {
+                        animate();
+                        observer.disconnect(); 
+                    }
+                }, { threshold: 0.5 });
+                
+                observer.observe(counter);
+            });
+        }
+
+
+        // --- PORTFOLIO FILTER LOGIC ---
+        function filterProjects(category) {
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-white', 'text-black', 'shadow-sm');
+                btn.classList.add('text-gray-400', 'hover:text-white');
+            });
+
+            const activeBtn = document.getElementById(`btn-${category}`);
+            activeBtn.classList.remove('text-gray-400', 'hover:text-white');
+            activeBtn.classList.add('bg-white', 'text-black', 'shadow-sm');
+
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                
+                if (category === 'all' || cardCategory === category) {
+                    card.style.display = 'flex';
+                    void card.offsetWidth; 
+                    card.style.transform = 'scale(1)';
+                    card.style.opacity = '1';
+                } else {
+                    card.style.transform = 'scale(0.95)';
+                    card.style.opacity = '0';
+                    setTimeout(() => {
+                        if (card.style.opacity === '0') card.style.display = 'none';
+                    }, 400);
+                }
+            });
+        }
+
+        // Global System Initialization
+        document.addEventListener('DOMContentLoaded', () => {
+            updateSlidePosition();
+            startProgressBar();
+            initCounters();
+            requestAnimationFrame(updateCountdownClock); // Boot the microsecond clock safely
+        });
+
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(15px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        
         // NAVIGATION MANAGER
         function navigateTo(targetPage) {
             document.querySelectorAll('.page-section').forEach(section => section.classList.remove('active-page'));
