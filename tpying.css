@@ -1,0 +1,43 @@
+ /* Custom cursor and character styling for that premium feel */
+        .word { margin-right: 12px; display: inline-block; }
+        .char { position: relative; color: #64748b; transition: color 0.1s ease; }
+        .char.correct { color: #f8fafc; }
+        .char.incorrect { color: #ef4444; border-bottom: 2px solid #ef4444; }
+        
+        .char.current::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 2px;
+            height: 120%;
+            background-color: #e2e8f0;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+
+
+
+         /* Custom Premium Glassmorphism Matrix */
+        .apple-glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .apple-glass-premium {
+            background: rgba(0, 113, 227, 0.04);
+            backdrop-filter: blur(25px) saturate(200%);
+            -webkit-backdrop-filter: blur(25px) saturate(200%);
+            border: 1px solid rgba(0, 113, 227, 0.25);
+            box-shadow: 0 0 40px rgba(0, 113, 227, 0.15);
+        }
+        /* Hover micro-interactions */
+        .premium-hover {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .premium-hover:hover {
+            transform: translateY(-6px);
+            border-color: rgba(52, 199, 89, 0.4);
+            box-shadow: 0 20px 40px rgba(52, 199, 89, 0.08);
+        }
