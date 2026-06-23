@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-behavior-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advancement Academy Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" href="./logo.png" type="image/x-icon">
+    <link rel="manifest" href="./manifest.json">
+    <script>
+        // Inline script to prevent theme flashing on load
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+        
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .category-btn.active {
+            background-color: #ffffff;
+            color: #000000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .dark .category-btn.active {
+            background-color: #2c2c2e;
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+        }
+        .scrollbar-none::-webkit-scrollbar { display: none; }
+        .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+
+        
+
+         /* Precision Micro-animations on interactive target vectors */
+        .apple-footer-link {
+            transition: color 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+        }
+        .apple-footer-link:hover {
+            transform: translateX(3px);
+        }
+        .scrollbar-none::-webkit-scrollbar { display: none; }
+        .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+
+    </style>
+</head>
+<body class="bg-[#f5f5f7] dark:bg-[#1c1c1e] text-slate-900 dark:text-slate-100 font-sans antialiased pb-32 transition-colors duration-300">
+
+    <div class="bg-blue-700 dark:bg-blue-900 text-white text-center py-3 px-4 text-xs font-semibold tracking-wide shadow-sm flex items-center justify-center gap-2">
+        <svg class="w-4 h-4 text-yellow-400 fill-current shrink-0" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zm3.707 6.707l-4 4a1 1 0 01-1.414 0l-2-2a1 1 0 111.414-1.414L9 10.586l3.293-3.293a1 1 0 011.414 1.414z"/></svg>
+        <span class="text-center">OFFICIAL NOTICE: All course streams are fully certified and issue verifiable digital credentials.</span>
+    </div>
+
+    <nav class="max-w-6xl mx-auto pt-6 px-4 sm:px-6 flex justify-between items-center">
+        <div class="text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">
+            Advancement Academy
+        </div>
+        <button onclick="toggleTheme()" class="p-2.5 bg-black/[0.04] dark:bg-white/[0.08] hover:bg-black/[0.08] dark:hover:bg-white/[0.15] rounded-full transition-all focus:outline-none" aria-label="Toggle Dark Mode">
+            <svg id="theme-sun" class="w-5 h-5 text-yellow-400 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M14 12a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            <svg id="theme-moon" class="w-5 h-5 text-slate-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        </button>
+    </nav>
+
+    <header class="max-w-6xl mx-auto pt-8 px-4 sm:px-6 text-center md:text-left">
+        <p class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">JHS • SHS • Pre-University Curriculum • Professional</p>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight mb-8 text-black dark:text-white">Specialized Learning Portal</h1>
+        
+        <div class="bg-black/[0.05] dark:bg-white/[0.05] p-1 rounded-2xl flex items-center gap-1 w-full overflow-x-auto scrollbar-none">
+            <button onclick="filterCategory('it')" id="btn-it" class="category-btn active px-4 py-2.5 text-xs sm:text-sm font-semibold tracking-tight rounded-xl transition-all duration-200 focus:outline-none whitespace-nowrap flex-1 text-center">
+                1. IT Literacy
+            </button>
+            <button onclick="filterCategory('math')" id="btn-math" class="category-btn text-slate-600 dark:text-slate-400 hover:text-black dark:hover:text-white px-4 py-2.5 text-xs sm:text-sm font-semibold tracking-tight rounded-xl transition-all duration-200 focus:outline-none whitespace-nowrap flex-1 text-center">
+                2. Mathematics
+            </button>
+            <button onclick="filterCategory('science')" id="btn-science" class="category-btn text-slate-600 dark:text-slate-400 hover:text-black dark:hover:text-white px-4 py-2.5 text-xs sm:text-sm font-semibold tracking-tight rounded-xl transition-all duration-200 focus:outline-none whitespace-nowrap flex-1 text-center">
+                3. Sciences
+            </button>
+            <button onclick="filterCategory('physics')" id="btn-physics" class="category-btn text-slate-600 dark:text-slate-400 hover:text-black dark:hover:text-white px-4 py-2.5 text-xs sm:text-sm font-semibold tracking-tight rounded-xl transition-all duration-200 focus:outline-none whitespace-nowrap flex-1 text-center">
+                4. Physics Core
+            </button>
+            <button onclick="filterCategory('cs')" id="btn-cs" class="category-btn text-slate-600 dark:text-slate-400 hover:text-black dark:hover:text-white px-4 py-2.5 text-xs sm:text-sm font-semibold tracking-tight rounded-xl transition-all duration-200 focus:outline-none whitespace-nowrap flex-1 text-center">
+                5. Computer Science
+            </button>
+            <button onclick="filterCategory('professional')" id="btn-professional" class="category-btn text-slate-600 dark:text-slate-400 hover:text-black dark:hover:text-white px-4 py-2.5 text-xs sm:text-sm font-semibold tracking-tight rounded-xl transition-all duration-200 focus:outline-none whitespace-nowrap flex-1 text-center">
+                6. Professional
+            </button>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 mt-10">
+        <div id="courses-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            </div>
+    </main>
+
+    <div id="form-modal" class="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white dark:bg-[#1a1a1c] w-full max-w-md rounded-t-3xl sm:rounded-3xl overflow-hidden shadow-2xl border-t sm:border border-black/10 dark:border-white/10 flex flex-col transform translate-y-full sm:translate-y-0 sm:scale-95 transition-transform duration-300" id="modal-content">
+            
+            <div class="px-6 py-5 border-b border-black/[0.08] dark:border-white/[0.08] flex justify-between items-center bg-white dark:bg-[#1a1a1c]">
+                <div>
+                    <h3 class="font-bold text-xl tracking-tight text-slate-900 dark:text-white">Instant Registration</h3>
+                    <p class="text-xs text-emerald-600 dark:text-emerald-400 font-bold mt-0.5 flex items-center gap-1">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span> Certified Course Track
+                    </p>
+                </div>
+                <button onclick="closeModal()" class="p-2 bg-black/[0.05] dark:bg-white/[0.05] hover:bg-black/[0.1] dark:hover:bg-white/[0.1] rounded-full transition-colors focus:outline-none">
+                    <svg class="w-5 h-5 text-slate-700 dark:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+
+            <form id="whatsapp-admission-form" onsubmit="sendWhatsAppRegistration(event)" class="p-6 space-y-4 overflow-y-auto max-h-[80vh] sm:max-h-none">
+                <div class="p-4 bg-[#f5f5f7] dark:bg-white/[0.04] rounded-2xl border border-black/[0.04] dark:border-white/[0.04]">
+                    <label class="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Selected Program</label>
+                    <div id="target-course-title" class="font-black text-base text-slate-900 dark:text-white">Course Title</div>
+                    <div id="target-course-level" class="text-xs text-blue-600 dark:text-blue-400 font-bold mt-0.5">Track level</div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5" for="student-name">Full Name *</label>
+                    <input type="text" id="student-name" required class="w-full px-4 py-3 bg-[#f5f5f7] dark:bg-neutral-800 border border-slate-200 dark:border-neutral-700 focus:border-blue-500 dark:focus:border-blue-400 rounded-xl text-sm focus:ring-1 focus:ring-blue-500 dark:text-white outline-none transition-all" placeholder="e.g. Kwame Mensah">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5" for="student-level">Current Academic Level *</label>
+                    <select id="student-level" required class="w-full px-4 py-3 bg-[#f5f5f7] dark:bg-neutral-800 border border-slate-200 dark:border-neutral-700 rounded-xl text-sm focus:ring-1 focus:ring-blue-500 dark:text-white outline-none transition-all">
+                        <option value="" disabled selected>Select your current profile status</option>
+                        <option value="Junior High School Student (JHS)">Junior High School (JHS)</option>
+                        <option value="Senior High School Student (SHS)">Senior High School (SHS)</option>
+                        <option value="Pre-University Candidate">Pre-University Candidate</option>
+                        <option value="Working Professional">Working Professional</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5" for="student-phone">WhatsApp Phone Number *</label>
+                    <input type="tel" id="student-phone" required class="w-full px-4 py-3 bg-[#f5f5f7] dark:bg-neutral-800 border border-slate-200 dark:border-neutral-700 rounded-xl text-sm focus:ring-1 focus:ring-blue-500 dark:text-white outline-none transition-all" placeholder="e.g. 0542424592">
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" class="w-full py-4 px-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm rounded-xl transition-all duration-200 flex items-center justify-center gap-2 shadow-md">
+                        <svg class="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-4.846c1.6.95 3.197 1.451 4.821 1.452 5.423 0 9.835-4.409 9.838-9.83c.002-2.626-1.02-5.094-2.879-6.956-1.857-1.863-4.322-2.887-6.947-2.888-5.426 0-9.838 4.412-9.842 9.835-.001 1.713.454 3.385 1.319 4.854L1.87 22.083l4.777-1.249zm12.311-6.155c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.174.2-.298.3-.496.099-.198.05-.371-.025-.521-.075-.148-.67-1.613-.918-2.21-.242-.584-.487-.504-.67-.514-.172-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.223-.57-.372z"/></svg>
+                        Send Registration Form
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- BEGIN STANDALONE APPLE-STYLE DARK FOOTER -->
+    <footer class="w-full bg-[#1c1c1e] text-[#f5f5f7]/50 text-[12px] font-normal border-t border-neutral-800 antialiased font-sans transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-8 pb-12">
+            
+            <!-- Legal Compliance / Fine Print Footnotes -->
+            <section class="space-y-3 pb-6 border-b border-neutral-800 tracking-tight leading-relaxed text-[#f5f5f7]/35">
+                <p>* Verification Notice: Accessing localized credentials across structural JHS, SHS, and Pre-University engineering tracks demands full execution of project criteria datasets and internal diagnostic protocols.</p>
+                <p>† Communication Engineering: Instantly dispatching enrollment matrices routes direct applications to backend operational endpoints via standard, automated WhatsApp encryption systems (+233 54 242 4592).</p>
+            </section>
+
+            <!-- Apple-Style Interactive Hierarchical Breadcrumb Trail -->
+            <div class="py-5 flex items-center flex-wrap gap-2 text-[#f5f5f7]/70">
+                <a href="#" class="hover:text-blue-400 transition-colors duration-200">
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                    </svg>
+                </a>
+                <span class="text-neutral-700 select-none">›</span>
+                <span class="font-medium text-white">Advancement Academy Hub</span>
+                <span class="text-neutral-700 select-none">›</span>
+                <span class="text-[#f5f5f7]/35">System Registry & Metadata</span>
+            </div>
+
+            <!-- Directory Node Grid Structure -->
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 py-8 border-b border-neutral-800">
+                
+                <!-- Category Grouping 1: Explore Tracks -->
+                <div class="space-y-4">
+                    <h3 class="font-bold text-white tracking-tight text-[13px]">Explore Tracks</h3>
+                    <ul class="space-y-2.5">
+                        <li><span onclick="openLegalModal('it_core')" class="apple-footer-link block hover:text-blue-400">1. IT Literacy Core</span></li>
+                        <li><span onclick="openLegalModal('math')" class="apple-footer-link block hover:text-blue-400">2. Mathematics</span></li>
+                        <li><span onclick="openLegalModal('sciences')" class="apple-footer-link block hover:text-blue-400">3. Integrated Sciences</span></li>
+                        <li><span onclick="openLegalModal('physics')" class="apple-footer-link block hover:text-blue-400">4. Physics Advanced</span></li>
+                        <li><span onclick="openLegalModal('cs')" class="apple-footer-link block hover:text-blue-400">5. Computer Science</span></li>
+                        <li><span onclick="openLegalModal('certifications')" class="apple-footer-link block hover:text-blue-400">6. Certifications</span></li>
+                    </ul>
+                </div>
+
+                <!-- Category Grouping 2: Program Levels -->
+                <div class="space-y-4">
+                    <h3 class="font-bold text-white tracking-tight text-[13px]">Program Levels</h3>
+                    <ul class="space-y-2.5">
+                        <li><span onclick="openLegalModal('jhs_track')" class="apple-footer-link block hover:text-blue-400">Junior High Track</span></li>
+                        <li><span onclick="openLegalModal('shs_track')" class="apple-footer-link block hover:text-blue-400">Senior High Track</span></li>
+                        <li><span onclick="openLegalModal('pre_uni')" class="apple-footer-link block hover:text-blue-400">Pre-University Prep</span></li>
+                        <li><span onclick="openLegalModal('professional_cohorts')" class="apple-footer-link block hover:text-blue-400">Professional Cohorts</span></li>
+                    </ul>
+                </div>
+
+                <!-- Category Grouping 3: Our Standards -->
+                <div class="space-y-4">
+                    <h3 class="font-bold text-white tracking-tight text-[13px]">Our Standards</h3>
+                    <ul class="space-y-2.5">
+                        <li><span onclick="openLegalModal('validation')" class="apple-footer-link block hover:text-blue-400">Verifiable Credentials</span></li>
+                        <li><span onclick="openLegalModal('nacca')" class="apple-footer-link block hover:text-blue-400">NaCCA Compliance</span></li>
+                        <li><span onclick="openLegalModal('wassce')" class="apple-footer-link block hover:text-blue-400">WASSCE Curriculum</span></li>
+                        <li><span onclick="openLegalModal('practical_assess')" class="apple-footer-link block hover:text-blue-400">Practical Assessment</span></li>
+                    </ul>
+                </div>
+
+                <!-- Category Grouping 4: Direct Support -->
+                <div class="space-y-4">
+                    <h3 class="font-bold text-white tracking-tight text-[13px]">Direct Support</h3>
+                    <ul class="space-y-2.5">
+                        <li><a href="https://wa.me/233542424592" target="_blank" class="apple-footer-link block font-semibold text-emerald-400 hover:underline">WhatsApp Support Desk</a></li>
+                        <li><span onclick="openLegalModal('student_portals')" class="apple-footer-link block hover:text-blue-400">Student Portals</span></li>
+                        <li><span onclick="openLegalModal('admission_timelines')" class="apple-footer-link block hover:text-blue-400">Admission Timelines</span></li>
+                        <li><span onclick="openLegalModal('system_parameters')" class="apple-footer-link block hover:text-blue-400">System Parameters</span></li>
+                    </ul>
+                </div>
+
+                <!-- Category Grouping 5: Academy Values -->
+                <div class="space-y-4">
+                    <h3 class="font-bold text-white tracking-tight text-[13px]">Academy Values</h3>
+                    <ul class="space-y-2.5">
+                        <li><span onclick="openLegalModal('digital_inclusion')" class="apple-footer-link block hover:text-blue-400">Digital Inclusion</span></li>
+                        <li><span onclick="openLegalModal('technical_rigor')" class="apple-footer-link block hover:text-blue-400">Technical Rigor</span></li>
+                        <li><span onclick="openLegalModal('applied_ethics')" class="apple-footer-link block hover:text-blue-400">Applied Ethics</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Legal Bar & Metadata Controls -->
+            <div class="pt-6 flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4 text-[#f5f5f7]/35 tracking-tight">
+                <div class="flex flex-col md:flex-row md:items-center gap-1.5 md:gap-3">
+                    <span class="text-white font-medium cursor-pointer hover:text-blue-400 transition-colors" onclick="openLegalModal('rights')">Copyright © 2026 Advancement Academy.</span>
+                    <span class="hidden md:inline text-neutral-800 font-light">|</span>
+                    <span class="cursor-pointer hover:text-white transition-colors" onclick="openLegalModal('rights')">All System Rights Reserved.</span>
+                </div>
+                
+                <!-- Internal Regulatory Legal Matrix Anchors -->
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[#f5f5f7]/40">
+                    <span class="cursor-pointer hover:underline hover:text-white transition-colors" onclick="openLegalModal('privacy')">Privacy Policy</span>
+                    <span class="text-neutral-800 select-none">|</span>
+                    <span class="cursor-pointer hover:underline hover:text-white transition-colors" onclick="openLegalModal('admission')">Terms of Admission</span>
+                    <span class="text-neutral-800 select-none">|</span>
+                    <span class="cursor-pointer hover:underline hover:text-white transition-colors" onclick="openLegalModal('validation')">Credential Validation</span>
+                    <span class="text-neutral-800 select-none">|</span>
+                    <span class="cursor-pointer hover:underline hover:text-white transition-colors" onclick="openLegalModal('sitemap')">Sitemap</span>
+                </div>
+
+                <!-- Local Regional Coordinates Anchor -->
+                <div class="font-medium text-neutral-300 text-left lg:text-right">
+                    Ghana Office <span class="text-neutral-600 ml-1 select-none">🇬🇭</span>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    <!-- END STANDALONE APPLE-STYLE DARK FOOTER -->
+
+
+
+
+    <script>
+        const WHATSAPP_PHONE_NUMBER = "233542424592";
+
+        const coursesData = {
+            it: [
+                { title: "Introduction to Computing", level: "JHS Track", desc: "Master physical hardware components, typing speeds, vital operating system shorts, and standard filesystem organization arrays.", img: "https://images.unsplash.com/photo-1547082299-de196ea013d6?w=600&auto=format&fit=crop&q=80" },
+                { title: "Internet Safety & Research", desc: "Differentiate network verification metrics, toggle privacy sandboxes, and maximize modern academic search parameters safely.", level: "JHS Track", img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&auto=format&fit=crop&q=80" },
+                { title: "Microsoft Office Essentials", desc: "Structure academic papers in Word, deploy financial math matrix tables in Excel, and design presentation sheets.", level: "JHS Track", img: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=600&auto=format&fit=crop&q=80" },
+                { title: "Google Workspace Systems", desc: "Synchronize cloud folders using Drive endpoints, collaborate inside live Document sheets, and interface classroom pipelines.", level: "JHS Track", img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&auto=format&fit=crop&q=80" },
+                { title: "PC Diagnostics & Maintenance", desc: "Examine board layouts, identify diagnostic fault codes, resolve registry crashes, and maintain hardware lifecycles properly.", level: "SHS Track", img: "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=600&auto=format&fit=crop&q=80" },
+                { title: "Foundations of Cyber Security", desc: "Analyze packet cryptography baselines, identify engineering attack methodologies, and protect personal local profiles.", level: "SHS Track", img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&auto=format&fit=crop&q=80" }
+            ],
+            math: [
+                { title: "JHS Core Number Operations", level: "JHS Track", desc: "Govern fractional divisions, percentage matrix expansions, sets structures, and structural numeric properties under NaCCA specifications.", img: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&auto=format&fit=crop&q=80" },
+                { title: "JHS Expressions & Equations", level: "JHS Track", desc: "Formulate simple linear relations, balance balanced algebraic configurations, and analyze coordinate mapping formulas.", img: "https://images.unsplash.com/photo-1453733190148-c44698c26588?w=600&auto=format&fit=crop&q=80" },
+                { title: "SHS Core: Sets & Surds", level: "SHS Core Math", desc: "Master three-variable Venn mapping formulas, radical expressions simplification patterns, and rationalization parameters for WASSCE fields.", img: "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=600&auto=format&fit=crop&q=80" },
+                { title: "SHS Core: Algebraic Processes", level: "SHS Core Math", desc: "Resolve complex concurrent simultaneous functions, determine parabolic roots, and change variables systematically.", img: "https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&auto=format&fit=crop&q=80" },
+                { title: "SHS Core: Plane Geometry", level: "SHS Core Math", desc: "Evaluate angular circle structures, trigonometry heights, angular displacement calculations, and geometric polygon definitions.", img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=80" },
+                { title: "SHS Elective: Coordinate Geometry", level: "SHS Elective Math", desc: "Analyze vector loci parameters, calculate gradient tracking perpendicular lines, and chart absolute circle properties.", img: "https://images.unsplash.com/photo-1596495578065-6e07cf002d31?w=600&auto=format&fit=crop&q=80" },
+                { title: "SHS Elective: Calculus Foundations", level: "SHS Elective Math", desc: "Trace first-principle differentiation paths, resolve quotient rules, and determine graphical integration spaces.", img: "https://images.unsplash.com/photo-1534224039826-c7a0dea0e66a?w=600&auto=format&fit=crop&q=80" }
+            ],
+            science: [
+                { title: "JHS Integrated Science: Ecosystems", level: "JHS Science", desc: "Examine biological communities, structural food grid webs, nutrient replenishment, and public environmental standard metrics.", img: "https://images.unsplash.com/photo-1530026405186-ed1ea0ac7a63?w=600&auto=format&fit=crop&q=80" },
+                { title: "JHS Integrated Science: Chemistry Basics", level: "JHS Science", desc: "Introduction to sorting basic substances, tracking simple color metrics via pH scales, and tracking agricultural properties.", img: "https://images.unsplash.com/photo-1614963326505-843867e2d73a?w=600&auto=format&fit=crop&q=80" },
+                { title: "SHS Core Science: Carbon Systems", level: "SHS Core Science", desc: "Identify functional hydrocarbon groups, manage fossil distillation parameters, and balance complex organic formulas.", img: "https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?w=600&auto=format&fit=crop&q=80" },
+                { title: "SHS Core Science: Human Genetics", level: "SHS Core Science", desc: "Track hereditary genotype variances, configure mitosis charts, and evaluate physiological mutation curves.", img: "https://images.unsplash.com/photo-1532187863486-abf9d39d6618?w=600&auto=format&fit=crop&q=80" },
+                { title: "SHS Elective Biology: Cell Structures", level: "SHS Elective Bio", desc: "Isolate cellular diffusion membranes, measure passive transport forces, and chart complex enzymatic conversion models.", img: "https://images.unsplash.com/photo-1576086213369-97a306d36557?w=600&auto=format&fit=crop&q=80" },
+                { title: "SHS Elective Chemistry: Shell Orbitals", level: "SHS Elective Chem", desc: "Map electron shell arrays, map periodic patterns, determine bond hybrid models, and configure element matrix charts.", img: "https://images.unsplash.com/photo-1532187643603-ba119ca4109e?w=600&auto=format&fit=crop&q=80" }
+            ],
+            physics: [
+                { title: "Introduction to Matter & Metrics", desc: "Study physical constants, convert metric measurements, and chart phase boundaries among solids, liquids, and vapors.", level: "JHS Track", img: "https://images.unsplash.com/photo-1461360370896-922624d12aa1?w=600&auto=format&fit=crop&q=80" },
+                { title: "Basic Energy Conversions", desc: "Calculate mechanical transformations, conversion laws, thermal movements, and basic circuit loops from early grids.", level: "JHS Track", img: "https://images.unsplash.com/photo-1507668077129-56e32842fceb?w=600&auto=format&fit=crop&q=80" },
+                { title: "Kinematics & Force Dynamics", desc: "Chart displacement curves, apply gravitational constant formulas, and deploy Newton's equations ($F=ma$).", level: "SHS Track", img: "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=600&auto=format&fit=crop&q=80" },
+                { title: "Ohm's Law & Circuit Infrastructures", desc: "Evaluate resistor configuration metrics, internal electrical potentials ($V=IR$), and loop current maps cleanly.", level: "SHS Track", img: "https://images.unsplash.com/photo-1535320903710-d993d3d77d29?w=600&auto=format&fit=crop&q=80" },
+                { title: "Classical Fields & Electrostatics", desc: "Deploy Coulomb fields across point charges, determine dialectic metrics, and construct energy capacitance models.", level: "Pre-University", img: "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?w=600&auto=format&fit=crop&q=80" }
+            ],
+            cs: [
+                { title: "Visual Logic Blocks (Scratch)", desc: "Build structural logical branching paths, loops, arrays, and variables inside graphic game environments.", level: "JHS CS Track", img: "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?w=600&auto=format&fit=crop&q=80" },
+                { title: "Python Software Engineering", desc: "Develop console tools with structural arrays, manage conditional trees, declare arguments, and manage document endpoints.", level: "SHS CS Track", img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&auto=format&fit=crop&q=80" },
+                { title: "Web Architectures (JS/CSS)", desc: "Deploy custom site frames, compile styling configurations, and execute basic local data object operations.", level: "SHS CS Track", img: "https://images.unsplash.com/photo-1621839673705-6837da52401e?w=600&auto=format&fit=crop&q=80" },
+                { title: "Object-Oriented Design (Java/C++)", desc: "Master encapsulated classes, inheritance parameters, polymorphism models, and optimize runtime engineering configurations.", level: "Pre-University CS", img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&auto=format&fit=crop&q=80" },
+                { title: "Data Structures & Big-O Notation", desc: "Evaluate linked allocation frames, search tree models, and analyze computational complexities ($O(n \\log n)$) perfectly.", level: "Pre-University CS", img: "https://images.unsplash.com/photo-1618401471353-b98aedd07871?w=600&auto=format&fit=crop&q=80" }
+            ],
+            professional: [
+                { title: "Crisis Triage & Recovery Paths", level: "Systemic Situation", desc: "Organize architecture rollback plans, coordinate major infrastructure failures, and structure status loops cleanly.", img: "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?w=600&auto=format&fit=crop&q=80" },
+                { title: "Incident Management (ITIL Engine)", level: "Systemic Situation", desc: "Build helpdesk tiers, verify response times, balance operations metrics, and handle organizational changes.", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&auto=format&fit=crop&q=80" },
+                { title: "CompTIA A+ Platform Core", level: "Certification Prep", desc: "Complete training track mapping client kernels, configuration steps, registry repairs, and setup models.", img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&auto=format&fit=crop&q=80" },
+                { title: "Cisco CCNA Route Configuration", level: "Certification Prep", desc: "Establish terminal control over virtual networks, configure routing protocols, and design firewall rules.", img: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=600&auto=format&fit=crop&q=80" }
+            ]
+        };
+
+        function renderCourses(category) {
+            const grid = document.getElementById('courses-grid');
+            grid.innerHTML = ''; 
+
+            coursesData[category].forEach((course) => {
+                let badgeStyle = "bg-green-100 text-green-900 dark:bg-green-950 dark:text-green-200 border-green-200 dark:border-green-800";
+                if(course.level.includes("SHS") || course.level.includes("Core")) {
+                    badgeStyle = "bg-orange-100 text-orange-900 dark:bg-orange-950 dark:text-orange-200 border-orange-200 dark:border-orange-800";
+                }
+                if(course.level.includes("Elective") || course.level.includes("Bio") || course.level.includes("Chem")) {
+                    badgeStyle = "bg-red-100 text-red-900 dark:bg-red-950 dark:text-red-200 border-red-200 dark:border-red-800";
+                }
+                if(course.level.includes("Pre-University")) {
+                    badgeStyle = "bg-purple-100 text-purple-900 dark:bg-purple-950 dark:text-purple-200 border-purple-200 dark:border-purple-800";
+                }
+                if(course.level === "Systemic Situation") {
+                    badgeStyle = "bg-blue-100 text-blue-900 dark:bg-blue-950 dark:text-blue-200 border-blue-200 dark:border-blue-800";
+                }
+                if(course.level === "Certification Prep") {
+                    badgeStyle = "bg-indigo-100 text-indigo-900 dark:bg-indigo-950 dark:text-indigo-200 border-indigo-200 dark:border-indigo-800";
+                }
+
+                const card = document.createElement('div');
+                card.className = "bg-white dark:bg-[#2c2c2e] rounded-3xl overflow-hidden border border-slate-200 dark:border-neutral-800 shadow-sm flex flex-col group hover:shadow-md transition-all duration-300";
+                
+                card.innerHTML = `
+                    <div class="h-48 overflow-hidden relative bg-slate-100 dark:bg-neutral-800">
+                        <img src="${course.img}" alt="${course.title}" loading="lazy" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600';">
+                        <span class="absolute top-4 left-4 text-[11px] font-bold px-2.5 py-1 rounded-full border backdrop-blur-md shadow-sm ${badgeStyle}">
+                            ✓ ${course.level}
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div class="mb-6">
+                            <h2 class="font-bold text-xl leading-snug mb-2 tracking-tight text-slate-900 dark:text-white">${course.title}</h2>
+                            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed line-clamp-3">${course.desc}</p>
+                        </div>
+                        <button onclick="openModal('${course.title}', '${course.level}')" class="w-full py-3 px-4 bg-slate-100 dark:bg-neutral-800 hover:bg-emerald-600 dark:hover:bg-emerald-600 text-slate-900 dark:text-white hover:text-white dark:hover:text-white font-bold text-sm rounded-xl transition-all duration-150 flex items-center justify-center gap-1.5 focus:outline-none">
+                            Select Track
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterCategory(category) {
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.classList.add('text-slate-600', 'dark:text-slate-400');
+            });
+            
+            const activeBtn = document.getElementById(`btn-${category}`);
+            activeBtn.classList.add('active');
+            activeBtn.classList.remove('text-slate-600', 'dark:text-slate-400');
+            
+            renderCourses(category);
+        }
+
+        function openModal(courseTitle, courseLevel) {
+            const modal = document.getElementById('form-modal');
+            const content = document.getElementById('modal-content');
+            
+            document.getElementById('target-course-title').innerText = courseTitle;
+            document.getElementById('target-course-level').innerText = `Track: ${courseLevel}`;
+            document.getElementById('whatsapp-admission-form').reset();
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                content.classList.remove('translate-y-full', 'sm:scale-95');
+            }, 10);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('form-modal');
+            const content = document.getElementById('modal-content');
+            
+            modal.classList.add('opacity-0');
+            content.classList.add('translate-y-full', 'sm:scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        function sendWhatsAppRegistration(event) {
+            event.preventDefault();
+            const selectedCourse = document.getElementById('target-course-title').innerText;
+            const courseTrack = document.getElementById('target-course-level').innerText;
+            const studentName = document.getElementById('student-name').value;
+            const academicStatus = document.getElementById('student-level').value;
+            const studentPhone = document.getElementById('student-phone').value;
+
+            const textMessage = `*NEW ADMISSION APPLICATION*\n\n` +
+                                `📚 *Course:* ${selectedCourse}\n` +
+                                `🏷️ *${courseTrack}*\n\n` +
+                                `👤 *Name:* ${studentName}\n` +
+                                `🎓 *Level:* ${academicStatus}\n` +
+                                `📞 *WhatsApp:* ${studentPhone}\n\n` +
+                                `_Sent via Academy Dashboard System._`;
+
+            window.open(`https://wa.me/${WHATSAPP_PHONE_NUMBER}?text=${encodeURIComponent(textMessage)}`, '_blank');
+            closeModal();
+        }
+
+        function toggleTheme() {
+            const doc = document.documentElement;
+            const sunIcon = document.getElementById('theme-sun');
+            const moonIcon = document.getElementById('theme-moon');
+            
+            if (doc.classList.contains('dark')) {
+                doc.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+            } else {
+                doc.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+            }
+        }
+
+        // Initialize UI states cleanly
+        window.addEventListener('DOMContentLoaded', () => {
+            renderCourses('it');
+            const sunIcon = document.getElementById('theme-sun');
+            const moonIcon = document.getElementById('theme-moon');
+            if (document.documentElement.classList.contains('dark')) {
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+            }
+        });
+
+
+
+
+        const legalContent = {
+            // EXPLORE TRACKS
+            it_core: {
+                title: "1. IT Literacy Core",
+                body: `
+                    <p class="font-semibold text-white">Fundamental Digital Workspaces</p>
+                    <p>Our foundational computing stream builds functional speed and hardware precision. Students explore filesystem architecture, local system configurations, and advanced keyboard shortcuts.</p>
+                    <p>The core curriculum includes in-depth mastery of professional production packages like Microsoft Office Essentials and integrated cloud tools via Google Workspace pipelines.</p>
+                `
+            },
+            math: {
+                title: "2. Mathematics Track",
+                body: `
+                    <p class="font-semibold text-white">Analytical Reasoning & Quant Fundamentals</p>
+                    <p>Designed to break down structural obstacles in quantitative learning, our mathematics tracks bridge fundamental operations with complex elective calculus.</p>
+                    <p>Students cover operations on sets, fractional arrays, algebraic expressions, plane geometry variables, coordinate grids, and first-principle differentiation frameworks.</p>
+                `
+            },
+            sciences: {
+                title: "3. Integrated Sciences Track",
+                body: `
+                    <p class="font-semibold text-white">Empirical Analysis & Natural Systems</p>
+                    <p>This stream tracks physical, organic, and life sciences through structured experimentation. Core concepts guide students through ecosystem layouts, balance vectors in food webs, and elementary chemistry parameters.</p>
+                    <p>Advanced modules step up to structural organic systems, carbon hybrids, and cell division tracking matrices.</p>
+                `
+            },
+            physics: {
+                title: "4. Physics Advanced Track",
+                body: `
+                    <p class="font-semibold text-white">Classical Fields, Mechanics & Electronics</p>
+                    <p>An intensive track focusing on standard physical variables and laws. Topics run through metric conversions, kinematic properties, and Newton’s equations of motion.</p>
+                    <p>Advanced practical sessions introduce Ohm’s law circuit structures, energy capacitance models, and Coulomb field metrics for point-charge parameters.</p>
+                `
+            },
+            cs: {
+                title: "5. Computer Science Track",
+                body: `
+                    <p class="font-semibold text-white">Computational Logic & Software Engineering</p>
+                    <p>A rigorous track moving from visual algorithm blocks (Scratch) up to syntax-driven software architectures.</p>
+                    <p>Students build data pipelines in Python, deploy frontend Web Architectures, and practice Object-Oriented Principles in Java/C++ alongside runtime asymptotic complexity analysis ($O(n)$ notation).</p>
+                `
+            },
+            certifications: {
+                title: "6. Professional Certifications",
+                body: `
+                    <p class="font-semibold text-white">Industry-Recognized Career Credentials</p>
+                    <p>Targeted training tracks built for global enterprise validation. This module preps students for professional vendor exams including the CompTIA A+ hardware pipeline and Cisco Certified Network Associate (CCNA) configurations.</p>
+                    <p>Practical focus includes live router terminals, subnet masking arrays, and firewall protection rule setups.</p>
+                `
+            },
+
+            // PROGRAM LEVELS
+            jhs_track: {
+                title: "Junior High School Track (JHS)",
+                body: `
+                    <p class="font-semibold text-white">Foundational Skill Pipelines</p>
+                    <p>Tailored directly for early secondary students, this track prioritizes structural understanding and basic logical fluency. Curriculums map directly to contemporary national educational standards, setting clear paths for upcoming standardized BECE milestones.</p>
+                `
+            },
+            shs_track: {
+                title: "Senior High School Track (SHS)",
+                body: `
+                    <p class="font-semibold text-white">Core & Elective WASSCE Specialization</p>
+                    <p>An intermediate academic tier optimized for secondary profiles. Modules step into advanced algebraic equations, organic carbon chemistry, elective tracking metrics, and technical diagnostic practices to secure high-performance outcomes.</p>
+                `
+            },
+            pre_uni: {
+                title: "Pre-University Prep Track",
+                body: `
+                    <p class="font-semibold text-white">Advanced University & Engineering Readiness</p>
+                    <p>Designed for candidates transitioning into higher education STEM disciplines. Focus areas jump directly into structural database models, complex coordinate geometry, data structures, and classical field physics.</p>
+                `
+            },
+            professional_cohorts: {
+                title: "Professional Cohorts",
+                body: `
+                    <p class="font-semibold text-white">Enterprise Systems & Crisis Operations</p>
+                    <p>Built specifically for active workforce profiles and system administrators. Training paths emphasize real-time crisis management triage, corporate ITIL service desks, network engineering, and advanced systems administration.</p>
+                `
+            },
+
+            // OUR STANDARDS
+            validation: {
+                title: "Verifiable Digital Credentials",
+                body: `
+                    <p class="font-semibold text-white">Cryptographic Certificate Validation</p>
+                    <p>Every graduate receives a distinct cryptographic registration hash. Employers, corporate partners, and university portals can check student validation marks directly against our active database to verify certificate authenticity.</p>
+                `
+            },
+            nacca: {
+                title: "NaCCA Compliance Framework",
+                body: `
+                    <p class="font-semibold text-white">National Curriculum Standards Alignment</p>
+                    <p>All core Junior High and Senior High learning sequences are regularly cross-checked with the National Council for Curriculum and Assessment (NaCCA) directives, ensuring local relevance alongside international standards.</p>
+                `
+            },
+            wassce: {
+                title: "WASSCE Curriculum Integration",
+                body: `
+                    <p class="font-semibold text-white">West African Examinations Council Alignment</p>
+                    <p>Our lesson pipelines trace the exact current syllabus parameters of the West African Senior School Certificate Examination. Practical exercises match rigorous exam testing matrices to maximize core score variables.</p>
+                `
+            },
+            practical_assess: {
+                title: "Practical Assessment Protocols",
+                body: `
+                    <p class="font-semibold text-white">Lab Execution & Project Milestones</p>
+                    <p>We do not issue certifications based on attendance alone. Candidates must execute standalone project labs, document operational source arrays, troubleshoot live networks, or defend quantitative algorithms to earn passing credentials.</p>
+                `
+            },
+
+            // DIRECT SUPPORT
+            student_portals: {
+                title: "Student Portal Registries",
+                body: `
+                    <p class="font-semibold text-white">Centralized Academic Portals</p>
+                    <p>Authorized users can leverage secure student dashboards to access active course materials, check personal project evaluations, download lecture sheets, and preview pending credential metadata milestones.</p>
+                `
+            },
+            admission_timelines: {
+                title: "Admission Timelines & Cohorts",
+                body: `
+                    <p class="font-semibold text-white">Rolling Registration & Start Cycles</p>
+                    <p>Applications are compiled via our rapid WhatsApp interface on a rolling basis. Group allocations open at regular intervals quarterly. Confirmed applicants will receive onboarding documentation with precise terminal lab schedules.</p>
+                `
+            },
+            system_parameters: {
+                title: "System Parameters & Requirements",
+                body: `
+                    <p class="font-semibold text-white">Technical Workspace Environments</p>
+                    <p>To run development environments smoothly, we recommend machines with at least a dual-core CPU architecture, 4GB RAM capacity, and up-to-date web browsing engines capable of parsing WebSocket protocols and styling structures.</p>
+                `
+            },
+
+            // ACADEMY VALUES
+            digital_inclusion: {
+                title: "Digital Inclusion Policy",
+                body: `
+                    <p class="font-semibold text-white">Democratizing Advanced Technology Systems</p>
+                    <p>We work to remove access barriers to modern tech. Our mobile-optimized portals are intentionally designed for low data use, allowing any student across regional nodes to secure high-tier engineering skills regardless of local hardware limits.</p>
+                `
+            },
+            technical_rigor: {
+                title: "Technical Rigor Standards",
+                body: `
+                    <p class="font-semibold text-white">Excellence in Computational & Scientific Paths</p>
+                    <p>We champion deep, comprehensive expertise over surface-level overviews. Course pathways explore structural core concepts from scratch, giving students a foundational mastery that easily translates to complex, real-world execution.</p>
+                `
+            },
+            applied_ethics: {
+                title: "Applied Digital Ethics Code",
+                body: `
+                    <p class="font-semibold text-white">Responsible Security and System Practices</p>
+                    <p>Every technology track reinforces ethical boundaries. Students learn to navigate cybersecurity principles, open-source compliance frameworks, and AI data systems responsibly, safeguarding integrity across all online networks.</p>
+                `
+            },
+
+            // MANDATORY FOOTER ANCHORS
+            rights: {
+                title: "All System Rights Reserved",
+                body: `
+                    <p class="font-semibold text-white">Intellectual Property & Domain Control</p>
+                    <p>All core educational frameworks, source code, visual design schemes, mathematical syllabus modifications, coding lab parameters, and custom graphics displayed across the Advancement Academy system are protected under regional copyright and intellectual property protections.</p>
+                    <p>Unauthorized duplication, indexing, layout framing, or mirroring of these structural interfaces without direct, explicit written certification from our administration is strictly prohibited.</p>
+                `
+            },
+            privacy: {
+                title: "Privacy Policy",
+                body: `
+                    <p class="font-semibold text-white">Data Stewardship Principle</p>
+                    <p>Advancement Academy respects student digital privacy parameters. Data submitted through our instant application portals is processed locally to generate explicit registration objects. Information is formatted into an encrypted structure and handed directly to standard WhatsApp networking pipelines to reach our administrative office line (+233 54 242 4592).</p>
+                `
+            },
+            admission: {
+                title: "Terms of Admission",
+                body: `
+                    <p class="font-semibold text-white">Student Profile Integrity & Requirements</p>
+                    <p>By using the instant registration system, applicants confirm that all self-selected levels are accurate reflections of their true academic profile. Official graduation credentials and certified document handovers depend entirely on completing required lab work.</p>
+                `
+            },
+            sitemap: {
+                title: "Portal Sitemap",
+                body: `
+                    <p class="font-semibold text-white">Structured Index Matrix</p>
+                    <p>Our core framework tracks 6 distinct course branches (IT Literacy, Mathematics, Sciences, Physics, Computer Science, and Certifications) optimized across 4 primary levels ranging from Junior High platforms to Professional engineering cohorts.</p>
+                `
+            }
+        };
+
+        function openLegalModal(type) {
+            const modal = document.getElementById('legal-modal');
+            const content = document.getElementById('legal-modal-content');
+            const doc = legalContent[type];
+
+            if (!doc) return;
+
+            document.getElementById('legal-modal-title').innerText = doc.title;
+            document.getElementById('legal-modal-body').innerHTML = doc.body;
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                content.classList.remove('translate-y-full', 'sm:scale-95');
+            }, 10);
+        }
+
+        function closeLegalModal(event) {
+            if (event && event.target !== document.getElementById('legal-modal')) return;
+
+            const modal = document.getElementById('legal-modal');
+            const content = document.getElementById('legal-modal-content');
+            
+            modal.classList.add('opacity-0');
+            content.classList.add('translate-y-full', 'sm:scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+    </script>
+</body>
+</html>

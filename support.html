@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support & Request Desk - Advancement Academy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .scrollbar-none::-webkit-scrollbar { display: none; }
+        .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Smooth micro-interactions */
+        .interactive-card {
+            transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s ease;
+        }
+    </style>
+</head>
+<body class="bg-[#111112] text-slate-100 min-h-screen flex flex-col justify-between antialiased font-sans">
+
+    <header class="w-full border-b border-neutral-800 bg-[#1c1c1e]/80 backdrop-blur-md sticky top-0 z-40">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-blue-500 animate-pulse"></span>
+                <span class="text-xs font-bold uppercase tracking-widest text-slate-200">Advancement Academy Desk</span>
+            </div>
+            <a href="index.html" class="text-xs text-blue-400 hover:underline inline-flex items-center gap-1">
+                ← Back to Portal
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-3xl mx-auto w-full px-4 py-10 flex-1">
+        
+        <div class="text-center md:text-left mb-8">
+            <h1 class="text-3xl font-black tracking-tight text-white sm:text-4xl">Help & Request Resolution Center</h1>
+            <p class="text-sm text-slate-400 mt-2">Submit tracking problems, core syllabus updates, or general system inquiries directly to our operations pipeline via WhatsApp encryption.</p>
+        </div>
+
+        <div class="bg-neutral-900 border border-neutral-800 rounded-2xl p-4 mb-8 flex items-start gap-3">
+            <div class="p-2 bg-emerald-950/50 rounded-xl text-emerald-400 shrink-0 border border-emerald-900">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <div>
+                <h4 class="text-xs font-bold text-slate-200 uppercase tracking-wide">Operational Integrity Notice</h4>
+                <p class="text-xs text-slate-400 mt-0.5">All administrative response paths are open. Ticket generation formats data cleanly into text scripts optimized for local cellular speeds inside Ghana.</p>
+            </div>
+        </div>
+
+        <form onsubmit="handleSupportSubmit(event)" class="bg-[#1c1c1e] border border-neutral-800 rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl">
+            
+            <div>
+                <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2" for="request-category">What do you need assistance with? *</label>
+                <select id="request-category" required onchange="adaptFormFields()" class="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-xl text-sm font-medium text-white focus:ring-1 focus:ring-blue-500 outline-none transition-all">
+                    <option value="" disabled selected>Choose target administrative pipeline</option>
+                    <option value="Application & Onboarding Support">1. Application Status & Registration Issues</option>
+                    <option value="Syllabus & Stream Adjustments">2. Course Track Change Request</option>
+                    <option value="Credential Data Correction">3. Certificate / Credential Correction</option>
+                    <option value="Technical Error Report">4. System Platform Bugs / Errors</option>
+                    <option value="General Academic Inquiry">5. General Consultation Inquiry</option>
+                </select>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 mb-1.5" for="user-name">Full Name *</label>
+                    <input type="text" id="user-name" required class="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-xl text-sm text-white focus:ring-1 focus:ring-blue-500 outline-none transition-all" placeholder="Kwame Mensah">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 mb-1.5" for="user-phone">Active WhatsApp Number *</label>
+                    <input type="tel" id="user-phone" required class="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-xl text-sm text-white focus:ring-1 focus:ring-blue-500 outline-none transition-all" placeholder="e.g. 0542424592">
+                </div>
+            </div>
+
+            <div class="bg-neutral-900/50 border border-neutral-800 p-4 rounded-xl hidden" id="dynamic-instruction">
+                <span class="text-xs text-blue-400 font-semibold" id="dynamic-instruction-text">Instructions...</span>
+            </div>
+
+            <div>
+                <label class="block text-xs font-bold text-slate-300 mb-1.5" id="problem-label" for="problem-description">Provide Complete Details *</label>
+                <textarea id="problem-description" required rows="5" class="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-xl text-sm text-white focus:ring-1 focus:ring-blue-500 outline-none transition-all scrollbar-none" placeholder="Please thoroughly details structural elements of your current application, specified track names, errors encountered, or changes requested..."></textarea>
+            </div>
+
+            <div class="pt-2">
+                <button type="submit" class="w-full py-4 px-6 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm rounded-xl transition-all duration-200 flex items-center justify-center gap-2.5 shadow-lg">
+                    <svg class="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24"><path d="M12.008.01A12 12 0 000 12c.001 2.1.55 4.14 1.59 5.94L0 24l6.16-1.62c1.74.95 3.71 1.45 5.72 1.45 6.61 0 12-5.34 12-11.95A11.95 11.95 0 0012.008.01zm6.59 17.14c-.3.15-1.76.87-2.03.97-.27.1-.47.15-.67-.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.59-.48-.5-.67-.52-.17-.01-.37-.01-.57-.01-.2 0-.52.08-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.23-.57-.38z"/></svg>
+                    Compile & Dispatch to WhatsApp
+                </button>
+            </div>
+
+        </form>
+
+    </main>
+
+    <footer class="w-full text-center py-6 text-[11px] text-slate-600 border-t border-neutral-900 bg-[#111112]">
+        Copyright © 2026 Advancement Academy. All Support Infrastructures Wired.
+    </footer>
+
+    <script>
+        const WHATSAPP_TARGET_NUMBER = "233542424592";
+
+        // Dynamic instructional helpers that change based on what user selects
+        const helperStrings = {
+            "Application & Onboarding Support": "💡 Tip: Include the approximate date of your initial form entry and your chosen program track (e.g., IT Literacy JHS).",
+            "Syllabus & Stream Adjustments": "💡 Tip: Explicitly specify your CURRENT course and your target replacement stream clearly.",
+            "Credential Data Correction": "💡 Tip: Write your name EXACTLY how it should display on certificates. Include errors found on current credentials.",
+            "Technical Error Report": "💡 Tip: Describe what button was pressed or any warning messages that loaded onto your screen.",
+            "General Academic Inquiry": "💡 Tip: Leave clear, structured questions so our counseling desk can compile appropriate responses."
+        };
+
+        function adaptFormFields() {
+            const category = document.getElementById('request-category').value;
+            const textLabel = document.getElementById('problem-label');
+            const instructionBox = document.getElementById('dynamic-instruction');
+            const instructionText = document.getElementById('dynamic-instruction-text');
+            const textArea = document.getElementById('problem-description');
+
+            if(helperStrings[category]) {
+                instructionText.innerText = helperStrings[category];
+                instructionBox.classList.remove('hidden');
+                textLabel.innerText = `Detailed Breakdown for ${category} *`;
+                textArea.placeholder = `Describe your ${category.toLowerCase()} request with specific references...`;
+            }
+        }
+
+        function handleSupportSubmit(event) {
+            event.preventDefault();
+
+            // Fetch clean values
+            const category = document.getElementById('request-category').value;
+            const name = document.getElementById('user-name').value;
+            const phone = document.getElementById('user-phone').value;
+            const description = document.getElementById('problem-description').value;
+
+            // Build structural raw messaging schema
+            const finalMessage = 
+                `*🚨 NEW SYSTEM SUPPORT TICKET*\n\n` +
+                `📌 *Pipeline Category:* \n_${category}_\n\n` +
+                `👤 *Requester Name:* ${name}\n` +
+                `📞 *Contact WhatsApp:* ${phone}\n\n` +
+                `📝 *Detailed Data Submission:*\n"${description}"\n\n` +
+                `⏱️ _Status: Pending Handshake Coordination_`;
+
+            // Redirect engine out into new browser tab instance
+            const optimalUrl = `https://wa.me/${WHATSAPP_TARGET_NUMBER}?text=${encodeURIComponent(finalMessage)}`;
+            window.open(optimalUrl, '_blank');
+        }
+    </script>
+
+</body>
+</html>
