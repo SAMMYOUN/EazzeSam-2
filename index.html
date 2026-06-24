@@ -19,9 +19,10 @@
     <!-- Google Fonts (Inter for that clean, Apple-like look) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <lik
+    <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 
     <script>
         tailwind.config = {
@@ -40,187 +41,7 @@
             }
         }
     </script>
-    <style>
-        body {
-            overflow-x: hidden !important;
-            max-w-full !important;
-            position: relative;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            letter-spacing: -0.022em;
-        }
 
-        /* Rigid Light Mode Contrast Overhaul */
-        .light {
-            background-color: #f5f5f7 !important;
-            color: #000000 !important;
-        }
-
-        .light p,
-        .light span,
-        .light h1,
-        .light h2,
-        .light h3,
-        .light h4,
-        .light h5,
-        .light h6,
-        .light label,
-        .light li {
-            color: #000000 !important;
-        }
-
-        .light .text-gray-600,
-        .light .text-[#86868b],
-        .light .text-appleGray,
-        .light .text-gray-500 {
-            color: #1c1c1e !important;
-            font-weight: 500;
-        }
-
-        .apple-glass {
-            background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(25px) saturate(190%);
-            -webkit-backdrop-filter: blur(25px) saturate(190%);
-            border: 1px solid rgba(255, 255, 255, 0.09);
-        }
-
-        .light .apple-glass {
-            background: #ffffff !important;
-            backdrop-filter: none;
-            -webkit-backdrop-filter: none;
-            border: 2px solid #000000 !important;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
-        }
-
-        .apple-transition {
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .apple-transition:hover {
-            transform: translateY(-2px);
-        }
-
-        .nav-link {
-            color: #6e6e73;
-            font-weight: 500;
-            transition: color 0.25s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .dark .nav-link:hover {
-            color: #ffffff;
-        }
-
-        .light .nav-link {
-            color: #1d1d1f !important;
-        }
-
-        .light .nav-link:hover {
-            color: #007aff !important;
-        }
-
-        .dark .nav-active {
-            color: #007aff !important;
-            font-weight: 700 !important;
-        }
-
-        .light .nav-active {
-            color: #007aff !important;
-            font-weight: 700 !important;
-        }
-
-        .page-section {
-            display: none;
-        }
-
-        .page-section.active-page {
-            display: block;
-        }
-
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 99px;
-        }
-
-        .light .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: rgba(0, 0, 0, 0.3);
-        }
-
-        .material-symbols-outlined {
-            vertical-align: middle;
-            font-size: 20px;
-            display: inline-block;
-        }
-
-        /* FAQ Transition Utilities */
-        .faq-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.35s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .faq-item.active .faq-content {
-            max-height: 200px;
-        }
-
-
-        /* Apple-style smooth cubic-bezier transition */
-        .apple-transition {
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .apple-bounce {
-            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1.2);
-        }
-
-        .apple-bounce:hover {
-            transform: scale(1.03);
-        }
-
-        /* Slideshow custom smooth transition */
-        .slide-track {
-            display: flex;
-            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .slide-item {
-            flex: 0 0 100%;
-            width: 100%;
-        }
-
-        /* Custom keyframes for text elements rising up beautifully */
-        @keyframes textUp {
-            from {
-                opacity: 0;
-                transform: translateY(24px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-text-up {
-            animation: textUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        /* Fixed-width monospace utility specifically for fast microsecond counters */
-        .mono-timer {
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-         /* Smooth transitions for the sliding pill background */
-        .tab-indicator {
-            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-    </style>
 </head>
 
 <body
@@ -251,7 +72,7 @@
                 <a href="#" id="nav-academy" onclick="navigateTo('academy')" class="nav-link">Academy Hub</a>
                 <a href="#" id="nav-pricing" onclick="navigateTo('pricing')" class="nav-link">Pricing Plans</a>
                 <a href="#" id="nav-team" onclick="navigateTo('team')" class="nav-link">Team</a>
-                <a href="#" id="nav-blog" onclick="navigateTo('blog')" class="nav-link">Blog</a>
+                <a href="#" id="nav-blog" onclick="navigateTo('blog')" class="nav-link">Blog Node</a>
                 <a href="#" id="nav-chatbot" onclick="navigateTo('chatbot')"
                     class="nav-link flex items-center gap-1"><span
                         class="material-symbols-outlined text-sm text-techBlue">smart_toy</span> EazzeSam AI Chatbot</a>
@@ -297,14 +118,14 @@
                 class="block py-2 text-sm">Articles & Blog</a>
             <a href="#" id="mob-nav-chatbot" onclick="navigateTo('chatbot'); toggleMobileMenu();"
                 class="block py-2 text-sm"><span
-                    class="material-symbols-outlined text-sm text-techBlue mr-1">smart_toy</span>EazzeSam AI Chatbot</a>
+                    class="material-symbols-outlined text-sm text-techBlue mr-1">smart_toy</span>Full-Screen AI Chat</a>
             <a href="#" id="mob-nav-contact" onclick="navigateTo('contact'); toggleMobileMenu();"
                 class="block py-2 text-sm">Contact Information</a>
         </div>
     </header>
 
     <main class="w-full max-w-full overflow-hidden">
-
+        <!-- home -->
         <div id="page-home"
             class="page-section active-page animate__animated animate__fadeIn max-w-full overflow-hidden">
             <section
@@ -423,7 +244,7 @@
                                 class="absolute left-4 sm:left-1/2 w-4 h-4 bg-techBlue rounded-full -translate-x-1.5 border-4 border-white dark:border-darkBg z-10 transition group-hover:scale-125">
                             </div>
                             <div class="w-full sm:w-[45%] pl-10 sm:pl-0 sm:text-right space-y-2">
-                                <span class="text-lg font-black text-techBlue">2021 — Origin Node</span>
+                                <span class="text-lg font-black text-techBlue">2019 — Origin</span>
                                 <h4 class="text-base font-bold dark:text-white">Inception & System Support</h4>
                                 <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">Eazzesam
                                     Technologies launched as a centralized network layout diagnostics desk. We focused
@@ -542,6 +363,7 @@
             </section>
         </div>
 
+        <!-- about -->
         <div id="page-about"
             class="page-section max-w-5xl mx-auto px-6 py-16 animate__animated animate__fadeIn overflow-hidden">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -966,6 +788,7 @@
 
         </div>
 
+        <!-- services -->
         <div id="page-services"
             class="page-section max-w-5xl mx-auto px-6 py-16 animate__animated animate__fadeIn overflow-hidden">
             <div class="text-center max-w-xl mx-auto mb-12 space-y-2">
@@ -990,6 +813,20 @@
                         client intent filtering, and custom algorithmic automation scripting.</p>
                 </div>
                 <div class="apple-glass p-6 rounded-3xl apple-transition">
+    <!-- Icon changed to school/learning symbol -->
+    <div class="text-innovGreen mb-4">
+        <span class="material-symbols-outlined text-[24px]">school</span>
+    </div>
+    <!-- Heading updated to Educational Context -->
+    <h3 class="text-sm sm:text-base font-bold dark:text-white mb-2">
+         Adaptive Learning
+    </h3>
+    <!-- Paragraph updated to Educational Context -->
+    <p class="text-xs text-gray-600 dark:text-[#86868b] leading-relaxed">
+        Personalized student learning paths, real-time feedback assessment, and smart curricular analytics tailored for academic success.
+    </p>
+</div>
+                <div class="apple-glass p-6 rounded-3xl apple-transition">
                     <div class="text-amber-500 mb-4"><span class="material-symbols-outlined text-[24px]">videocam</span>
                     </div>
                     <h3 class="text-sm sm:text-base font-bold dark:text-white mb-2">CCTV Network Deployments</h3>
@@ -999,6 +836,7 @@
             </div>
         </div>
 
+        <!-- port -->
         <div id="page-portfolio"
             class="page-section max-w-6xl mx-auto px-6 py-16 animate__animated animate__fadeIn overflow-hidden">
             <div class="text-center max-w-xl mx-auto mb-12 space-y-2">
@@ -1083,6 +921,7 @@
             </div>
         </div>
 
+        <!-- ACA -->
         <div id="page-academy"
             class="page-section max-w-6xl mx-auto px-6 py-16 animate__animated animate__fadeIn overflow-hidden">
             <div
@@ -1093,7 +932,8 @@
                         <span class="material-symbols-outlined text-xs">school</span> Competency Hub
                     </div>
                     <h2 class="text-2xl sm:text-3xl font-bold tracking-tight dark:text-white leading-none">Practical IT
-                        Competency Tracks</h2>
+                        Competency Tracks </h2>
+                       <h2 class="text-2xl sm:text-3xl font-bold tracking-tight dark:text-white leading-none">For More Typing Tests </h2><em class="text-xs text-techBlue font-bold hover:underline inline-flex items-center gap-1"><a href="./typing.html">click here</a> </em>
                     <p class="text-gray-600 dark:text-[#86868b] text-xs sm:text-sm leading-relaxed"> Skip abstract
                         calculations. Gain real-world tactical keyboard workflow mastery. Review our engineering
                         domains, test your alignment performance below, and complete your registration details.</p>
@@ -1203,6 +1043,7 @@
             </div>
         </div>
 
+        <!-- pricing -->
         <div id="page-pricing"
             class="page-section max-w-5xl mx-auto px-6 py-16 animate__animated animate__fadeIn overflow-hidden">
             <div class="text-center max-w-xl mx-auto mb-12 space-y-2">
@@ -1248,31 +1089,200 @@
                         Bespoke Audit</button>
                 </div>
             </div>
+<br>
+            <div class="tab-link-container">
+                <a href="./hosting-pricing.html" class="modern-tab-link">
+                    <span class="spand">🎓</span> Hosting Pricing
+                </a>
+            </div>
         </div>
 
+        <!-- teams -->
         <div id="page-team"
-            class="page-section max-w-5xl mx-auto px-6 py-16 animate__animated animate__fadeIn overflow-hidden">
-            <div class="text-center max-w-xl mx-auto mb-12 space-y-2">
+            class="page-section max-w-6xl mx-auto px-6 py-16 animate__animated animate__fadeIn overflow-hidden">
+            <div class="text-center max-w-xl mx-auto mb-16 space-y-2">
                 <span class="text-xs font-bold tracking-wide text-gray-500 dark:text-appleGray uppercase block">The
                     Minds</span>
                 <h2 class="text-2xl sm:text-3xl font-bold tracking-tight dark:text-white">Our Engineering Leadership
                 </h2>
+                <p class="text-xs text-gray-600 dark:text-[#86868b]">Meet the core architectural staff behind our
+                    operational deployments.</p>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="apple-glass p-5 rounded-3xl text-center space-y-3 apple-transition">
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Founder -->
+                <div
+                    class="apple-glass p-6 rounded-3xl text-center space-y-4 apple-transition relative overflow-hidden group border border-gray-200 dark:border-white/5">
                     <div
-                        class="w-20 h-20 rounded-full overflow-hidden mx-auto border border-gray-300 dark:border-white/10 bg-gray-300">
-                        <img src=./logo.png" alt="Mr. Samuel Kojo Appiah" class="w-full h-full object-cover">
+                        class="w-24 h-24 rounded-full overflow-hidden mx-auto border border-gray-300 dark:border-white/10 bg-gray-200 dark:bg-neutral-800 relative">
+                        <img src="./plogo.jpg" alt="Mr. Samuel Kojo Appiah" class="w-full h-full object-cover">
                     </div>
                     <div>
                         <h3 class="text-sm font-bold dark:text-white">Mr. Samuel K. Appiah</h3>
-                        <p class="text-xs text-techBlue font-bold">Founder & Systems Architect</p>
-                        <p class="text-[10px] text-gray-500 dark:text-appleGray mt-1">AI Logic Engine Deployments</p>
+                        <p class="text-xs text-techBlue font-bold mt-0.5">Founder & Systems Architect</p>
+                        <p class="text-[10px] text-gray-500 dark:text-appleGray mt-1.5 leading-relaxed">AI Logic Engine
+                            Deployments & Protocol Specifications Hub</p>
                     </div>
+                    <!-- Profile Interactive Link Layer -->
+                    <a href="https://www.linkedin.com/authwall?trk=gf&trkInfo=AQHvqlpeZDaArgAAAZ72yEqwI-y6hmvs-0J68IyHTOY6_8yS8XTPT4qMw2X_BpUHY_xYXBuhoGx6y6EprVO5Sz81qmCKI2_C8UwtG7NLeTAgwWqBupW91_OnxiwsuV-17-KKLK4=&original_referer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fsamuel-appiah-kojo-83035b256%3Futm_source%3Dshare_via%26utm_content%3Dprofile%26utm_medium%3Dmember_ios"
+                        target="_blank"
+                        class="absolute inset-0 bg-techBlue/10 opacity-0 group-hover:opacity-100 backdrop-blur-[2px] transition duration-300 flex items-center justify-center space-x-2">
+                        <span
+                            class="bg-black text-white text-[10px] px-3 py-1.5 rounded-full font-bold shadow-md tracking-wide flex items-center gap-1">View
+                            Profile <i class="fa-brands fa-linkedin text-xs text-[#007aff]"></i></span>
+                    </a>
+                </div>
+
+                <!-- Team Member 1 -->
+                <div
+                    class="apple-glass p-6 rounded-3xl text-center space-y-4 apple-transition relative overflow-hidden group border border-gray-200 dark:border-white/5">
+                    <div
+                        class="w-24 h-24 rounded-full overflow-hidden mx-auto border border-gray-300 dark:border-white/10 bg-gray-200 dark:bg-neutral-800 relative">
+                        <img src="./plogo.jpg" alt="Mr. Obed" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold dark:text-white">Mr. Obed</h3>
+                        <p class="text-xs text-techBlue font-bold mt-0.5">CCTV Systems and Design Architect</p>
+                        <p class="text-[10px] text-gray-500 dark:text-appleGray mt-1.5 leading-relaxed">Smart
+                            Infrastructure Routing & Smart P2P Channels Controller</p>
+                    </div>
+                    <a href="https://linkedin.com" target="_blank"
+                        class="absolute inset-0 bg-techBlue/10 opacity-0 group-hover:opacity-100 backdrop-blur-[2px] transition duration-300 flex items-center justify-center space-x-2">
+                        <span
+                            class="bg-black text-white text-[10px] px-3 py-1.5 rounded-full font-bold shadow-md tracking-wide flex items-center gap-1">View
+                            Profile <i class="fa-brands fa-linkedin text-xs text-[#007aff]"></i></span>
+                    </a>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div
+                    class="apple-glass p-6 rounded-3xl text-center space-y-4 apple-transition relative overflow-hidden group border border-gray-200 dark:border-white/5">
+                    <div
+                        class="w-24 h-24 rounded-full overflow-hidden mx-auto border border-gray-300 dark:border-white/10 bg-gray-200 dark:bg-neutral-800 relative">
+                        <img src="./plogo.jpg" alt="Emmanuel Mensah" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold dark:text-white">Mr. Emmanuel Mensah</h3>
+                        <p class="text-xs text-innovGreen font-bold mt-0.5">Lead Software Engineer</p>
+                        <p class="text-[10px] text-gray-500 dark:text-appleGray mt-1.5 leading-relaxed">Backend API
+                            Architecture & Relational Database Normalization</p>
+                    </div>
+                    <a href="https://github.com" target="_blank"
+                        class="absolute inset-0 bg-innovGreen/10 opacity-0 group-hover:opacity-100 backdrop-blur-[2px] transition duration-300 flex items-center justify-center space-x-2">
+                        <span
+                            class="bg-black text-white text-[10px] px-3 py-1.5 rounded-full font-bold shadow-md tracking-wide flex items-center gap-1">View
+                            GitHub <i class="fa-brands fa-github text-xs text-white"></i></span>
+                    </a>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div
+                    class="apple-glass p-6 rounded-3xl text-center space-y-4 apple-transition relative overflow-hidden group border border-gray-200 dark:border-white/5">
+                    <div
+                        class="w-24 h-24 rounded-full overflow-hidden mx-auto border border-gray-300 dark:border-white/10 bg-gray-200 dark:bg-neutral-800 relative">
+                        <img src="./plogo.jpg" alt="Susana Mensah" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold dark:text-white">Mrs. Susana Mensah</h3>
+                        <p class="text-xs text-purple-500 font-bold mt-0.5">UI/UX Interaction Designer</p>
+                        <p class="text-[10px] text-gray-500 dark:text-appleGray mt-1.5 leading-relaxed">Fluid
+                            Apple-Style Layouts & Prototyping Schemas</p>
+                    </div>
+                    <a href="https://dribbble.com" target="_blank"
+                        class="absolute inset-0 bg-purple-500/10 opacity-0 group-hover:opacity-100 backdrop-blur-[2px] transition duration-300 flex items-center justify-center space-x-2">
+                        <span
+                            class="bg-black text-white text-[10px] px-3 py-1.5 rounded-full font-bold shadow-md tracking-wide flex items-center gap-1">View
+                            Portfolio <i class="fa-brands fa-dribbble text-xs text-[#ea4c89]"></i></span>
+                    </a>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div
+                    class="apple-glass p-6 rounded-3xl text-center space-y-4 apple-transition relative overflow-hidden group border border-gray-200 dark:border-white/5">
+                    <div
+                        class="w-24 h-24 rounded-full overflow-hidden mx-auto border border-gray-300 dark:border-white/10 bg-gray-200 dark:bg-neutral-800 relative">
+                        <img src="./plogo.jpg" alt="Prince Asare" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold dark:text-white">Prince Asare</h3>
+                        <p class="text-xs text-amber-500 font-bold mt-0.5">Network Security Analyst</p>
+                        <p class="text-[10px] text-gray-500 dark:text-appleGray mt-1.5 leading-relaxed">VLAN Subnet
+                            Hardening & Penetration Testing Protocols</p>
+                    </div>
+                    <a href="https://linkedin.com" target="_blank"
+                        class="absolute inset-0 bg-amber-500/10 opacity-0 group-hover:opacity-100 backdrop-blur-[2px] transition duration-300 flex items-center justify-center space-x-2">
+                        <span
+                            class="bg-black text-white text-[10px] px-3 py-1.5 rounded-full font-bold shadow-md tracking-wide flex items-center gap-1">View
+                            Profile <i class="fa-brands fa-linkedin text-xs text-[#007aff]"></i></span>
+                    </a>
+                </div>
+
+                <!-- Team Member 5 -->
+                <div
+                    class="apple-glass p-6 rounded-3xl text-center space-y-4 apple-transition relative overflow-hidden group border border-gray-200 dark:border-white/5">
+                    <div
+                        class="w-24 h-24 rounded-full overflow-hidden mx-auto border border-gray-300 dark:border-white/10 bg-gray-200 dark:bg-neutral-800 relative">
+                        <img src="./plogo.jpg" alt="Aisha Tetteh" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold dark:text-white">Aisha Tetteh</h3>
+                        <p class="text-xs text-cyan-500 font-bold mt-0.5">Professional Registry Admin</p>
+                        <p class="text-[10px] text-gray-500 dark:text-appleGray mt-1.5 leading-relaxed">Competency Track
+                            Mapping & professional Interface Coordination</p>
+                    </div>
+                    <a href="mailto:sammyoun24@gmail.com"
+                        class="absolute inset-0 bg-cyan-500/10 opacity-0 group-hover:opacity-100 backdrop-blur-[2px] transition duration-300 flex items-center justify-center space-x-2">
+                        <span
+                            class="bg-black text-white text-[10px] px-3 py-1.5 rounded-full font-bold shadow-md tracking-wide flex items-center gap-1">Contact
+                            Admin <i class="fa-solid fa-envelope text-xs text-cyan-400"></i></span>
+                    </a>
+                </div>
+
+
+                <!-- Team Member 6 -->
+                <div
+                    class="apple-glass p-6 rounded-3xl text-center space-y-4 apple-transition relative overflow-hidden group border border-gray-200 dark:border-white/5">
+                    <div
+                        class="w-24 h-24 rounded-full overflow-hidden mx-auto border border-gray-300 dark:border-white/10 bg-gray-200 dark:bg-neutral-800 relative">
+                        <img src="./plogo.jpg" alt="Aisha Tetteh" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold dark:text-white">Samuela Steves</h3>
+                        <p class="text-xs text-cyan-500 font-bold mt-0.5">Academy Registry Admin</p>
+                        <p class="text-[10px] text-gray-500 dark:text-appleGray mt-1.5 leading-relaxed">Competency Track
+                            Mapping & Student Interface Coordination</p>
+                    </div>
+                    <a href="mailto:sammyoun24@gmail.com"
+                        class="absolute inset-0 bg-cyan-500/10 opacity-0 group-hover:opacity-100 backdrop-blur-[2px] transition duration-300 flex items-center justify-center space-x-2">
+                        <span
+                            class="bg-black text-white text-[10px] px-3 py-1.5 rounded-full font-bold shadow-md tracking-wide flex items-center gap-1">Genral
+                            Admin <i class="fa-solid fa-envelope text-xs text-cyan-400"></i></span>
+                    </a>
+                </div>
+
+                <!-- Team Member 7 -->
+                <div
+                    class="apple-glass p-6 rounded-3xl text-center space-y-4 apple-transition relative overflow-hidden group border border-gray-200 dark:border-white/5">
+                    <div
+                        class="w-24 h-24 rounded-full overflow-hidden mx-auto border border-gray-300 dark:border-white/10 bg-gray-200 dark:bg-neutral-800 relative">
+                        <img src="./plogo.jpg" alt="Kofi Boateng" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold dark:text-white">Others</h3>
+                        <p class="text-xs text-rose-500 font-bold mt-0.5">Others</p>
+                        <p class="text-[10px] text-gray-500 dark:text-appleGray mt-1.5 leading-relaxed">Others</p>
+                    </div>
+                    <a href="https://youtube.com" target="_blank"
+                        class="absolute inset-0 bg-rose-500/10 opacity-0 group-hover:opacity-100 backdrop-blur-[2px] transition duration-300 flex items-center justify-center space-x-2">
+                        <span
+                            class="bg-black text-white text-[10px] px-3 py-1.5 rounded-full font-bold shadow-md tracking-wide flex items-center gap-1">View
+                            Channel <i class="fa-brands fa-youtube text-xs text-rose-500"></i></span>
+                    </a>
                 </div>
             </div>
         </div>
 
+        <!-- blog -->
         <div id="page-blog"
             class="page-section max-w-6xl mx-auto px-6 py-16 animate__animated animate__fadeIn overflow-hidden">
             <div class="text-center max-w-xl mx-auto mb-12 space-y-2">
@@ -1483,6 +1493,7 @@
             </div>
         </div>
 
+        <!-- chatbot -->
         <div id="page-chatbot"
             class="page-section max-w-4xl mx-auto px-6 py-10 animate__animated animate__fadeIn overflow-hidden">
             <div id="immersiveChatCanvas"
@@ -1524,7 +1535,7 @@
                             our courses, location, or general computing protocols like HTML, JS, networks, or
                             cybersecurity. Watch me stream your replies step-by-step.
                         </div>
-                        <span class="text-[9px] text-appleGray px-1">Eazzesam Neural Engine</span>
+                        <span class="text-[9px] text-appleGray px-1">Eazzesam AI</span>
                     </div>
                 </div>
 
@@ -1569,6 +1580,7 @@
             </div>
         </div>
 
+        <!-- contacts -->
         <div id="page-contact"
             class="page-section max-w-6xl mx-auto px-6 py-16 animate__animated animate__fadeIn overflow-hidden">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -1664,8 +1676,7 @@
                         class="hidden absolute inset-0 bg-white dark:bg-[#1c1c1e] rounded-3xl flex flex-col items-center justify-center text-center p-6 space-y-3">
                         <div
                             class="w-12 h-12 bg-innovGreen/10 text-innovGreen rounded-full flex items-center justify-center">
-                            <span class="material-symbols-outlined text-xl">check_circle</span>
-                        </div>
+                            <span class="material-symbols-outlined text-xl">check_circle</span></div>
                         <h3 class="text-base font-bold dark:text-white">Packet Transmitted Successfully!</h3>
                         <button onclick="resetContactForm()" class="text-xs text-techBlue underline font-bold">Send
                             another note</button>
@@ -1675,6 +1686,7 @@
         </div>
     </main>
 
+    <!-- academic modal -->
     <div id="academyTermsModal"
         class="hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-md flex items-center justify-center p-4 animate__animated animate__fadeIn">
         <div
@@ -1703,7 +1715,7 @@
         </div>
     </div>
 
-
+    <!-- floating icons -->
     <div class="fixed bottom-6 right-6 z-50 flex flex-col space-y-3">
         <a href="tel:+233542424592"
             class="bg-techBlue text-white w-11 h-11 rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition duration-300"
@@ -1719,705 +1731,80 @@
             </svg>
         </a>
     </div>
-   <!-- tabs -->
 
+    <!-- tabs -->
+    <div class="tabs-wrapper">
+        <div class="tabs">
+            <input type="radio" id="tab-home" name="inner-tab-control" checked>
+            <label for="tab-home" title="Home"><span>🏠</span> Home</label>
+            <input type="radio" id="tab-courses" name="inner-tab-control">
+            <label for="tab-courses" title="Courses"><span>📚</span> Courses</label>
+            <input type="radio" id="tab-support" name="inner-tab-control">
+            <label for="tab-support" title="Support"><span>💬</span> Support</label>
 
+            <div class="content">
+                <section id="content-home">
+                    <h2>Welcome Home</h2>
+                    <p>This is your central hub. Access your personalized knowledge directory <a href="./index.html">here</a> </p>
+                </section>
 
+                <section id="content-courses">
+                    <h2>Explore Courses</h2>
+                    <p>Ready to level up your skills? Dive into our comprehensive tracks covering developments in web design, excel, and more. Start your learning journey 
+                        <a href="./courses.html"> here</a>, 
+                    </p>
+                </section>
 
-    <!-- SOCIAL MEDIA LINKS -->
-    <div class="border-t border-neutral-900 pt-10">
-        <p class="text-xs font-semibold uppercase tracking-widest text-gray-600 mb-6">Find us across the web</p>
-        <div class="flex flex-wrap justify-center gap-y-4 gap-x-6 max-w-2xl mx-auto text-xl text-gray-400">
-            <a href="#" class="hover:text-white apple-transition"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="#" class="hover:text-white apple-transition"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#" class="hover:text-white apple-transition"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#" class="hover:text-white apple-transition"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" class="hover:text-white apple-transition"><i class="fa-brands fa-youtube"></i></a>
-            <a href="#" class="hover:text-white apple-transition"><i class="fa-brands fa-telegram"></i></a>
-            <a href="#" class="hover:text-white apple-transition"><i class="fa-brands fa-reddit"></i></a>
-            <a href="https://wa.me/23342425692" target="_blank" class="hover:text-white apple-transition"><i
-                    class="fa-brands fa-whatsapp"></i></a>
-            <a href="mailto:sammyoun24@gmail.com" class="hover:text-white apple-transition"><i
-                    class="fa-solid fa-envelope"></i></a>
+                <section id="content-support">
+                    <h2>Help & Support</h2>
+                    <p>24/7. Check out our <a href="./support.html">Support</a> or open a ticket directly.</p>
+                </section>
+            </div>
         </div>
     </div>
+
+    <!-- SOCIAL MEDIA LINKS -->
+    <!-- SEMANTIC CORRECTED FOOTER COMPONENT -->
+    <footer class="bg-neutral-950 border-t border-neutral-900 text-center py-12 px-6 mt-12 w-full max-w-full">
+        <div class="max-w-6xl mx-auto space-y-8">
+            <div>
+                <p class="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-6">Find us across the web</p>
+                <div class="flex flex-wrap justify-center gap-y-4 gap-x-6 text-xl text-gray-400">
+                    <a href="https://linkedin.com" target="_blank" class="hover:text-white apple-transition"><i
+                            class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://x.com" target="_blank" class="hover:text-white apple-transition"><i
+                            class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://facebook.com" target="_blank" class="hover:text-white apple-transition"><i
+                            class="fa-brands fa-facebook"></i></a>
+                    <a href="https://instagram.com" target="_blank" class="hover:text-white apple-transition"><i
+                            class="fa-brands fa-instagram"></i></a>
+                    <a href="https://youtube.com" target="_blank" class="hover:text-white apple-transition"><i
+                            class="fa-brands fa-youtube"></i></a>
+                    <a href="https://telegram.org" target="_blank" class="hover:text-white apple-transition"><i
+                            class="fa-brands fa-telegram"></i></a>
+                    <a href="https://discord.com" target="_blank" class="hover:text-white apple-transition"><i
+                            class="fa-brands fa-discord"></i></a>
+                    <a href="https://reddit.com" target="_blank" class="hover:text-white apple-transition"><i
+                            class="fa-brands fa-reddit"></i></a>
+                    <a href="https://wa.me/233542424592" target="_blank" class="hover:text-white apple-transition"><i
+                            class="fa-brands fa-whatsapp"></i></a>
+                    <a href="mailto:sammyoun24@gmail.com" class="hover:text-white apple-transition"><i
+                            class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <div class="border-t border-neutral-900/60 pt-6 text-[11px] text-gray-600 font-medium tracking-wide">
+                &copy; 2026 Eazzesam Technologies. All rights reserved. Engineering Intelligent Digital Futures.
+            </div>
+        </div>
+    </footer>
     </div>
+
     </section>
 
-    <script>
 
-        // --- BRAND SLIDESHOW LOGIC ---
-        let currentSlide = 0;
-        const totalSlides = document.querySelectorAll('.slide-item').length;
-        const slideTrack = document.getElementById('slideTrack');
-        const dots = document.querySelectorAll('.slide-dot');
-        const progressBar = document.getElementById('progressBar');
-
-        const slideDuration = 6000;
-        let progressInterval;
-        let progressElapsed = 0;
-
-        function updateSlidePosition() {
-            slideTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
-
-            dots.forEach((dot, index) => {
-                if (index === currentSlide) {
-                    dot.classList.remove('bg-white/30');
-                    dot.classList.add('bg-white', 'w-4');
-                } else {
-                    dot.classList.remove('bg-white', 'w-4');
-                    dot.classList.add('bg-white/30');
-                }
-            });
-
-            const activeSlideContents = document.querySelectorAll('.slide-item')[currentSlide].querySelectorAll('h2, p');
-            document.querySelectorAll('.slide-item h2, .slide-item p').forEach(el => {
-                el.classList.remove('animate-text-up');
-                el.style.opacity = '0';
-            });
-            activeSlideContents.forEach((el, index) => {
-                el.style.animationDelay = `${index * 0.15}s`;
-                el.classList.add('animate-text-up');
-            });
-
-            resetProgressBar();
-        }
-
-        function moveSlide(direction) {
-            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-            updateSlidePosition();
-            restartAutoplay();
-        }
-
-        function setSlide(index) {
-            currentSlide = index;
-            updateSlidePosition();
-            restartAutoplay();
-        }
-
-        function startProgressBar() {
-            progressElapsed = 0;
-            clearInterval(progressInterval);
-            const intervalStep = 50;
-
-            progressInterval = setInterval(() => {
-                progressElapsed += intervalStep;
-                const progressPercentage = (progressElapsed / slideDuration) * 100;
-                progressBar.style.width = `${Math.min(progressPercentage, 100)}%`;
-
-                if (progressElapsed >= slideDuration) {
-                    moveSlide(1);
-                }
-            }, intervalStep);
-        }
-
-        function resetProgressBar() {
-            progressBar.style.width = '0%';
-            progressElapsed = 0;
-        }
-
-        function restartAutoplay() {
-            startProgressBar();
-        }
-
-
-        // --- REALTIME COUNTDOWN ENGINE (UP TO MICROSECONDS) ---
-        // Setup countdown target timeline exactly 7 days into the future for presentation consistency
-        const targetTimeline = new Date().getTime() + (7 * 24 * 60 * 60 * 1000);
-
-        function updateCountdownClock() {
-            // Using standard high-resolution performance counters context for precision framing
-            const now = performance.timeOrigin + performance.now();
-            const target = targetTimeline;
-            const absoluteDifference = target - now;
-
-            if (absoluteDifference <= 0) {
-                document.getElementById('timer-days').innerText = "00";
-                document.getElementById('timer-hours').innerText = "00";
-                document.getElementById('timer-minutes').innerText = "00";
-                document.getElementById('timer-seconds').innerText = "00";
-                document.getElementById('timer-micros').innerText = "000000";
-                return;
-            }
-
-            // Math segmentation layout
-            const days = Math.floor(absoluteDifference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((absoluteDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((absoluteDifference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((absoluteDifference % (1000 * 60)) / 1000);
-
-            // Extract trailing microsecond segments accurately
-            const millisecondsFraction = absoluteDifference % 1000;
-            const microseconds = Math.floor((millisecondsFraction % 1) * 1000) + Math.floor(millisecondsFraction * 1000);
-
-            // Print visual updates onto display components strings
-            document.getElementById('timer-days').innerText = String(days).padStart(2, '0');
-            document.getElementById('timer-hours').innerText = String(hours).padStart(2, '0');
-            document.getElementById('timer-minutes').innerText = String(minutes).padStart(2, '0');
-            document.getElementById('timer-seconds').innerText = String(seconds).padStart(2, '0');
-            document.getElementById('timer-micros').innerText = String(microseconds).padStart(6, '0');
-
-            // Fire structural animation update recursively using animation frames loop (essential for microsecond syncing)
-            requestAnimationFrame(updateCountdownClock);
-        }
-
-
-        // --- SCROLL ACTION COUNTER ENGINE ---
-        function initCounters() {
-            const counters = document.querySelectorAll('.counter');
-            const speed = 140;
-
-            counters.forEach(counter => {
-                const animate = () => {
-                    const target = +counter.getAttribute('data-target');
-                    const data = +counter.innerText;
-                    const time = target / speed;
-
-                    if (data < target) {
-                        counter.innerText = Math.ceil(data + time);
-                        setTimeout(animate, 15);
-                    } else {
-                        counter.innerText = target;
-                    }
-                };
-
-                const observer = new IntersectionObserver((entries) => {
-                    if (entries[0].isIntersecting) {
-                        animate();
-                        observer.disconnect();
-                    }
-                }, { threshold: 0.5 });
-
-                observer.observe(counter);
-            });
-        }
-
-
-        // --- PORTFOLIO FILTER LOGIC ---
-        function filterProjects(category) {
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => {
-                btn.classList.remove('bg-white', 'text-black', 'shadow-sm');
-                btn.classList.add('text-gray-400', 'hover:text-white');
-            });
-
-            const activeBtn = document.getElementById(`btn-${category}`);
-            activeBtn.classList.remove('text-gray-400', 'hover:text-white');
-            activeBtn.classList.add('bg-white', 'text-black', 'shadow-sm');
-
-            const cards = document.querySelectorAll('.project-card');
-            cards.forEach(card => {
-                const cardCategory = card.getAttribute('data-category');
-
-                if (category === 'all' || cardCategory === category) {
-                    card.style.display = 'flex';
-                    void card.offsetWidth;
-                    card.style.transform = 'scale(1)';
-                    card.style.opacity = '1';
-                } else {
-                    card.style.transform = 'scale(0.95)';
-                    card.style.opacity = '0';
-                    setTimeout(() => {
-                        if (card.style.opacity === '0') card.style.display = 'none';
-                    }, 400);
-                }
-            });
-        }
-
-        // Global System Initialization
-        document.addEventListener('DOMContentLoaded', () => {
-            updateSlidePosition();
-            startProgressBar();
-            initCounters();
-            requestAnimationFrame(updateCountdownClock); // Boot the microsecond clock safely
-        });
-
-        const style = document.createElement('style');
-        style.innerHTML = `
-            @keyframes fadeIn {
-                from { opacity: 0; transform: translateY(15px); }
-                to { opacity: 1; transform: translateY(0); }
-            }
-        `;
-        document.head.appendChild(style);
-
-
-        // NAVIGATION MANAGER
-        function navigateTo(targetPage) {
-            document.querySelectorAll('.page-section').forEach(section => section.classList.remove('active-page'));
-            const targetSection = document.getElementById(`page-${targetPage}`);
-            if (targetSection) targetSection.classList.add('active-page');
-
-            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('nav-active'));
-            const navLink = document.getElementById(`nav-${targetPage}`);
-            if (navLink) navLink.classList.add('nav-active');
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('hidden');
-        }
-
-        function toggleFaqElement(element) {
-            element.classList.toggle('active');
-            const icon = element.querySelector('.material-symbols-outlined');
-            if (element.classList.contains('active')) {
-                icon.style.transform = 'rotate(180deg)';
-            } else {
-                icon.style.transform = 'rotate(0deg)';
-            }
-        }
-
-        // DUAL THEME FRAMEWORK
-        function toggleThemeMode() {
-            const documentElement = document.documentElement;
-            const icon = document.getElementById('themeToggleIcon');
-            if (documentElement.classList.contains('dark')) {
-                documentElement.classList.remove('dark');
-                documentElement.classList.add('light');
-                icon.innerText = 'light_mode';
-                localStorage.setItem('eazzesam-theme', 'light');
-            } else {
-                documentElement.classList.remove('light');
-                documentElement.classList.add('dark');
-                icon.innerText = 'dark_mode';
-                localStorage.setItem('eazzesam-theme', 'dark');
-            }
-        }
-
-        // ACADEMY TERMS MANAGEMENT
-        function openTermsModal() { document.getElementById('academyTermsModal').classList.remove('hidden'); }
-        function closeTermsModal() { document.getElementById('academyTermsModal').classList.add('hidden'); }
-
-        // ================= FIXED ACADEMY TYPING ENGINE =================
-        const CHANNELS_TYPING_PROMPTS = [
-            "let database = new Map(); database.set('Accra', 'Secure Node Firewall');",
-            "const compileCode = (layer) => layer.filter(subnet => subnet.secure === true);",
-            "function dispatchPacket(buffer) { return crypto.createHash('sha256').update(buffer).digest('hex'); }"
-        ];
-
-        let executionActiveIndex = 0;
-        let timingStartReference = null;
-
-        const dynamicPromptContainer = document.getElementById("typingPromptText");
-        const interactiveInputBox = document.getElementById("typingGameField");
-        const metricsScoreboard = document.getElementById("typingMetricsScoreboard");
-        const wpmOutputDisplay = document.getElementById("wpmOutputDisplay");
-        const structuralChapterLabel = document.getElementById("typingChapterLabel");
-
-        function initializeTypingModule() {
-            executionActiveIndex = 0;
-            timingStartReference = null;
-            interactiveInputBox.value = "";
-            interactiveInputBox.disabled = false;
-            metricsScoreboard.classList.add("hidden");
-            interactiveInputBox.classList.remove("hidden");
-            renderActiveTypingChapter();
-        }
-
-        function renderActiveTypingChapter() {
-            structuralChapterLabel.innerText = `Chapter ${executionActiveIndex + 1}/${CHANNELS_TYPING_PROMPTS.length}`;
-            const promptValue = CHANNELS_TYPING_PROMPTS[executionActiveIndex];
-
-            // Build real-time target markup structure
-            dynamicPromptContainer.innerHTML = promptValue.split("").map(character => {
-                return `<span class="border-b border-transparent">${character}</span>`;
-            }).join("");
-
-            interactiveInputBox.value = "";
-            interactiveInputBox.focus();
-        }
-
-        // Active key listener with absolute character tracking
-        interactiveInputBox.addEventListener("input", () => {
-            if (!timingStartReference) timingStartReference = new Date();
-
-            const promptValue = CHANNELS_TYPING_PROMPTS[executionActiveIndex];
-            const currentInputValue = interactiveInputBox.value;
-            const textSpans = dynamicPromptContainer.querySelectorAll("span");
-
-            let isChapterComplete = true;
-
-            for (let i = 0; i < textSpans.length; i++) {
-                const targetedChar = promptValue[i];
-                const inputChar = currentInputValue[i];
-
-                if (inputChar == null) {
-                    textSpans[i].className = "border-b border-transparent";
-                    isChapterComplete = false;
-                } else if (inputChar === targetedChar) {
-                    textSpans[i].className = "text-innovGreen bg-innovGreen/10 font-bold";
-                } else {
-                    textSpans[i].className = "text-rose-500 bg-rose-500/10 font-bold border-b-2 border-rose-600";
-                    isChapterComplete = false;
-                }
-            }
-
-            // Move cleanly to subsequent index or calculate WPM performance parameters
-            if (isChapterComplete && currentInputValue.length === promptValue.length) {
-                if (executionActiveIndex + 1 < CHANNELS_TYPING_PROMPTS.length) {
-                    executionActiveIndex++;
-                    renderActiveTypingChapter();
-                } else {
-                    calculateAndDisplaySpeedMetrics();
-                }
-            }
-        });
-
-        function calculateAndDisplaySpeedMetrics() {
-            const timeEndReference = new Date();
-            const totalElapsedTimeInMinutes = (timeEndReference - timingStartReference) / 60000;
-
-            // Collect total typed characters across variables
-            const accumulatedWordCharacters = CHANNELS_TYPING_PROMPTS.join(" ").length;
-            const standardWordCalculatedTotal = accumulatedWordCharacters / 5;
-            const finalWPMResultValue = Math.round(standardWordCalculatedTotal / totalElapsedTimeInMinutes);
-
-            // Toggle view visibility states cleanly
-            interactiveInputBox.blur();
-            interactiveInputBox.disabled = true;
-            interactiveInputBox.classList.add("hidden");
-            dynamicPromptContainer.innerHTML = `<div class="text-innovGreen font-bold font-mono">ALL MODULE LEVELS CLEARED SUCCESSFULLY.</div>`;
-
-            wpmOutputDisplay.innerText = finalWPMResultValue || 0;
-            metricsScoreboard.classList.remove("hidden");
-        }
-
-        function restartTypingModule() {
-            initializeTypingModule();
-        }
-
-        // Initialize engine automatically on load
-        window.addEventListener("DOMContentLoaded", () => {
-            initializeTypingModule();
-            // Fallback for user storage theme configuration preferences
-            const themeCache = localStorage.getItem('eazzesam-theme') || 'dark';
-            document.documentElement.className = themeCache;
-            document.getElementById('themeToggleIcon').innerText = themeCache === 'dark' ? 'dark_mode' : 'light_mode';
-        });
-
-        // ================= KNOWLEDGE ROUTING DICTIONARY =================
-        const CHAT_K_BASE = {
-            "courses": "Eazzesam Academy offers comprehensive training in Mathematics, Physics, General Science, Computer Science, Programming, Web Development, Artificial Intelligence, Cybersecurity, Networking, Database Systems, Graphics Design, Video Editing, Microsoft Office Suite, CCTV Installation, and Software Engineering.",
-            "subjects": "Our core academic subjects include Mathematics, Physics, General Science, and Computer Science for JHS, SHS, tertiary students, and professionals.",
-            "what_courses_do_you_offer": "Eazzesam Academy offers Mathematics, Physics, General Science, Computer Science, Programming, Web Development, Artificial Intelligence, Cybersecurity, Networking, Database Systems, Microsoft Office Suite, Graphics Design, Video Editing, and CCTV Installation."
-            "hours": "Eazzesam Technologies runs technical operations from Monday through Friday, 8:00 AM to 5:00 PM GMT.",
-            "location": "Our physical corporate office and development hub is located in Accra, Greater Accra Region, Ghana.",
-            "phone": "You can reach our active communications desk by calling +233 54 242 4592.",
-            "email": "Official requests can be routed to info@eazzesam.com or eazzesamtechnologies@gmail.com.",
-            "founder": "Eazzesam Technologies was founded by Mr. Samuel Kojo Appiah, our chief systems architect.",
-            "services": "We deliver engineering models across Web App Development, Conversational AI Design, CCTV Network Deployments, and practical IT Competency Training.",
-            "whatsapp": "You can chat with us via WhatsApp directly at +233 54 242 4592.",
-            "academy": "The Eazzesam Academy delivers strict hands-on instruction covering 10 engineering domains including programming, subnets, and databases.",
-            "enrolling": "To enroll, go to our 'Academy Hub' navigation pane, fill out your parameters, and submit the integrated entry form.",
-            "javascript": "JavaScript is a powerful client and server-side programming language used to build interactive features, state changes, and live calculations.",
-            "database": "A database is an organized, secure system collection managed on storage drives for rapid lookup queries and data processing.",
-            "cybersecurity": "Cybersecurity comprises tactical engineering defenses designed to shield networks, databases, and application fields from unauthorized access."
-            "what_is_html": "HTML is the standard language used to create web pages and structure content on the web.",
-            "what_is_css": "CSS is used to style and design web pages including colors, layouts, fonts, and animations.",
-            "what_is_javascript": "JavaScript is a programming language used to create interactive and dynamic web applications.",
-            "what_is_python": "Python is a versatile programming language used in AI, web development, automation, and data science.",
-            "what_is_java": "Java is a programming language widely used for enterprise applications and Android development.",
-            "what_is_cplusplus": "C++ is a high-performance programming language used for system software, games, and embedded systems.",
-            "what_is_csharp": "C# is a programming language developed by Microsoft used for web apps, games, and desktop software.",
-            "what_is_php": "PHP is a server-side scripting language used mainly for web development.",
-            "what_is_sql": "SQL is a language used to manage, query, and manipulate relational databases.",
-            "what_is_database": "A database is a structured system used to store and retrieve data efficiently.",
-
-            "what_is_frontend": "Frontend development focuses on the user interface and everything users interact with on a website.",
-            "what_is_backend": "Backend development handles server logic, authentication, and database operations.",
-            "what_is_fullstack": "Fullstack development covers both frontend and backend development.",
-            "what_is_api": "An API allows different software systems to communicate and exchange data.",
-            "what_is_rest_api": "REST API is a web service architecture used for communication between systems over HTTP.",
-            "what_is_json": "JSON is a lightweight data format used for exchanging information between systems.",
-            "what_is_xml": "XML is a markup language used to store and transport data.",
-
-            "what_is_git": "Git is a version control system used to track changes in code.",
-            "what_is_github": "GitHub is a platform for hosting and collaborating on Git repositories.",
-            "what_is_version_control": "Version control is a system that tracks changes in code over time.",
-
-            "what_is_ai": "Artificial Intelligence is the simulation of human intelligence in machines.",
-            "what_is_machine_learning": "Machine learning is a subset of AI that allows systems to learn from data.",
-            "what_is_deep_learning": "Deep learning is a type of machine learning using neural networks.",
-            "what_is_neural_network": "A neural network is a computing system inspired by the human brain.",
-
-            "what_is_cybersecurity": "Cybersecurity is the protection of systems, networks, and data from digital attacks.",
-            "what_is_hacking": "Hacking is the act of gaining unauthorized access to systems.",
-            "what_is_ethical_hacking": "Ethical hacking is legal testing of systems to find security weaknesses.",
-            "what_is_firewall": "A firewall is a security system that monitors and controls network traffic.",
-            "what_is_encryption": "Encryption is the process of converting data into a secure coded form.",
-
-            "what_is_cloud_computing": "Cloud computing delivers computing services over the internet.",
-            "what_is_aws": "AWS is Amazon Web Services, a cloud computing platform.",
-            "what_is_azure": "Microsoft Azure is a cloud computing service for building and managing applications.",
-            "what_is_google_cloud": "Google Cloud is a suite of cloud computing services from Google.",
-
-            "what_is_operating_system": "An operating system manages hardware and software resources.",
-            "what_is_windows": "Windows is an operating system developed by Microsoft.",
-            "what_is_linux": "Linux is an open-source operating system widely used in servers.",
-            "what_is_android": "Android is a mobile operating system developed by Google.",
-            "what_is_ios": "iOS is Apple's mobile operating system.",
-
-            "what_is_networking": "Networking is the practice of connecting computers to share resources.",
-            "what_is_ip_address": "An IP address is a unique identifier for devices on a network.",
-            "what_is_dns": "DNS translates domain names into IP addresses.",
-            "what_is_http": "HTTP is a protocol used for transferring web data.",
-            "what_is_https": "HTTPS is a secure version of HTTP.",
-
-            "what_is_web_hosting": "Web hosting is a service that stores websites on servers.",
-            "what_is_domain_name": "A domain name is the address used to access a website.",
-            "what_is_ssl": "SSL is a security protocol that encrypts internet connections.",
-
-            "what_is_ui": "UI is the user interface design of an application.",
-            "what_is_ux": "UX is user experience, focusing on how users interact with a system.",
-
-            "what_is_agile": "Agile is a software development methodology based on iterative progress.",
-            "what_is_scrum": "Scrum is an Agile framework for managing projects.",
-
-            "what_is_debugging": "Debugging is the process of finding and fixing errors in code.",
-            "what_is_compiler": "A compiler converts programming code into machine language.",
-            "what_is_interpreter": "An interpreter executes code line by line.",
-
-            "what_is_blockchain": "Blockchain is a distributed ledger technology used in cryptocurrencies.",
-            "what_is_bitcoin": "Bitcoin is a digital cryptocurrency.",
-            "what_is_ethereum": "Ethereum is a blockchain platform for smart contracts.",
-
-            "what_is_iot": "IoT is the Internet of Things, connecting devices to the internet.",
-            "what_is_robotics": "Robotics is the field of designing and building robots.",
-
-            "what_is_big_data": "Big Data refers to extremely large datasets that require advanced processing.",
-            "what_is_data_science": "Data science involves analyzing data to extract insights.",
-
-            "what_is_machine_code": "Machine code is the lowest-level programming language executed by computers.",
-            "what_is_binary": "Binary is a number system using only 0 and 1.",
-
-            "what_is_algorithm": "An algorithm is a step-by-step procedure for solving problems.",
-            "what_is_data_structure": "Data structures organize and store data efficiently.",
-
-            "what_is_stack": "A stack is a data structure that follows LIFO principle.",
-            "what_is_queue": "A queue is a data structure that follows FIFO principle.",
-
-            "what_is_array": "An array is a collection of elements stored in continuous memory.",
-            "what_is_linked_list": "A linked list is a data structure where elements are connected using pointers.",
-
-            "what_is_tree": "A tree is a hierarchical data structure.",
-            "what_is_graph": "A graph is a structure made of nodes and edges.",
-
-            "what_is_ai_chatbot": "An AI chatbot is a program that simulates human conversation using artificial intelligence.",
-            "what_is_nlp": "NLP is Natural Language Processing, enabling machines to understand human language.",
-
-            "what_is_software_engineering": "Software engineering is the process of designing and building software systems.",
-            "what_is_system_design": "System design is the process of defining architecture for software systems.",
-
-            "what_is_programming": "Programming is writing instructions for computers to execute.",
-            "what_is_code": "Code is a set of instructions written in a programming language.",
-
-            "what_is_testing": "Software testing is checking applications for bugs and errors.",
-            "what_is_unit_testing": "Unit testing checks individual components of software.",
-
-            "what_is_devops": "DevOps combines development and IT operations for faster delivery.",
-
-            "what_is_saas": "SaaS is Software as a Service delivered over the internet.",
-            "what_is_paas": "PaaS is Platform as a Service for building applications.",
-            "what_is_iaas": "IaaS is Infrastructure as a Service providing cloud computing resources."
-            // ================= SCHOOL SUBJECTS =================
-
-// Mathematics
-"mathematics": "Mathematics is the study of numbers, quantities, shapes, patterns, and logical reasoning. It forms the foundation of science, engineering, technology, and finance.",
-            "what_is_mathematics": "Mathematics is the science of numbers, algebra, geometry, statistics, and problem-solving.",
-            "algebra": "Algebra is a branch of mathematics that uses symbols, variables, and equations to solve problems.",
-            "geometry": "Geometry studies shapes, angles, lines, areas, volumes, and spatial relationships.",
-            "trigonometry": "Trigonometry studies the relationships between the sides and angles of triangles.",
-            "calculus": "Calculus is the branch of mathematics that studies change through differentiation and integration.",
-            "statistics": "Statistics involves collecting, organizing, analyzing, and interpreting data.",
-            "probability": "Probability measures the likelihood that an event will occur.",
-
-            // Physics
-            "physics": "Physics is the study of matter, energy, motion, forces, and the fundamental laws governing the universe.",
-            "what_is_physics": "Physics explains how objects move, interact, and exchange energy through natural laws.",
-            "mechanics": "Mechanics studies the motion of objects and the forces acting upon them.",
-            "electricity": "Electricity is the movement of electric charges through conductors.",
-            "magnetism": "Magnetism is the force produced by moving electric charges and magnetic materials.",
-            "thermodynamics": "Thermodynamics studies heat, temperature, work, and energy transfer.",
-            "optics": "Optics is the study of light, reflection, refraction, lenses, and mirrors.",
-            "waves": "Waves transfer energy from one point to another without transporting matter.",
-            "quantum_physics": "Quantum Physics studies matter and energy at atomic and subatomic scales.",
-            "relativity": "Relativity explains the relationship between space, time, gravity, and motion.",
-
-            // General Science
-            "general_science": "General Science combines Biology, Chemistry, Physics, Earth Science, and Environmental Science to explain the natural world.",
-            "biology": "Biology is the scientific study of living organisms and life processes.",
-            "chemistry": "Chemistry is the study of matter, its properties, composition, and chemical reactions.",
-            "earth_science": "Earth Science studies the Earth, its atmosphere, oceans, rocks, and natural processes.",
-            "environmental_science": "Environmental Science studies ecosystems and the interaction between humans and the environment.",
-            "human_body": "The human body consists of systems such as the digestive, circulatory, respiratory, nervous, and skeletal systems that work together to sustain life.",
-            "ecosystem": "An ecosystem is a community of living organisms interacting with one another and with their physical environment.",
-
-            // Computer Science
-            "computer_science": "Computer Science is the study of computers, programming, algorithms, software engineering, artificial intelligence, databases, and networking.",
-            "what_is_computer_science": "Computer Science is the discipline that studies computation, software, hardware, and information systems.",
-            "programming": "Programming is the process of writing instructions that tell computers how to perform tasks.",
-            "algorithms": "Algorithms are step-by-step procedures for solving computational problems efficiently.",
-            "data_structures": "Data structures organize and store data efficiently for processing and retrieval.",
-            "software_engineering": "Software Engineering is the systematic design, development, testing, and maintenance of software.",
-            "artificial_intelligence": "Artificial Intelligence enables computers to perform tasks that normally require human intelligence.",
-            "database_systems": "Database Systems are software solutions used to store, organize, retrieve, and manage large amounts of data.",
-            "computer_networks": "Computer Networks connect computers and devices so they can communicate and share resources.",
-            "operating_systems": "Operating Systems manage computer hardware, software resources, files, memory, and processes.",
-            "web_development": "Web Development involves creating websites and web applications using technologies such as HTML, CSS, JavaScript, backend frameworks, and databases.",
-            "cyber_security": "Cyber Security protects computer systems, networks, and digital information from cyber threats and attacks."
-        };
-
-        let isTypingActive = false;
-
-        function scaleTerminalBoundaries(scaleMode) {
-            const terminalElement = document.getElementById('immersiveChatCanvas');
-            const consoleBox = document.getElementById('dedicatedConsole');
-            if (scaleMode === 'compact') {
-                terminalElement.style.height = '45vh';
-                consoleBox.style.fontSize = '11px';
-            } else if (scaleMode === 'standard') {
-                terminalElement.style.height = '70vh';
-                consoleBox.style.fontSize = '12px';
-            } else if (scaleMode === 'pro') {
-                terminalElement.style.height = '85vh';
-                consoleBox.style.fontSize = '15px';
-            }
-        }
-
-        function clearDedicatedChat() {
-            document.getElementById('dedicatedConsole').innerHTML = `
-                <div class="flex flex-col space-y-1 max-w-[75%] animate__animated animate__fadeIn">
-                    <div class="bg-gray-200 dark:bg-white/[0.05] p-4 rounded-2xl rounded-tl-none leading-relaxed border border-gray-300 dark:border-transparent text-xs">
-                        Console purged. State registers cleared. Ready for inbound intent variables.
-                    </div>
-                    <span class="text-[9px] text-appleGray px-1">Eazzesam System Desk</span>
-                </div>`;
-        }
-
-        function injectPresetKnowledgeString(presetKey) {
-            document.getElementById('dedicatedUserInput').value = presetKey;
-            compileUserChatIntent();
-        }
-
-        function compileUserChatIntent() {
-            const userInputField = document.getElementById('dedicatedUserInput');
-            const rawQueryString = userInputField.value.trim();
-            if (!rawQueryString || isTypingActive) return;
-
-            userInputField.value = "";
-            const consoleBox = document.getElementById('dedicatedConsole');
-
-            // Render user bubble alignment markup
-            const userBlock = document.createElement('div');
-            userBlock.className = "flex flex-col items-end space-y-1 justify-end max-w-[75%] ml-auto animate__animated animate__fadeInUp";
-            userBlock.innerHTML = `
-                <div class="bg-techBlue text-white p-3.5 rounded-2xl rounded-tr-none text-xs leading-relaxed font-medium shadow-sm">${rawQueryString}</div>
-                <span class="text-[9px] text-appleGray px-1">Operator Console</span>`;
-            consoleBox.appendChild(userBlock);
-            consoleBox.scrollTop = consoleBox.scrollHeight;
-
-            triggerSystemWordStream(rawQueryString);
-        }
-
-        async function triggerSystemWordStream(userQuery) {
-            isTypingActive = true;
-            const loader = document.getElementById('chatSystemLoader');
-            loader.classList.remove('hidden');
-            loader.classList.add('flex');
-
-            const cleanQuery = userQuery.toLowerCase();
-            let matchedFeedback = "I have filtered my knowledge directories. For live generative completions, route your server keys. Try queries like: location, academy, hours, javascript, or cybersecurity.";
-
-            for (const lookupKey in CHAT_K_BASE) {
-                if (cleanQuery.includes(lookupKey)) {
-                    matchedFeedback = CHAT_K_BASE[lookupKey];
-                    break;
-                }
-            }
-
-            await new Promise(resolve => setTimeout(resolve, 550));
-            loader.classList.remove('flex');
-            loader.classList.add('hidden');
-
-            const consoleBox = document.getElementById('dedicatedConsole');
-            const systemBlock = document.createElement('div');
-            systemBlock.className = "flex flex-col space-y-1 max-w-[75%] text-left";
-            systemBlock.innerHTML = `
-                <div class="bg-gray-200 dark:bg-white/[0.05] p-4 rounded-2xl rounded-tl-none leading-relaxed border border-gray-300 dark:border-transparent text-xs font-mono">
-                    <span class="typing-target-span"></span><span class="animate-pulse text-techBlue font-bold">|</span>
-                </div>
-                <span class="text-[9px] text-appleGray px-1">Eazzesam Neural Engine</span>`;
-            consoleBox.appendChild(systemBlock);
-            consoleBox.scrollTop = consoleBox.scrollHeight;
-
-            const textTargetSpan = systemBlock.querySelector('.typing-target-span');
-            const wordTokensArray = matchedFeedback.split(" ");
-            let tokenIndex = 0;
-
-            const wordStreamerInterval = setInterval(() => {
-                if (tokenIndex < wordTokensArray.length) {
-                    textTargetSpan.innerText += (tokenIndex === 0 ? "" : " ") + wordTokensArray[tokenIndex];
-                    tokenIndex++;
-                    consoleBox.scrollTop = consoleBox.scrollHeight;
-                } else {
-                    clearInterval(wordStreamerInterval);
-                    // Drop active blinkers once stream is resolved
-                    systemBlock.querySelector('.animate-pulse').remove();
-                    isTypingActive = false;
-                }
-            }, 35);
-        }
-
-        // ================= SECURE DATA TRANSMISSION PIPELINE =================
-        async function dispatchFormPayload(event) {
-            event.preventDefault();
-            const submitBtn = document.getElementById('formSubmitBtn');
-            const errorBox = document.getElementById('formErrorBox');
-            const successOverlay = document.getElementById('formSuccess');
-
-            errorBox.classList.add('hidden');
-            submitBtn.disabled = true;
-            submitBtn.innerText = "Transmitting Packet...";
-
-            try {
-                const response = await fetch("https://api.web3forms.com/submit", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json", "Accept": "application/json" },
-                    body: JSON.stringify({
-                        access_key: "9e1e34dd-8c36-47a1-8bb9-704e2fd52c2e",
-                        name: document.getElementById('formName').value.trim(),
-                        phone: document.getElementById('formPhone').value.trim(),
-                        email: document.getElementById('formEmail').value.trim(),
-                        subject: `🔥 Eazzesam Site Submission: ${document.getElementById('formService').value}`,
-                        message: document.getElementById('formMessage').value.trim()
-                    })
-                });
-                const result = await response.json();
-                if (response.status === 200 && result.success) {
-                    successOverlay.classList.remove('hidden');
-                } else {
-                    throw new Error();
-                }
-            } catch (err) {
-                errorBox.innerHTML = `<strong>🛑 Routing Failure:</strong> Please reach our desk via WhatsApp directly at 054 242 4592.`;
-                errorBox.classList.remove('hidden');
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.innerText = "Dispatch Packet";
-            }
-        }
-
-        function resetContactForm() {
-            document.getElementById('contactForm').reset();
-            document.getElementById('formSuccess').classList.add('hidden');
-        }
-    </script>
     <script src="./app.js"></script>
-    <script src="./footer.js"></script>
-    <script src="./typing.js"></script>
+    <script src="./chatbot.js"></script>
 </body>
 
 </html>
