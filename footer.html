@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advancement Academy Hub - Interactive Dark Footer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Precision Micro-animations on interactive target vectors */
+        .apple-footer-link {
+            transition: color 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+        }
+        .apple-footer-link:hover {
+            transform: translateX(3px);
+        }
+        .scrollbar-none::-webkit-scrollbar { display: none; }
+        .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-[#111112] min-h-screen flex flex-col justify-end m-0">
+
+    <!-- BEGIN STANDALONE APPLE-STYLE DARK FOOTER -->
+    <footer class="w-full bg-[#1c1c1e] text-[#f5f5f7]/50 text-[12px] font-normal border-t border-neutral-800 antialiased font-sans transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-8 pb-12">
+            
+            <!-- Legal Compliance / Fine Print Footnotes -->
+            <section class="space-y-3 pb-6 border-b border-neutral-800 tracking-tight leading-relaxed text-[#f5f5f7]/35">
+                <p>* Verification Framework Notice: Accessing localized credentials across structural JHS, SHS, and Pre-University engineering tracks demands full execution of project criteria datasets and internal diagnostic protocols.</p>
+                <p>† Communication Engineering Pipelines: Instantly dispatching enrollment matrices routes direct applications to backend operational endpoints via standard, automated WhatsApp encryption systems (+233 54 242 4592).</p>
+            </section>
+
+            <!-- Apple-Style Interactive Hierarchical Breadcrumb Trail -->
+            <div class="py-5 flex items-center flex-wrap gap-2 text-[#f5f5f7]/70">
+                <a href="#" class="hover:text-blue-400 transition-colors duration-200">
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                    </svg>
+                </a>
+                <span class="text-neutral-700 select-none">›</span>
+                <span class="font-medium text-white">Advancement Academy Hub</span>
+                <span class="text-neutral-700 select-none">›</span>
+                <span class="text-[#f5f5f7]/35">System Registry & Metadata</span>
+            </div>
+
+            <!-- Directory Node Grid Structure -->
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 py-8 border-b border-neutral-800">
+                
+                <!-- Category Grouping 1: Explore Tracks -->
+                <div class="space-y-4">
+                    <h3 class="font-bold text-white tracking-tight text-[13px]">Explore Tracks</h3>
+                    <ul class="space-y-2.5">
+                        <li><span onclick="openLegalModal('it_core')" class="apple-footer-link block hover:text-blue-400">1. IT Literacy Core</span></li>
+                        <li><span onclick="openLegalModal('math')" class="apple-footer-link block hover:text-blue-400">2. Mathematics</span></li>
+                        <li><span onclick="openLegalModal('sciences')" class="apple-footer-link block hover:text-blue-400">3. Integrated Sciences</span></li>
+                        <li><span onclick="openLegalModal('physics')" class="apple-footer-link block hover:text-blue-400">4. Physics Advanced</span></li>
+                        <li><span onclick="openLegalModal('cs')" class="apple-footer-link block hover:text-blue-400">5. Computer Science</span></li>
+                        <li><span onclick="openLegalModal('certifications')" class="apple-footer-link block hover:text-blue-400">6. Certifications</span></li>
+                    </ul>
+                </div>
+
+                <!-- Category Grouping 2: Program Levels -->
+                <div class="space-y-4">
+                    <h3 class="font-bold text-white tracking-tight text-[13px]">Program Levels</h3>
+                    <ul class="space-y-2.5">
+                        <li><span onclick="openLegalModal('jhs_track')" class="apple-footer-link block hover:text-blue-400">Junior High Track</span></li>
+                        <li><span onclick="openLegalModal('shs_track')" class="apple-footer-link block hover:text-blue-400">Senior High Track</span></li>
+                        <li><span onclick="openLegalModal('pre_uni')" class="apple-footer-link block hover:text-blue-400">Pre-University Prep</span></li>
+                        <li><span onclick="openLegalModal('professional_cohorts')" class="apple-footer-link block hover:text-blue-400">Professional Cohorts</span></li>
+                    </ul>
+                </div>
+
+                <!-- Category Grouping 3: Our Standards -->
+                <div class="space-y-4">
+                    <h3 class="font-bold text-white tracking-tight text-[13px]">Our Standards</h3>
+                    <ul class="space-y-2.5">
+                        <li><span onclick="openLegalModal('validation')" class="apple-footer-link block hover:text-blue-400">Verifiable Credentials</span></li>
+                        <li><span onclick="openLegalModal('nacca')" class="apple-footer-link block hover:text-blue-400">NaCCA Compliance</span></li>
+                        <li><span onclick="openLegalModal('wassce')" class="apple-footer-link block hover:text-blue-400">WASSCE Curriculum</span></li>
+                        <li><span onclick="openLegalModal('practical_assess')" class="apple-footer-link block hover:text-blue-400">Practical Assessment</span></li>
+                    </ul>
+                </div>
+
+                <!-- Category Grouping 4: Direct Support -->
+                <div class="space-y-4">
+                    <h3 class="font-bold text-white tracking-tight text-[13px]">Direct Support</h3>
+                    <ul class="space-y-2.5">
+                        <li><a href="https://wa.me/233542424592" target="_blank" class="apple-footer-link block font-semibold text-emerald-400 hover:underline">WhatsApp Support Desk</a></li>
+                        <li><span onclick="openLegalModal('student_portals')" class="apple-footer-link block hover:text-blue-400">Student Portals</span></li>
+                        <li><span onclick="openLegalModal('admission_timelines')" class="apple-footer-link block hover:text-blue-400">Admission Timelines</span></li>
+                        <li><span onclick="openLegalModal('system_parameters')" class="apple-footer-link block hover:text-blue-400">System Parameters</span></li>
+                    </ul>
+                </div>
+
+                <!-- Category Grouping 5: Academy Values -->
+                <div class="space-y-4">
+                    <h3 class="font-bold text-white tracking-tight text-[13px]">Academy Values</h3>
+                    <ul class="space-y-2.5">
+                        <li><span onclick="openLegalModal('digital_inclusion')" class="apple-footer-link block hover:text-blue-400">Digital Inclusion</span></li>
+                        <li><span onclick="openLegalModal('technical_rigor')" class="apple-footer-link block hover:text-blue-400">Technical Rigor</span></li>
+                        <li><span onclick="openLegalModal('applied_ethics')" class="apple-footer-link block hover:text-blue-400">Applied Ethics</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Legal Bar & Metadata Controls -->
+            <div class="pt-6 flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4 text-[#f5f5f7]/35 tracking-tight">
+                <div class="flex flex-col md:flex-row md:items-center gap-1.5 md:gap-3">
+                    <span class="text-white font-medium cursor-pointer hover:text-blue-400 transition-colors" onclick="openLegalModal('rights')">Copyright © 2026 Advancement Academy.</span>
+                    <span class="hidden md:inline text-neutral-800 font-light">|</span>
+                    <span class="cursor-pointer hover:text-white transition-colors" onclick="openLegalModal('rights')">All System Rights Reserved.</span>
+                </div>
+                
+                <!-- Internal Regulatory Legal Matrix Anchors -->
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[#f5f5f7]/40">
+                    <span class="cursor-pointer hover:underline hover:text-white transition-colors" onclick="openLegalModal('privacy')">Privacy Policy</span>
+                    <span class="text-neutral-800 select-none">|</span>
+                    <span class="cursor-pointer hover:underline hover:text-white transition-colors" onclick="openLegalModal('admission')">Terms of Admission</span>
+                    <span class="text-neutral-800 select-none">|</span>
+                    <span class="cursor-pointer hover:underline hover:text-white transition-colors" onclick="openLegalModal('validation')">Credential Validation</span>
+                    <span class="text-neutral-800 select-none">|</span>
+                    <span class="cursor-pointer hover:underline hover:text-white transition-colors" onclick="openLegalModal('sitemap')">Sitemap</span>
+                </div>
+
+                <!-- Local Regional Coordinates Anchor -->
+                <div class="font-medium text-neutral-300 text-left lg:text-right">
+                    Ghana Office <span class="text-neutral-600 ml-1 select-none">🇬🇭</span>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    <!-- END STANDALONE APPLE-STYLE DARK FOOTER -->
+
+
+    <!-- UNIVERSAL DOCUMENTATION MODAL POP-UP -->
+    <div id="legal-modal" class="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 hidden opacity-0 transition-opacity duration-300" onclick="closeLegalModal(event)">
+        <div class="bg-[#1a1a1c] w-full max-w-lg rounded-t-3xl sm:rounded-3xl overflow-hidden shadow-2xl border-t sm:border border-white/10 flex flex-col transform translate-y-full sm:translate-y-0 sm:scale-95 transition-transform duration-300" id="legal-modal-content" onclick="event.stopPropagation()">
+            
+            <!-- Modal Header -->
+            <div class="px-6 py-5 border-b border-white/[0.08] flex justify-between items-center bg-[#1a1a1c]">
+                <div>
+                    <h3 id="legal-modal-title" class="font-bold text-xl tracking-tight text-white">Document Title</h3>
+                    <p class="text-xs text-blue-400 font-medium mt-0.5 tracking-wide uppercase">Academy Syllabus & Systems Framework</p>
+                </div>
+                <button onclick="closeLegalModal(null)" class="p-2 bg-white/[0.05] hover:bg-white/[0.1] rounded-full transition-colors focus:outline-none">
+                    <svg class="w-5 h-5 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+
+            <!-- Scrollable Document Content Box -->
+            <div id="legal-modal-body" class="p-6 text-sm text-slate-300 space-y-4 leading-relaxed overflow-y-auto max-h-[60vh] scrollbar-none">
+                <!-- Dynamically populated via JS -->
+            </div>
+
+            <!-- Modal Action Footer -->
+            <div class="p-4 bg-white/[0.02] border-t border-white/[0.05] flex justify-end">
+                <button onclick="closeLegalModal(null)" class="px-5 py-2 bg-neutral-800 hover:bg-neutral-700 text-white text-xs font-bold rounded-lg transition-colors focus:outline-none">
+                    Acknowledge
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL ENGINE DATA & LOGIC -->
+    <script>
+        const legalContent = {
+            // EXPLORE TRACKS
+            it_core: {
+                title: "1. IT Literacy Core",
+                body: `
+                    <p class="font-semibold text-white">Fundamental Digital Workspaces</p>
+                    <p>Our foundational computing stream builds functional speed and hardware precision. Students explore filesystem architecture, local system configurations, and advanced keyboard shortcuts.</p>
+                    <p>The core curriculum includes in-depth mastery of professional production packages like Microsoft Office Essentials and integrated cloud tools via Google Workspace pipelines.</p>
+                `
+            },
+            math: {
+                title: "2. Mathematics Track",
+                body: `
+                    <p class="font-semibold text-white">Analytical Reasoning & Quant Fundamentals</p>
+                    <p>Designed to break down structural obstacles in quantitative learning, our mathematics tracks bridge fundamental operations with complex elective calculus.</p>
+                    <p>Students cover operations on sets, fractional arrays, algebraic expressions, plane geometry variables, coordinate grids, and first-principle differentiation frameworks.</p>
+                `
+            },
+            sciences: {
+                title: "3. Integrated Sciences Track",
+                body: `
+                    <p class="font-semibold text-white">Empirical Analysis & Natural Systems</p>
+                    <p>This stream tracks physical, organic, and life sciences through structured experimentation. Core concepts guide students through ecosystem layouts, balance vectors in food webs, and elementary chemistry parameters.</p>
+                    <p>Advanced modules step up to structural organic systems, carbon hybrids, and cell division tracking matrices.</p>
+                `
+            },
+            physics: {
+                title: "4. Physics Advanced Track",
+                body: `
+                    <p class="font-semibold text-white">Classical Fields, Mechanics & Electronics</p>
+                    <p>An intensive track focusing on standard physical variables and laws. Topics run through metric conversions, kinematic properties, and Newton’s equations of motion.</p>
+                    <p>Advanced practical sessions introduce Ohm’s law circuit structures, energy capacitance models, and Coulomb field metrics for point-charge parameters.</p>
+                `
+            },
+            cs: {
+                title: "5. Computer Science Track",
+                body: `
+                    <p class="font-semibold text-white">Computational Logic & Software Engineering</p>
+                    <p>A rigorous track moving from visual algorithm blocks (Scratch) up to syntax-driven software architectures.</p>
+                    <p>Students build data pipelines in Python, deploy frontend Web Architectures, and practice Object-Oriented Principles in Java/C++ alongside runtime asymptotic complexity analysis ($O(n)$ notation).</p>
+                `
+            },
+            certifications: {
+                title: "6. Professional Certifications",
+                body: `
+                    <p class="font-semibold text-white">Industry-Recognized Career Credentials</p>
+                    <p>Targeted training tracks built for global enterprise validation. This module preps students for professional vendor exams including the CompTIA A+ hardware pipeline and Cisco Certified Network Associate (CCNA) configurations.</p>
+                    <p>Practical focus includes live router terminals, subnet masking arrays, and firewall protection rule setups.</p>
+                `
+            },
+
+            // PROGRAM LEVELS
+            jhs_track: {
+                title: "Junior High School Track (JHS)",
+                body: `
+                    <p class="font-semibold text-white">Foundational Skill Pipelines</p>
+                    <p>Tailored directly for early secondary students, this track prioritizes structural understanding and basic logical fluency. Curriculums map directly to contemporary national educational standards, setting clear paths for upcoming standardized BECE milestones.</p>
+                `
+            },
+            shs_track: {
+                title: "Senior High School Track (SHS)",
+                body: `
+                    <p class="font-semibold text-white">Core & Elective WASSCE Specialization</p>
+                    <p>An intermediate academic tier optimized for secondary profiles. Modules step into advanced algebraic equations, organic carbon chemistry, elective tracking metrics, and technical diagnostic practices to secure high-performance outcomes.</p>
+                `
+            },
+            pre_uni: {
+                title: "Pre-University Prep Track",
+                body: `
+                    <p class="font-semibold text-white">Advanced University & Engineering Readiness</p>
+                    <p>Designed for candidates transitioning into higher education STEM disciplines. Focus areas jump directly into structural database models, complex coordinate geometry, data structures, and classical field physics.</p>
+                `
+            },
+            professional_cohorts: {
+                title: "Professional Cohorts",
+                body: `
+                    <p class="font-semibold text-white">Enterprise Systems & Crisis Operations</p>
+                    <p>Built specifically for active workforce profiles and system administrators. Training paths emphasize real-time crisis management triage, corporate ITIL service desks, network engineering, and advanced systems administration.</p>
+                `
+            },
+
+            // OUR STANDARDS
+            validation: {
+                title: "Verifiable Digital Credentials",
+                body: `
+                    <p class="font-semibold text-white">Cryptographic Certificate Validation</p>
+                    <p>Every graduate receives a distinct cryptographic registration hash. Employers, corporate partners, and university portals can check student validation marks directly against our active database to verify certificate authenticity.</p>
+                `
+            },
+            nacca: {
+                title: "NaCCA Compliance Framework",
+                body: `
+                    <p class="font-semibold text-white">National Curriculum Standards Alignment</p>
+                    <p>All core Junior High and Senior High learning sequences are regularly cross-checked with the National Council for Curriculum and Assessment (NaCCA) directives, ensuring local relevance alongside international standards.</p>
+                `
+            },
+            wassce: {
+                title: "WASSCE Curriculum Integration",
+                body: `
+                    <p class="font-semibold text-white">West African Examinations Council Alignment</p>
+                    <p>Our lesson pipelines trace the exact current syllabus parameters of the West African Senior School Certificate Examination. Practical exercises match rigorous exam testing matrices to maximize core score variables.</p>
+                `
+            },
+            practical_assess: {
+                title: "Practical Assessment Protocols",
+                body: `
+                    <p class="font-semibold text-white">Lab Execution & Project Milestones</p>
+                    <p>We do not issue certifications based on attendance alone. Candidates must execute standalone project labs, document operational source arrays, troubleshoot live networks, or defend quantitative algorithms to earn passing credentials.</p>
+                `
+            },
+
+            // DIRECT SUPPORT
+            student_portals: {
+                title: "Student Portal Registries",
+                body: `
+                    <p class="font-semibold text-white">Centralized Academic Portals</p>
+                    <p>Authorized users can leverage secure student dashboards to access active course materials, check personal project evaluations, download lecture sheets, and preview pending credential metadata milestones.</p>
+                `
+            },
+            admission_timelines: {
+                title: "Admission Timelines & Cohorts",
+                body: `
+                    <p class="font-semibold text-white">Rolling Registration & Start Cycles</p>
+                    <p>Applications are compiled via our rapid WhatsApp interface on a rolling basis. Group allocations open at regular intervals quarterly. Confirmed applicants will receive onboarding documentation with precise terminal lab schedules.</p>
+                `
+            },
+            system_parameters: {
+                title: "System Parameters & Requirements",
+                body: `
+                    <p class="font-semibold text-white">Technical Workspace Environments</p>
+                    <p>To run development environments smoothly, we recommend machines with at least a dual-core CPU architecture, 4GB RAM capacity, and up-to-date web browsing engines capable of parsing WebSocket protocols and styling structures.</p>
+                `
+            },
+
+            // ACADEMY VALUES
+            digital_inclusion: {
+                title: "Digital Inclusion Policy",
+                body: `
+                    <p class="font-semibold text-white">Democratizing Advanced Technology Systems</p>
+                    <p>We work to remove access barriers to modern tech. Our mobile-optimized portals are intentionally designed for low data use, allowing any student across regional nodes to secure high-tier engineering skills regardless of local hardware limits.</p>
+                `
+            },
+            technical_rigor: {
+                title: "Technical Rigor Standards",
+                body: `
+                    <p class="font-semibold text-white">Excellence in Computational & Scientific Paths</p>
+                    <p>We champion deep, comprehensive expertise over surface-level overviews. Course pathways explore structural core concepts from scratch, giving students a foundational mastery that easily translates to complex, real-world execution.</p>
+                `
+            },
+            applied_ethics: {
+                title: "Applied Digital Ethics Code",
+                body: `
+                    <p class="font-semibold text-white">Responsible Security and System Practices</p>
+                    <p>Every technology track reinforces ethical boundaries. Students learn to navigate cybersecurity principles, open-source compliance frameworks, and AI data systems responsibly, safeguarding integrity across all online networks.</p>
+                `
+            },
+
+            // MANDATORY FOOTER ANCHORS
+            rights: {
+                title: "All System Rights Reserved",
+                body: `
+                    <p class="font-semibold text-white">Intellectual Property & Domain Control</p>
+                    <p>All core educational frameworks, source code, visual design schemes, mathematical syllabus modifications, coding lab parameters, and custom graphics displayed across the Advancement Academy system are protected under regional copyright and intellectual property protections.</p>
+                    <p>Unauthorized duplication, indexing, layout framing, or mirroring of these structural interfaces without direct, explicit written certification from our administration is strictly prohibited.</p>
+                `
+            },
+            privacy: {
+                title: "Privacy Policy",
+                body: `
+                    <p class="font-semibold text-white">Data Stewardship Principle</p>
+                    <p>Advancement Academy respects student digital privacy parameters. Data submitted through our instant application portals is processed locally to generate explicit registration objects. Information is formatted into an encrypted structure and handed directly to standard WhatsApp networking pipelines to reach our administrative office line (+233 54 242 4592).</p>
+                `
+            },
+            admission: {
+                title: "Terms of Admission",
+                body: `
+                    <p class="font-semibold text-white">Student Profile Integrity & Requirements</p>
+                    <p>By using the instant registration system, applicants confirm that all self-selected levels are accurate reflections of their true academic profile. Official graduation credentials and certified document handovers depend entirely on completing required lab work.</p>
+                `
+            },
+            sitemap: {
+                title: "Portal Sitemap",
+                body: `
+                    <p class="font-semibold text-white">Structured Index Matrix</p>
+                    <p>Our core framework tracks 6 distinct course branches (IT Literacy, Mathematics, Sciences, Physics, Computer Science, and Certifications) optimized across 4 primary levels ranging from Junior High platforms to Professional engineering cohorts.</p>
+                `
+            }
+        };
+
+        function openLegalModal(type) {
+            const modal = document.getElementById('legal-modal');
+            const content = document.getElementById('legal-modal-content');
+            const doc = legalContent[type];
+
+            if (!doc) return;
+
+            document.getElementById('legal-modal-title').innerText = doc.title;
+            document.getElementById('legal-modal-body').innerHTML = doc.body;
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                content.classList.remove('translate-y-full', 'sm:scale-95');
+            }, 10);
+        }
+
+        function closeLegalModal(event) {
+            if (event && event.target !== document.getElementById('legal-modal')) return;
+
+            const modal = document.getElementById('legal-modal');
+            const content = document.getElementById('legal-modal-content');
+            
+            modal.classList.add('opacity-0');
+            content.classList.add('translate-y-full', 'sm:scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+    </script>
+</body>
+</html>

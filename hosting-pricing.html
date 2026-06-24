@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EazzeSam Web Hosting | Premium Infrastructure Plans</title>
+    <!-- Tailwind CSS for modern utility layout styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Animate.css for fluid, professional component entry states -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        appleBlue: '#0071e3',
+                        appleGreen: '#34c759',
+                        darkBg: '#0b0f19'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif; 
+            background: radial-gradient(circle at 50% 0%, #111827 0%, #0b0f19 70%);
+        }
+        /* Custom Premium Glassmorphism Matrix */
+        .apple-glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .apple-glass-premium {
+            background: rgba(0, 113, 227, 0.04);
+            backdrop-filter: blur(25px) saturate(200%);
+            -webkit-backdrop-filter: blur(25px) saturate(200%);
+            border: 1px solid rgba(0, 113, 227, 0.25);
+            box-shadow: 0 0 40px rgba(0, 113, 227, 0.15);
+        }
+        /* Hover micro-interactions */
+        .premium-hover {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .premium-hover:hover {
+            transform: translateY(-6px);
+            border-color: rgba(52, 199, 89, 0.4);
+            box-shadow: 0 20px 40px rgba(52, 199, 89, 0.08);
+        }
+    </style>
+</head>
+<body class="text-[#f5f5f7] min-h-screen flex flex-col justify-center items-center py-24 px-6 relative overflow-x-hidden">
+
+    <!-- Decorative Soft Dynamic Light Nodes behind glass elements -->
+    <div class="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-appleBlue/10 rounded-full blur-[140px] pointer-events-none"></div>
+    <div class="absolute top-[20%] right-[15%] w-[450px] h-[450px] bg-appleGreen/10 rounded-full blur-[130px] pointer-events-none"></div>
+
+    <!-- Header Block Component -->
+    <div class="text-center max-w-3xl mb-20 z-10 animate__animated animate__fadeInDown">
+        <span class="text-xs uppercase tracking-[0.2em] font-bold text-appleGreen bg-appleGreen/10 px-4 py-1.5 rounded-full border border-appleGreen/20">
+            EazzeSam Cloud Architecture
+        </span>
+        <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-white mt-6 mb-6">
+            Designed for performance.<br>
+            <span class="bg-gradient-to-r from-appleBlue via-[#5ac8fa] to-appleGreen bg-clip-text text-transparent">Optimized for Ghana.</span>
+        </h1>
+        <p class="text-base md:text-lg text-[#86868b] max-w-xl mx-auto font-normal">
+            Experience lightning-fast NVMe arrays deployed directly inside localized nodes in Accra. Clean tiers without hidden pipelines.
+        </p>
+    </div>
+
+    <!-- Pricing Grid Matrix -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl z-10">
+        
+        <!-- Plan 1: Lite (Startup) -->
+        <div class="apple-glass rounded-[2rem] p-8 flex flex-col justify-between premium-hover animate__animated animate__fadeInLeft">
+            <div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white tracking-tight">Lite Node</h3>
+                        <p class="text-xs text-[#86868b] mt-1">Perfect for portfolios & local testing arrays.</p>
+                    </div>
+                    <span class="w-2.5 h-2.5 rounded-full bg-appleBlue shadow-[0_0_10px_#0071e3]"></span>
+                </div>
+                <div class="my-10">
+                    <span class="text-5xl font-extrabold tracking-tight text-white">GH₵ 65</span>
+                    <span class="text-[#86868b] text-sm font-medium"> / month</span>
+                </div>
+                <div class="w-full h-[1px] bg-white/10 my-6"></div>
+                <ul class="space-y-4 text-xs text-[#e8e8ed] tracking-wide">
+                    <li class="flex items-center gap-3"><span class="text-appleBlue text-base">✔</span> <span><strong class="text-white">1</strong> Hosted Domain</span></li>
+                    <li class="flex items-center gap-3"><span class="text-appleBlue text-base">✔</span> <span><strong class="text-white">10 GB</strong> Solid State Storage</span></li>
+                    <li class="flex items-center gap-3"><span class="text-appleBlue text-base">✔</span> <span>Free Local <span class="text-appleGreen font-medium">.com.gh</span> Mapping</span></li>
+                    <li class="flex items-center gap-3"><span class="text-appleBlue text-base">✔</span> <span>Automated Free SSL Handshakes</span></li>
+                    <li class="flex items-center gap-3 text-white/40"><span class="text-white/20 text-base">𐄂</span> <span>Standard Shared Core Compute</span></li>
+                </ul>
+            </div>
+            <button onclick="sendToWhatsApp('Lite Node', 'GH₵ 65')" class="w-full bg-white/5 hover:bg-white/10 text-white font-semibold py-3.5 px-4 rounded-xl mt-10 transition-all duration-300 border border-white/10 hover:border-white/20 text-xs tracking-wider uppercase">
+                Configure Environment
+            </button>
+        </div>
+
+        <!-- Plan 2: Pro (Most Popular — Inverted Premium Accent Focal Point) -->
+        <div class="apple-glass-premium rounded-[2rem] p-8 relative flex flex-col justify-between premium-hover animate__animated animate__fadeInUp animate__delay-1s">
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-appleBlue to-appleGreen text-white text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest shadow-lg border border-white/20">
+                Production Standard
+            </div>
+            <div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white tracking-tight">Pro Cluster</h3>
+                        <p class="text-xs text-appleBlue font-medium mt-1">Engineered for agile web apps & e-commerce scales.</p>
+                    </div>
+                    <span class="w-2.5 h-2.5 rounded-full bg-appleGreen shadow-[0_0_12px_#34c759]"></span>
+                </div>
+                <div class="my-10">
+                    <span class="text-5xl font-extrabold tracking-tight text-white">GH₵ 89</span>
+                    <span class="text-appleBlue text-sm font-semibold"> / month</span>
+                </div>
+                <div class="w-full h-[1px] bg-appleBlue/20 my-6"></div>
+                <ul class="space-y-4 text-xs text-[#e8e8ed] tracking-wide">
+                    <li class="flex items-center gap-3"><span class="text-appleGreen text-base">✔</span> <span><strong class="text-white">Unlimited</strong> Domain Multi-Tenancy</span></li>
+                    <li class="flex items-center gap-3"><span class="text-appleGreen text-base">✔</span> <span><strong class="text-white">50 GB</strong> High-Throughput NVMe Gen4</span></li>
+                    <li class="flex items-center gap-3"><span class="text-appleGreen text-base">✔</span> <span>Premium Global CDN Optimization Filters</span></li>
+                    <li class="flex items-center gap-3"><span class="text-appleGreen text-base">✔</span> <span>Unmetered Operational Professional Mailboxes</span></li>
+                    <li class="flex items-center gap-3"><span class="text-appleGreen text-base">✔</span> <span>24/7 Priority Infrastructure Support Desk</span></li>
+                </ul>
+            </div>
+            <button onclick="sendToWhatsApp('Pro Cluster', 'GH₵ 89')" class="w-full bg-gradient-to-r from-appleBlue to-appleGreen hover:opacity-90 text-white font-bold py-4 px-4 rounded-xl mt-10 transition-all duration-300 text-xs tracking-wider uppercase shadow-[0_4px_20px_rgba(0,113,227,0.3)]">
+                Deploy Environment Free
+            </button>
+        </div>
+
+        <!-- Plan 3: Elite (Enterprise Scale) -->
+        <div class="apple-glass rounded-[2rem] p-8 flex flex-col justify-between premium-hover animate__animated animate__fadeInRight">
+            <div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white tracking-tight">Elite Dedicated</h3>
+                        <p class="text-xs text-[#86868b] mt-1">Isolated instances requiring deep scale limits.</p>
+                    </div>
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#af52de] shadow-[0_0_10px_#af52de]"></span>
+                </div>
+                <div class="my-10">
+                    <span class="text-5xl font-extrabold tracking-tight text-white">GH₵ 125</span>
+                    <span class="text-[#86868b] text-sm font-medium"> / month</span>
+                </div>
+                <div class="w-full h-[1px] bg-white/10 my-6"></div>
+                <ul class="space-y-4 text-xs text-[#e8e8ed] tracking-wide">
+                    <li class="flex items-center gap-3"><span class="text-appleBlue text-base">✔</span> <span>Isolated Dedicated Host CPU Architecture</span></li>
+                    <li class="flex items-center gap-3"><span class="text-appleBlue text-base">✔</span> <span><strong class="text-white">200 GB</strong> Redundant Data Array Storage</span></li>
+                    <li class="flex items-center gap-3"><span class="text-appleBlue text-base">✔</span> <span>Static Isolated Dedicated IP Allocations</span></li>
+                    <li class="flex items-center gap-3"><span class="text-appleBlue text-base">✔</span> <span>Automated Hourly Snapshots & Integrity Syncs</span></li>
+                    <li class="flex items-center gap-3"><span class="text-appleBlue text-base">✔</span> <span>Direct Technical Director Slack Endpoint Link</span></li>
+                </ul>
+            </div>
+            <button onclick="sendToWhatsApp('Elite Dedicated', 'GH₵ 125')" class="w-full bg-white/5 hover:bg-white/10 text-white font-semibold py-3.5 px-4 rounded-xl mt-10 transition-all duration-300 border border-white/10 hover:border-white/20 text-xs tracking-wider uppercase">
+                Contact EazzeSam Architects
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Bottom Compliance Disclaimer Block -->
+    <div class="mt-16 text-center max-w-xl z-10 animate__animated animate__fadeInUp animate__delay-1s">
+        <p class="text-[11px] text-[#86868b] leading-relaxed">
+            All prices are denominated in Ghana Cedis (GH₵). Subscriptions are governed under EazzeSam edge-level uptime performance metrics agreements. Localized data protection protocol configurations are bundled natively within West African instances.
+        </p>
+    </div>
+
+    <!-- Dynamic Redirect Logic -->
+    <script>
+        function sendToWhatsApp(planName, planPrice) {
+            const phoneNumber = "233542424592"; // Your WhatsApp target number formatted internationally
+            const message = `Hello EazzeSam Cloud Architecture,\n\nI would like to purchase and configure the following web hosting environment:\n\n🚀 Plan: *${planName}*\n💰 Price: *${planPrice} / month*\n\nPlease guide me through the deployment setups.`;
+            
+            // Encode message strings safely for web browser redirection URI mapping
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            
+            // Execute tab window launch sequence
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+
+</body>
+</html>
