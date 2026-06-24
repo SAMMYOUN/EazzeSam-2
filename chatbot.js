@@ -232,7 +232,7 @@ async function triggerSystemWordStream(userQuery) {
     loader.classList.add('flex');
 
     const cleanQuery = userQuery.toLowerCase();
-    let matchedFeedback = "Hey there! I've just polished up my knowledge directories to make things super clean. To get live generative answers, You can test things out by searching for topics like location, academy, hours, javascript, cybersecurity and more. What would you like to dive into first?";
+    let matchedFeedback = "Hey there! I've just polished up my knowledge directories to make things super clean. To get live generative answers, You can test things out by searching for topics like location, academy, hours, javascript, cybersecurity, professional training, educational services and more. What would you like to dive into first?";
 
     for (const lookupKey in CHAT_K_BASE) {
         if (cleanQuery.includes(lookupKey)) {
