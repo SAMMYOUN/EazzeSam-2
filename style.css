@@ -179,11 +179,10 @@
         /* Scope all styles cleanly inside the wrapper */
         .tabs-wrapper {
             /* Modern CSS Variables for easy customization */
-            --bg-color: #111112;
-            --card-bg: #111112;
+            --card-bg: #0f2236;
             --tab-inactive-bg: #111827;
             --text-main: #f8fafc;
-            --text-muted: #94a3b8;
+            --text-muted: #16c416;
             --accent-color: #38bdf8;
             --accent-glow: rgba(56, 189, 248, 0.15);
             --border-color: #334155;
@@ -316,6 +315,11 @@
         }
 
 
+        .tabb-link-container {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;     /* Centers vertically (if the container has a set height) */
+}
 
 
         .tab-link-container,
